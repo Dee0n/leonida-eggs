@@ -3,8 +3,9 @@
 Листок с пасхалками GTA VI в духе распечаток с сайтов с кодами середины 2000-х. В каждой строке
 место по карте, условия и что нажать. Что там окажется, не пишем: найдёшь сам.
 
-**Открыть листок:** https://dee0n.github.io/leonida-eggs/
-**PDF для печати (A4):** https://dee0n.github.io/leonida-eggs/leonida_easter_eggs.pdf
+**Открыть листок:** https://dee0n.github.io/leonida-eggs/ (вид сайта 2005 года, по умолчанию)
+**Современный вид:** https://dee0n.github.io/leonida-eggs/modern.html
+**PDF для печати (A4):** [распечатка в стиле 2005](https://dee0n.github.io/leonida-eggs/leonida_easter_eggs.pdf), [современная](https://dee0n.github.io/leonida-eggs/leonida_easter_eggs_modern.pdf)
 **Нашёл пасхалку:** [прислать](https://github.com/Dee0n/leonida-eggs/issues/new?template=egg.yml)
 
 Метки в листке:
@@ -36,7 +37,9 @@ data/entries.json      — все записи, единственный ист�
 data/schema.json       — схема данных, для справки
 tools/build.py         — проверка и сборка (Python 3.10+, только стандартная библиотека)
 tests/test_build.py    — тесты данных и сборки
-docs/                  — публичная версия для GitHub Pages (генерируется)
+docs/                  — публичная версия для GitHub Pages (генерируется): index.html и print.html в стиле 2005,
+                         modern.html и print-modern.html в современном виде, два PDF
+worker/                — сервер голосов для опросов (Cloudflare Workers + D1)
 AGENTS.md              — правила редактирования, для людей и нейросетей
 ```
 

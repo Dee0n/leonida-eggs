@@ -528,10 +528,6 @@ function setTheme(t) { try { localStorage.setItem("theme", t); } catch (e) {} }
 </script>
 """
 
-FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
-         '<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400'
-         '&family=IBM+Plex+Mono:wght@500;600&display=swap&subset=cyrillic" rel="stylesheet">\n')
-
 MODERN_CSS = """
   :root { --paper: #ffffff; --ink: #1d1d1f; --mute: #6e6e73; --rule: #e5e5e5; --hover: #f5f7fa; --hot: #0b62d6;
           --ok: #1f8a4c; --warn: #d08a1e; --rum: #9a9a9a;

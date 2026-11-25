@@ -45,6 +45,13 @@ class RenderTests(unittest.TestCase):
         for entry in self.data["entries"]:
             self.assertIn(build.iconize(build.esc(entry["title"])), html)
 
+    def test_modern_has_all_entries(self) -> None:
+        html = build.render_modern(self.data)
+        printed = build.render_modern(self.data, print_mode=True)
+        for entry in self.data["entries"]:
+            self.assertIn(build.iconize(build.esc(entry["title"])), html)
+            self.assertIn(build.iconize(build.esc(entry["title"])), printed)
+
     def test_txt_has_all_entries(self) -> None:
         txt = build.render_txt(self.data)
         for entry in self.data["entries"]:
