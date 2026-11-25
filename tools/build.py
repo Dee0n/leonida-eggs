@@ -560,17 +560,19 @@ PRINT_CSS = """
   @media screen { body { max-width: 184mm; margin: 6mm auto 10mm; padding: 0 5mm; } }
 """
 
-BUTTON_TOKEN = r"(?:Треугольник|Круг|Квадрат|Крест|[LR][123])"
+BUTTON_TOKEN = r"(?:Треугольник|Круг|Квадрат|Крест|[LR][123]|[↑↓←→])"
 BUTTON_SEQ_RE = re.compile(r"^((?:" + BUTTON_TOKEN + r",?\s+){3,}" + BUTTON_TOKEN + r")(.*)$", re.S)
 
 BTN_ICONS = {"Треугольник": ("tri", "△"), "Круг": ("cir", "○"), "Квадрат": ("sq", "□"), "Крест": ("crs", "✕")}
 BTN_RE = re.compile(r"(?<![\w-])(Треугольник|Круг|Квадрат|Крест)(?![\w-])")
+DPAD_RE = re.compile(r"[↑↓←→]")
 KEY_RE = re.compile(r"(?<![\w-])([LR][123]|Options)(?![\w-])")
 BTN_CSS = """
   .btn { display: inline-block; width: 1.3em; height: 1.3em; line-height: 1.25em; border-radius: 50%;
          color: #fff; text-align: center; font-weight: bold; font-size: 1em; vertical-align: -.2em;
          font-family: "Segoe UI Symbol", "Arial Unicode MS", sans-serif; text-transform: none; letter-spacing: 0; text-indent: 0; }
   .btn.tri { background: #17914a; } .btn.cir { background: #d0312d; } .btn.sq { background: #c2489c; } .btn.crs { background: #2f62c9; }
+  .key.dp { min-width: 1.05em; text-align: center; font-family: "Segoe UI Symbol", Arial, sans-serif; margin: 0 .06em; }
   .key { display: inline-block; padding: 0 .28em; border: 1px solid #222; border-bottom-width: 2px; border-radius: 3px;
          background: #f2f2f2; color: #000; font-weight: bold; font-size: .92em; line-height: 1.2em; text-transform: none; letter-spacing: 0; text-indent: 0; }
 """
@@ -580,7 +582,8 @@ def iconize(escaped: str) -> str:
     """Кнопки геймпада в уже экранированном тексте -> значки. В данных и txt они остаются словами."""
     escaped = BTN_RE.sub(lambda m: f'<span class="btn {BTN_ICONS[m.group(1)][0]}" title="{m.group(1)}">'
                                    f'{BTN_ICONS[m.group(1)][1]}</span>', escaped)
-    return KEY_RE.sub(lambda m: f'<span class="key">{m.group(1)}</span>', escaped)
+    escaped = KEY_RE.sub(lambda m: f'<span class="key">{m.group(1)}</span>', escaped)
+    return DPAD_RE.sub(lambda m: f'<span class="key dp">{m.group(0)}</span>', escaped)
 
 
 def css_string(text: str) -> str:

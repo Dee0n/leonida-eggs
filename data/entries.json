@@ -33,8 +33,12 @@
       "title": "VI. Управление: неочевидные кнопки"
     },
     {
+      "id": "cheats",
+      "title": "VII. Читы (только после финала)"
+    },
+    {
       "id": "waink",
-      "title": "VII. WAiNK: сканируй приложением",
+      "title": "VIII. WAiNK: сканируй приложением",
       "type": "checklist",
       "image": "images/waink-map.jpg",
       "image_source": {
@@ -548,8 +552,8 @@
     {
       "id": "vault-poster",
       "section": "city",
-      "title": "Постер в клубе The Vault",
-      "hint": "Downtown, клуб The Vault, красный постер сразу за входом. С главы 1. Отсканируй в WAiNK: R1 / RB.",
+      "title": "Постер в клубе The Vault: секретная станция",
+      "hint": "Downtown, клуб The Vault, красный постер сразу за входом. С главы 1. Отсканируй в WAiNK (R1 / RB), после этого в радио появится The Vault Radio.",
       "confidence": "confirmed",
       "sources": [
         {
@@ -559,6 +563,10 @@
         {
           "name": "BGR",
           "url": "https://www.bgr.com/2327391/gta-6-hidden-events-secrets-you-might-miss/"
+        },
+        {
+          "name": "The Tab",
+          "url": "https://thetab.com/2026/11/23/two-secret-radio-stations-and-playlists-are-hidden-in-gta-6-what-they-are-and-how-to-unlock-them"
         }
       ],
       "added": "2026-11-25",
@@ -1424,6 +1432,397 @@
       "added": "2026-11-25",
       "added_by": "lead",
       "note": "наводка из комментария yaboroda на Пикабу"
+    },
+    {
+      "id": "cheat-how",
+      "section": "cheats",
+      "title": "Как вводить коды",
+      "hint": "Работает только после финальной миссии. Достань телефон (крестовина вверх), на главном экране зажми L1 + R1 (на Xbox LB + RB) и набери код крестовиной. Каждый чит ещё надо открыть: Пауза, R1/RB до вкладки Progress, пункт Cheats, там у каждого написано условие. С включённым читом игра не сохраняется и трофеи не выпадают, так что сохранись заранее.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        },
+        {
+          "name": "GTAside",
+          "url": "https://gtaside.com/tips/gta6/cheat-codes/"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead"
+    },
+    {
+      "id": "cheat-money",
+      "section": "cheats",
+      "title": "$250 000",
+      "hint": "↑ → ↓ ← ↑ ← ↓ →. Открыть: пройди сюжет.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        },
+        {
+          "name": "GTAside",
+          "url": "https://gtaside.com/tips/gta6/cheat-codes/"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead"
+    },
+    {
+      "id": "cheat-focus",
+      "section": "cheats",
+      "title": "Бесконечный фокус",
+      "hint": "↓ ↑ ↑ ↓ ↑ ↓ ↑ ↓ ↑ →. Открыть: пройди сюжет.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        },
+        {
+          "name": "GTAside",
+          "url": "https://gtaside.com/tips/gta6/cheat-codes/"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead"
+    },
+    {
+      "id": "cheat-attack-force",
+      "section": "cheats",
+      "title": "Удары и пули отбрасывают",
+      "hint": "↓ ↑ ← ← → ↓ ↓ ↑ ↓. Открыть: пройди сюжет.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        },
+        {
+          "name": "GTAside",
+          "url": "https://gtaside.com/tips/gta6/cheat-codes/"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead"
+    },
+    {
+      "id": "cheat-armor",
+      "section": "cheats",
+      "title": "Бронежилет",
+      "hint": "↓ ↑ ← ↑ ↑ ↑ ↑ ↑ ↓ ↓. Открыть: 100 тренировок.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        },
+        {
+          "name": "GTAside",
+          "url": "https://gtaside.com/tips/gta6/cheat-codes/"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead"
+    },
+    {
+      "id": "cheat-heat",
+      "section": "cheats",
+      "title": "Поднять уровень Heat",
+      "hint": "← ↓ → ↓ ↑ ↓ ↑. Открыть: 25 раз уйди от 3 звёзд.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        },
+        {
+          "name": "GTAside",
+          "url": "https://gtaside.com/tips/gta6/cheat-codes/"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead"
+    },
+    {
+      "id": "cheat-wanted",
+      "section": "cheats",
+      "title": "Поднять розыск",
+      "hint": "← ↓ → ↓ ↑ → ↑. Открыть: 50 раз уйди от 3 звёзд.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        },
+        {
+          "name": "GTAside",
+          "url": "https://gtaside.com/tips/gta6/cheat-codes/"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead"
+    },
+    {
+      "id": "cheat-drunk",
+      "section": "cheats",
+      "title": "Опьянение",
+      "hint": "↑ ← → ↑ ↑ ← → ↑ ← →. Открыть: потрать $2500 на алкоголь.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead"
+    },
+    {
+      "id": "cheat-max-ammo",
+      "section": "cheats",
+      "title": "Полный боезапас",
+      "hint": "↓ ↑ → ↓ ← ← ↑ ↑ ↓ ←. Открыть: 25 бронзовых медалей в тирах.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        },
+        {
+          "name": "GTAside",
+          "url": "https://gtaside.com/tips/gta6/cheat-codes/"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead"
+    },
+    {
+      "id": "cheat-inf-ammo",
+      "section": "cheats",
+      "title": "Бесконечные патроны",
+      "hint": "↓ ↑ → ↓ ← ← ↑ ↓ ↓ ↓. Открыть: 25 серебряных медалей в тирах.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        },
+        {
+          "name": "GTAside",
+          "url": "https://gtaside.com/tips/gta6/cheat-codes/"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead"
+    },
+    {
+      "id": "cheat-no-reload",
+      "section": "cheats",
+      "title": "Без перезарядки",
+      "hint": "↓ ↑ → ↓ ← ← ↑ ↓ ↓ ↑. Открыть: 25 золотых медалей в тирах.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        },
+        {
+          "name": "GTAside",
+          "url": "https://gtaside.com/tips/gta6/cheat-codes/"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead"
+    },
+    {
+      "id": "cheat-balls",
+      "section": "cheats",
+      "title": "Взрывающиеся мячи",
+      "hint": "↓ ↑ ← ← → ↓ ↓ ↑ →. Открыть: задень взрывом 20 врагов.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        },
+        {
+          "name": "GTAside",
+          "url": "https://gtaside.com/tips/gta6/cheat-codes/"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead"
+    },
+    {
+      "id": "cheat-vehicle-force",
+      "section": "cheats",
+      "title": "Машина отбрасывает при ударе",
+      "hint": "↓ ↑ ← ← → ↓ ← ↑ ↓. Открыть: задави машиной 25 человек.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        },
+        {
+          "name": "GTAside",
+          "url": "https://gtaside.com/tips/gta6/cheat-codes/"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead"
+    },
+    {
+      "id": "cheat-weather",
+      "section": "cheats",
+      "title": "Сменить погоду",
+      "hint": "↓ → ↑ ↓ → ↑ →. Открыть: по GamesRadar надо открыть всю карту, GTAside условие пока не подтвердил.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        },
+        {
+          "name": "GTAside",
+          "url": "https://gtaside.com/tips/gta6/cheat-codes/"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead"
+    },
+    {
+      "id": "cheat-boomazoom",
+      "section": "cheats",
+      "title": "Машина Maibatsu Boomazoom",
+      "hint": "← ↑ → ↓ ← ← ↑ ←. Открыть: 5 испытаний на покупки.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        },
+        {
+          "name": "GTAside",
+          "url": "https://gtaside.com/tips/gta6/cheat-codes/"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead"
+    },
+    {
+      "id": "cheat-pumper",
+      "section": "cheats",
+      "title": "Машина MTL Pumper",
+      "hint": "← ↑ → ↓ ← → → ↑. Открыть: найди MTL Pumper (список в меню Progress).",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        },
+        {
+          "name": "GTAside",
+          "url": "https://gtaside.com/tips/gta6/cheat-codes/"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead"
+    },
+    {
+      "id": "cheat-bulldozer",
+      "section": "cheats",
+      "title": "Бульдозер HVY",
+      "hint": "← ↑ → ↓ ← → → ↓. Открыть: найди HVY Bulldozer (список в меню Progress).",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        },
+        {
+          "name": "GTAside",
+          "url": "https://gtaside.com/tips/gta6/cheat-codes/"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead"
+    },
+    {
+      "id": "cheat-cataclysm",
+      "section": "cheats",
+      "title": "Фильтр Cataclysm: дым и мгла",
+      "hint": "↓ ↓ ↑ → → ↑ ← ← → →. Открыть: найди Vamos Марты (список в меню Progress).",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        },
+        {
+          "name": "GTAside",
+          "url": "https://gtaside.com/tips/gta6/cheat-codes/"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead"
+    },
+    {
+      "id": "cheat-dollhouse",
+      "section": "cheats",
+      "title": "Фильтр Dollhouse: яркий и узкий кадр",
+      "hint": "↓ ↓ ↑ → → ↑ ← ← ↓ →. Открыть: проведи 8 часов с напарником.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        },
+        {
+          "name": "GTAside",
+          "url": "https://gtaside.com/tips/gta6/cheat-codes/"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead"
+    },
+    {
+      "id": "cheat-faded-glory",
+      "section": "cheats",
+      "title": "Фильтр Faded Glory: старый цветной телевизор",
+      "hint": "↓ ↓ ↑ → → ↑ ← ← ← →. Открыть: ограбь с напарником 50 магазинов.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        },
+        {
+          "name": "GTAside",
+          "url": "https://gtaside.com/tips/gta6/cheat-codes/"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead"
+    },
+    {
+      "id": "radio-la-perle",
+      "section": "phone",
+      "title": "Секретная станция The Sniper of La Perle",
+      "hint": "С главы 3. Отсканируй в WAiNK четыре постера на севере Vice City: тату-салон TWA Ponya, Drip Drops, ресторан Aunt Zola's Soul Food и Jack of Hearts, второй этаж, студия звукозаписи. Телефон сам подскажет, когда постер рядом.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "The Tab",
+          "url": "https://thetab.com/2026/11/23/two-secret-radio-stations-and-playlists-are-hidden-in-gta-6-what-they-are-and-how-to-unlock-them"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead"
     }
   ]
 }
