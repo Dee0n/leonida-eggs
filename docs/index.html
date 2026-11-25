@@ -253,24 +253,27 @@
       lb.className = "on";
     };
   });
-  var API = "https://countapi.mileshilliard.com/api/v1/", NS = "leonida-eggs";
+  var API = "https://leonida-polls.leonida-eggs.workers.dev";
   function ls(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
-  // счётчик бесплатный и бывает медленным: ждём не дольше 8 секунд
-  function cnt(key, hit) {
+  function req(path, body) {
     var ctl = window.AbortController ? new AbortController() : null;
-    var t = setTimeout(function () { if (ctl) ctl.abort(); }, 25000);
-    return fetch(API + (hit ? "hit/" : "get/") + NS + "-" + key, ctl ? { signal: ctl.signal } : {})
-      .then(function (x) { clearTimeout(t); return x.ok ? x.json() : { value: 0 }; })
-      .then(function (j) { return j.value || 0; })
+    var t = setTimeout(function () { if (ctl) ctl.abort(); }, 15000);
+    var opt = body ? { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) } : {};
+    if (ctl) opt.signal = ctl.signal;
+    return fetch(API + path, opt).then(function (x) { clearTimeout(t); return x.ok ? x.json() : null; })
       .catch(function () { clearTimeout(t); return null; });
   }
-  Array.prototype.forEach.call(document.querySelectorAll(".poll"), function (box) {
+  var boxes = Array.prototype.slice.call(document.querySelectorAll(".poll"));
+  var all = null;
+  try { all = JSON.parse(ls("poll-cache") || "null"); } catch (e) {}
+  var ready = [];
+  boxes.forEach(function (box) {
     var id = box.getAttribute("data-poll"), n = +box.getAttribute("data-n");
     var labels = Array.prototype.map.call(box.querySelectorAll(".po"), function (l) { return l.textContent.trim(); });
     var pr = box.querySelector(".pr"), pa = box.querySelector(".pa");
-    function results(v, note) {
-      var ok = v.every(function (x) { return x !== null; });
-      if (!ok) { pa.innerHTML = '<div class="pt">' + note + '<br>Результаты сейчас не загрузились, загляните позже.</div>'; return; }
+    var shown = false, note = "";
+    function results(v) {
+      if (!v || v.length !== n) return;
       var tot = v.reduce(function (a, b) { return a + b; }, 0), out = "";
       v.forEach(function (c, i) {
         var pc = tot ? Math.round(c * 100 / tot) : 0;
@@ -278,52 +281,44 @@
       });
       pr.innerHTML = out;
       pa.innerHTML = '<div class="pt">Всего ответов: ' + tot + (note ? "<br>" + note : "") + "</div>";
+      shown = true;
     }
-    function load(note, mine) {
-      // сразу показываем последние известные результаты, потом обновляем со счётчика
-      var cached = null;
-      try { cached = JSON.parse(ls("poll-cache-" + id) || "null"); } catch (e) {}
-      if (cached && cached.length === n) {
-        if (mine !== undefined && mine >= 0) cached[mine]++;
-        results(cached, note);
-      } else {
-        pa.innerHTML = '<div class="pt">' + (note ? note + "<br>" : "") + 'Результаты загружаются...</div>';
-      }
-      var ks = []; for (var i = 0; i < n; i++) ks.push(cnt("p-" + id + "-" + i, false));
-      Promise.all(ks).then(function (v) {
-        // что не ответило - берём из кэша, чтобы не показывать пустоту
-        if (cached && cached.length === n) v = v.map(function (x, i) { return x === null ? cached[i] : x; });
-        if (v.every(function (x) { return x !== null; })) { ls("poll-cache-" + id, JSON.stringify(v)); results(v, note); }
-        else if (!cached) results(v, note);
-      });
-    }
-    function send(opt, note) {
-      // показываем результат сразу, голос уходит на счётчик в фоне
-      load(note, opt);
-      cnt("p-" + id + "-" + opt, true).then(function (v) {
-        if (v === null) { ls("poll-pending-" + id, String(opt)); return; }
+    function vote(opt) {
+      note = "Спасибо, ваш голос учтён!";
+      var v = all && all[id] ? all[id].slice() : null;
+      if (v) { v[opt]++; results(v); } else { pa.innerHTML = '<div class="pt">' + note + '<br>Результаты загружаются...</div>'; }
+      req("/vote", { poll: id, option: opt }).then(function (r) {
+        if (!r) { ls("poll-pending-" + id, String(opt)); return; }
         ls("poll-pending-" + id, "");
-        load(note);
+        results(r.results);
       });
     }
     var pending = ls("poll-pending-" + id);
-    if (pending) { send(+pending, "Спасибо, ваш голос учтён!"); return; }
-    if (ls("poll-" + id) !== null) { load("Вы уже голосовали."); return; }
+    var voted = ls("poll-" + id) !== null;
+    ready.push(function (data) {
+      if ((voted || shown) && data && data[id]) results(data[id]);
+    });
+    if (pending) { vote(+pending); return; }
+    if (voted) {
+      note = "Вы уже голосовали.";
+      if (all && all[id]) results(all[id]); else pa.innerHTML = '<div class="pt">' + note + '<br>Результаты загружаются...</div>';
+      return;
+    }
     box.querySelector(".vote").onclick = function () {
       var r = box.querySelector("input:checked");
       if (!r) { alert("Выберите вариант ответа!"); return; }
       ls("poll-" + id, r.value);
-      send(+r.value, "Спасибо, ваш голос учтён!");
+      vote(+r.value);
     };
-    var warm = []; for (var w = 0; w < n; w++) warm.push(cnt("p-" + id + "-" + w, false));
-    Promise.all(warm).then(function (v) {
-      if (v.every(function (x) { return x !== null; })) ls("poll-cache-" + id, JSON.stringify(v));
-    });
     box.querySelector(".res").onclick = function (ev) {
       ev.preventDefault();
-      pa.innerHTML = '<div class="pt">Загрузка...</div>';
-      load("");
+      if (all && all[id]) results(all[id]); else { shown = true; pa.innerHTML = '<div class="pt">Загрузка...</div>'; }
     };
+  });
+  if (boxes.length) req("/results").then(function (data) {
+    if (!data) return;
+    all = data; ls("poll-cache", JSON.stringify(data));
+    ready.forEach(function (f) { f(data); });
   });
   var st = document.getElementById("stars");
   if (st) fetch("https://api.github.com/repos/" + R).then(function (x) { return x.json(); })

@@ -4,3 +4,7 @@ __pycache__/
 /images/
 # локальная сборка; публичная версия лежит в docs/
 /out/
+
+# wrangler
+worker/.wrangler/
+worker/node_modules/
