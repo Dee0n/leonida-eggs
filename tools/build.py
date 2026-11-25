@@ -77,7 +77,7 @@ SITE_CSS = """
   .tag { color: #336699; }
   .code { font-weight: bold; color: #cc0000; }
   .new { color: #fff; background: #cc0000; font: bold 9px Verdana, sans-serif; padding: 0 3px; margin-left: 3px;
-         animation: blink 1s steps(1) 5; }
+         animation: blink .8s steps(1) 3; }
   @keyframes blink { 50% { visibility: hidden; } }
   .th { float: right; margin: 0 0 3px 6px; text-align: center; font-size: 9px; color: #555; }
   .th img { display: block; width: 150px; border: 1px solid #000; }
@@ -228,6 +228,20 @@ POLL_JS = """
     var p = POOL[Math.floor(Math.random() * POOL.length)];
     r.innerHTML = '<a href="#e-' + p[0] + '">' + h(p[1]) + '</a>';
   }
+  // NEW!: при первом визите - добавленное за последние дни (сервер уже пометил),
+  // дальше - только то, что появилось после прошлого визита
+  var LV = null;
+  try { LV = localStorage.getItem("lastVisit"); } catch (e) {}
+  var today = new Date().toISOString().slice(0, 10);
+  Array.prototype.forEach.call(document.querySelectorAll("tr[data-added]"), function (tr) {
+    var add = tr.getAttribute("data-added"), mark = tr.querySelector(".new");
+    if (!LV) return;
+    if (add > LV && !mark) {
+      mark = document.createElement("span"); mark.className = "new"; mark.textContent = "NEW!";
+      tr.querySelector("td.k").appendChild(mark);
+    } else if (add <= LV && mark) { mark.parentNode.removeChild(mark); }
+  });
+  if (LV !== today) { try { localStorage.setItem("lastVisit", today); } catch (e) {} }
   var API = "https://abacus.jasoncameron.dev/", NS = "leonida-eggs";
   function cnt(key, hit) {
     return fetch(API + (hit ? "hit/" : "get/") + NS + "/" + key)
@@ -349,7 +363,7 @@ def render_html(data: dict, links: dict | None = None, img_prefix: str = "../",
     add('<div class="box"><div class="bt">Обозначения</div><div class="bb">'
         + "<br>".join(f'<span class="tag">{CONFIDENCE_TAGS[k]}</span> {esc(CONFIDENCE_NAMES[k])}'
                       for k in CONFIDENCE_TAGS)
-        + '<br><span class="new">NEW!</span> свежее, за последние два дня</div></div>\n')
+        + '<br><span class="new">NEW!</span> новое с вашего прошлого визита</div></div>\n')
     add(f'<div class="box"><div class="bt">Статистика</div><div class="bb">Записей: <b>{len(numbered)}</b><br>'
         f'Выпуск: <b>№{meta["issue"]}</b><br>Обновлено: <b>{d}.{m}.{y}</b></div></div>\n')
     if links.get("GitHub"):
@@ -417,7 +431,7 @@ def render_html(data: dict, links: dict | None = None, img_prefix: str = "../",
                 poi_started = True
                 add(f'<tr><td colspan="2" class="sub">{esc(POI_TITLE)}</td></tr>\n')
             new = '<span class="new">NEW!</span>' if e["id"] in fresh else ""
-            add(f'<tr class="r{i % 2}" id="e-{esc(e["id"])}"><td class="k"><span class="tag">{CONFIDENCE_TAGS[e["confidence"]]}</span> '
+            add(f'<tr class="r{i % 2}" id="e-{esc(e["id"])}" data-added="{esc(e.get("added", ""))}"><td class="k"><span class="tag">{CONFIDENCE_TAGS[e["confidence"]]}</span> '
                 f'{iconize(esc(e["title"]))}{new}</td><td>{thumb(e)}{render_hint(e["hint"])}</td></tr>\n')
         add('</table><div class="up"><a href="#top">[наверх]</a></div>\n')
 
