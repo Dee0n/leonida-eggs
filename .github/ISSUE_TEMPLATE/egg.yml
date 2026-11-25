@@ -1,0 +1,33 @@
+name: Прислать пасхалку
+description: Нашёл секрет в GTA VI? Опиши, где он и что делать. Без спойлеров.
+title: "[пасхалка] "
+labels: ["новая пасхалка"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Пиши как в листке с кодами: место по карте → условия → что нажать.
+        Не пиши, что там окажется. Это листок без спойлеров.
+  - type: input
+    id: title
+    attributes:
+      label: Короткое название
+      description: Нейтральное, по нему не должно быть понятно, что там.
+      placeholder: Лодка у дома Джейсона
+    validations:
+      required: true
+  - type: textarea
+    id: where
+    attributes:
+      label: Где и что делать
+      description: Округ, район, ориентир (названия как на игровой карте), глава, время суток, кнопки, коды.
+      placeholder: Key Lento, двор Джейсона, с начала главы 1. Залезь на лодку, наведи камеру телефона на экран навигатора.
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Источник
+      description: Ссылка на статью, видео или тред. Если нашёл сам, так и напиши и приложи скрин карты с меткой.
+    validations:
+      required: true

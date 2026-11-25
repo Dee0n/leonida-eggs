@@ -1,0 +1,941 @@
+{
+  "meta": {
+    "title": "ЛЕОНИДА",
+    "subtitle": "ЛИСТОК ПАСХАЛОК",
+    "issue": 1,
+    "date": "2026-11-24",
+    "game": "Grand Theft Auto VI",
+    "intro": "Где искать и что делать. Что там будет — не пишем. Названия мест — как на игровой карте."
+  },
+  "sections": [
+    {
+      "id": "keys",
+      "title": "I. Leonida Keys"
+    },
+    {
+      "id": "city",
+      "title": "II. Vice City"
+    },
+    {
+      "id": "north",
+      "title": "III. Север и глубинка"
+    },
+    {
+      "id": "water",
+      "title": "IV. Море"
+    },
+    {
+      "id": "phone",
+      "title": "V. Телефон, радио, журналы"
+    },
+    {
+      "id": "waink",
+      "title": "VI. WAiNK: сканируй приложением",
+      "type": "checklist",
+      "image": "images/waink-map.jpg"
+    }
+  ],
+  "checklists": {
+    "waink": [
+      "Рождественский дом — Key Lento, самая западная улица",
+      "Шале Plunge Masters — та же улица, мурал за сараем",
+      "Abismo Key — через мангры на юг до пляжа",
+      "Судно у берега — юго-восточный остров Permit Keys, мыс",
+      "Пляжная вечеринка — центральные острова Permit Keys, северный край",
+      "Указатель — рядом с вечеринкой, за деревьями",
+      "Goose Key — Mile Zero Air Station, вдоль берега на северо-восток",
+      "Пианино — острова южнее Cottonmouth Lake и Gambit Bay",
+      "Яркий пруд — болото севернее, у таблички-предупреждения",
+      "Акулы на пляже — Wetman Bay, южные острова",
+      "Wetman Bay — остров севернее акул",
+      "Ферма NoFlusher — западнее болотной базы Kingfisher"
+    ]
+  },
+  "entries": [
+    {
+      "id": "tommy-tower",
+      "section": "keys",
+      "title": "Радиовышка Badger R&D",
+      "hint": "Key Lento, нужна открытая вся карта. Поднимись в комнату управления, опусти рычаг питания, нажми кнопку на стене и подожди у телевизора.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "Игромания",
+          "url": "https://www.igromania.ru/article/34414/gta-6-kak-najti-legendarnyij-kostyum-tommi-versetti-iz-gta-vice-city/"
+        },
+        {
+          "name": "Buffed",
+          "url": "https://www.buffed.de/GTA-6-Spiel-55239/Guides/Easter-Egg-Guide-Vice-City-2002-Portal-Raetsel-Loesung-1560872/"
+        },
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "tommy-substations",
+      "section": "keys",
+      "title": "12 подстанций LPL",
+      "hint": "По всему штату, только своим ходом, без быстрого перемещения. На каждой синяя буква и кнопка или рычаг. Буквы по порядку: LIFEISPASSINGMEBY.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "Игромания",
+          "url": "https://www.igromania.ru/article/34414/gta-6-kak-najti-legendarnyij-kostyum-tommi-versetti-iz-gta-vice-city/"
+        },
+        {
+          "name": "Buffed",
+          "url": "https://www.buffed.de/GTA-6-Spiel-55239/Guides/Easter-Egg-Guide-Vice-City-2002-Portal-Raetsel-Loesung-1560872/"
+        },
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "tommy-sequence",
+      "section": "keys",
+      "title": "Что жать на подстанциях",
+      "hint": "○ ○ L1 □ L1 □ □ □ L1 △ ○ △ — по одной на подстанцию, с 1-й по 12-ю. Xbox: ○ = B, □ = X, △ = Y, L1 = LB.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "Игромания",
+          "url": "https://www.igromania.ru/article/34414/gta-6-kak-najti-legendarnyij-kostyum-tommi-versetti-iz-gta-vice-city/"
+        },
+        {
+          "name": "Buffed",
+          "url": "https://www.buffed.de/GTA-6-Spiel-55239/Guides/Easter-Egg-Guide-Vice-City-2002-Portal-Raetsel-Loesung-1560872/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "tommy-reactor",
+      "section": "keys",
+      "title": "SMS «U-235 REACTOR2 19-06»",
+      "hint": "Придёт после 12-й подстанции. Электростанция Tortoise Head, реактор 2, с 19:00 до 06:00 по игровым часам. Зайди внутрь.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "Игромания",
+          "url": "https://www.igromania.ru/article/34414/gta-6-kak-najti-legendarnyij-kostyum-tommi-versetti-iz-gta-vice-city/"
+        },
+        {
+          "name": "Buffed",
+          "url": "https://www.buffed.de/GTA-6-Spiel-55239/Guides/Easter-Egg-Guide-Vice-City-2002-Portal-Raetsel-Loesung-1560872/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "michael-boat",
+      "section": "keys",
+      "title": "Лодка у дома Джейсона",
+      "hint": "Key Lento, двор Джейсона, с начала главы 1. Залезь на лодку, наведи камеру телефона или бинокль на экран навигатора.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "DualShockers",
+          "url": "https://www.dualshockers.com/best-easter-eggs-in-gta-6/"
+        },
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead",
+      "image": "images/michael-boat.jpg"
+    },
+    {
+      "id": "jason-magazine",
+      "section": "keys",
+      "title": "Журнал на террасе",
+      "hint": "Дом Джейсона, столик у скамьи для жима. Журнал Body Copy, страница 3.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "jason-book",
+      "section": "keys",
+      "title": "Книга у задней двери",
+      "hint": "Дом Джейсона, столик у задней двери, глава 1. Прочитай.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "17173",
+          "url": "https://news.17173.com/content/11192026/083042367.shtml"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "joystation",
+      "section": "keys",
+      "title": "Приставка JoyStation",
+      "hint": "Дом Джейсона. Запусти игру Tenebrae Lux.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "DualShockers",
+          "url": "https://www.dualshockers.com/best-easter-eggs-in-gta-6/"
+        },
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "rx-men",
+      "section": "keys",
+      "title": "Комикс RX-Men №13",
+      "hint": "Магазин 24/7 на севере Key Lento, стойка с журналами.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "DualShockers",
+          "url": "https://www.dualshockers.com/best-easter-eggs-in-gta-6/"
+        },
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "parrot",
+      "section": "keys",
+      "title": "Попугай за винным",
+      "hint": "Key Lento, за магазином Three Sheets Liquor, глава 1. Поговори с ним и спроси про деньги Kingfisher.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead",
+      "image": "images/parrot.jpeg"
+    },
+    {
+      "id": "brians-marina",
+      "section": "keys",
+      "title": "Книга в Brian's Marina",
+      "hint": "Key Lento, Brian's Marina. Найди книгу внутри и прочитай.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "toilet-flyer",
+      "section": "keys",
+      "title": "Флаер в туалете",
+      "hint": "Corsair Key, к северу от Key Lento. Мужской туалет, левая кабинка. Отсканируй QR на флаере в WAiNK, на SMS ответь TRUTH, дальше по указаниям.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead",
+      "image": "images/toilet-flyer.jpg"
+    },
+    {
+      "id": "paraglider",
+      "section": "keys",
+      "title": "Параплан на дереве",
+      "hint": "Bobcat Key, южнее Capri, у Bobcat Bight, самый край пляжа. Смотри вверх, отстрели три стропы. Можно с главы 1.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "base-jump",
+      "section": "keys",
+      "title": "Прыжок на авиабазу",
+      "hint": "Mile Zero Air Station. Разгонись по холму у забора вдоль трассы.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DualShockers",
+          "url": "https://www.dualshockers.com/best-easter-eggs-in-gta-6/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "souvenirs",
+      "section": "keys",
+      "title": "Сувенирные лавки",
+      "hint": "Любая сувенирная лавка на Leonida Keys. Осмотри полки.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "sos-island",
+      "section": "keys",
+      "title": "Остров с SOS",
+      "hint": "Мелкий мангровый островок Leonida Keys, западнее основной группы. Подними телефон с песка и посмотри видео.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead",
+      "image": "images/sos-island.jpg"
+    },
+    {
+      "id": "crab-lab",
+      "section": "keys",
+      "title": "Крабовая лаборатория",
+      "hint": "Pelican Valley, болота Grassrivers к северу от Keys. Пароль к компьютеру вырезан на дереве в хижине. Сейф: 00072. Лодочный сарай: 0212.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "DualShockers",
+          "url": "https://www.dualshockers.com/best-easter-eggs-in-gta-6/"
+        },
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead",
+      "image": "images/crab-lab.jpg"
+    },
+    {
+      "id": "dexter",
+      "section": "city",
+      "title": "Trinity Apartments",
+      "hint": "Washington Island, рядом с магазином Top Fun Drones. Внутрь нельзя, лезь на крышу.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "17173",
+          "url": "https://news.17173.com/content/11192026/083042367.shtml"
+        },
+        {
+          "name": "DualShockers",
+          "url": "https://www.dualshockers.com/best-easter-eggs-in-gta-6/"
+        },
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead",
+      "image": "images/dexter.jpg"
+    },
+    {
+      "id": "vercetti-mansion",
+      "section": "city",
+      "title": "Особняк на Starfish Island",
+      "hint": "Starfish Island, особняк у воды. Внутрь не пускают, смотри снаружи.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead",
+      "image": "images/vercetti-mansion.jpg"
+    },
+    {
+      "id": "eclipse",
+      "section": "city",
+      "title": "Запертый гараж",
+      "hint": "Vespucci Island, западнее Vice Beach. Вскрой гараж. Пригони то, что внутри, Мозесу до первой встречи с ним в главе 2.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "marbelle",
+      "section": "city",
+      "title": "Отель Marbelle",
+      "hint": "Южнее Crosstown. Поднимись на крышу.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead",
+      "image": "images/marbelle.jpg"
+    },
+    {
+      "id": "russo",
+      "section": "city",
+      "title": "Мемориал Руссо",
+      "hint": "Downtown, мемориал президента Руссо, отсюда цепочка. Кейпад на дереве: 085355. Дальше: 030712.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "collateral",
+      "section": "city",
+      "title": "Пассажир в сером костюме",
+      "hint": "Катайся за Джейсона по Vice Beach. Если в машину сядет мужчина в сером костюме и очках, вези куда скажет.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "little-sam",
+      "section": "city",
+      "title": "Уборщик в клубе",
+      "hint": "Глава 3, миссия 25 «Boobie Time». Смотри на уборщика в клубе.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "egg-tower",
+      "section": "north",
+      "title": "Вышка севернее Hamlet",
+      "hint": "South Vice-Dale County, самая высокая вышка к северу от Hamlet. Лезть минут семь. Наверху: △/Y взять, L2 + R2 бросить.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "17173",
+          "url": "https://news.17173.com/content/11192026/083042367.shtml"
+        },
+        {
+          "name": "DualShockers",
+          "url": "https://www.dualshockers.com/best-easter-eggs-in-gta-6/"
+        },
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead",
+      "image": "images/egg-tower.jpeg"
+    },
+    {
+      "id": "skunk-ape",
+      "section": "north",
+      "title": "Рык в болотах",
+      "hint": "Дорога южнее Hamlet, юго-восточнее Cottonmouth Lake. Второе место: островок южнее Watson Bay. Иди на звук. Потом ищи постеры по штату и звони по номеру.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "DualShockers",
+          "url": "https://www.dualshockers.com/best-easter-eggs-in-gta-6/"
+        },
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        },
+        {
+          "name": "17173",
+          "url": "https://news.17173.com/content/11192026/083042367.shtml"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead",
+      "image": "images/skunk-ape.jpg"
+    },
+    {
+      "id": "ufo",
+      "section": "north",
+      "title": "Машина на обочине ночью",
+      "hint": "Kelly County, грунтовка северо-западнее мотеля Starlet, восточнее Port Gellhorn. Нужна глава 2, ночь около 02:00. Машина с мигающими фарами, бывает не каждую ночь.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead",
+      "image": "images/ufo.jpg"
+    },
+    {
+      "id": "trilogy-house",
+      "section": "north",
+      "title": "Дом с гаражом",
+      "hint": "Leonard County, юго-западнее Belville. Заходи через гараж. Ближе всего после глав 2–3.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "GameRant",
+          "url": "https://gamerant.com/gta-6-definitive-edition-trilogy-house-grand-theft-auto-6/"
+        },
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead",
+      "image": "images/trilogy-house.jpeg"
+    },
+    {
+      "id": "monument",
+      "section": "north",
+      "title": "Монумент в Manifest Canyon",
+      "hint": "Север каньона, западнее трассы SR-73, севернее Port Gellhorn. Осмотри символы на основании или приходи ночью в грозу.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "TheGamer",
+          "url": "https://www.thegamer.com/gta-6-symbols-mount-chiliad-mystery/"
+        },
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead",
+      "image": "images/monument.jpg"
+    },
+    {
+      "id": "cowboy-hat",
+      "section": "north",
+      "title": "Гаражная распродажа",
+      "hint": "Юг Port Gellhorn, Orchard Avenue, у Dirt Merchants. Синий дом с забором, белый диван. Глава 2.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead",
+      "image": "images/cowboy-hat.jpeg"
+    },
+    {
+      "id": "mini-golf",
+      "section": "north",
+      "title": "Мини-гольф на Valentine Drive",
+      "hint": "Leonard County, рядом с картингом Hot Skidz. Пройди по деревянному настилу, смотри под ноги.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead",
+      "image": "images/mini-golf.jpg"
+    },
+    {
+      "id": "mario",
+      "section": "north",
+      "title": "Руины у Mount Kalaga",
+      "hint": "Южнее Moreau, к северу от Mount Kalaga, место для медитации в руинах. Фиолетовый брезент: взаимодействуй, потом смотри вверх и прыгай с руин.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead",
+      "image": "images/mario.jpg"
+    },
+    {
+      "id": "kalaga",
+      "section": "north",
+      "title": "Вершина Mount Kalaga",
+      "hint": "Самый север карты. Поднимись на вершину.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "starlet-flyer",
+      "section": "north",
+      "title": "Флаер у мотеля Starlet",
+      "hint": "Мотель Starlet, у ресепшена, флаер Pilot Wanted, глава 2. Дальше ферма McKittrick во Frogswater. Вернись через несколько игровых недель.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "tootsie",
+      "section": "north",
+      "title": "Сбежавшая корова",
+      "hint": "Западнее Ambrosia, южнее Frogswater. Фермер плачет у дороги: догони корову.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead",
+      "image": "images/tootsie.jpg"
+    },
+    {
+      "id": "hyde-island",
+      "section": "north",
+      "title": "Южный Hyde Island",
+      "hint": "У Moreau River, Lummox County. Просто поезжай туда.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead",
+      "image": "images/hyde-island.jpeg"
+    },
+    {
+      "id": "tallaloko",
+      "section": "north",
+      "title": "Lake Tallaloko",
+      "hint": "Севернее Millport, Lummox County. Найди коробку с глазами.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead",
+      "image": "images/tallaloko.jpg"
+    },
+    {
+      "id": "jacobs",
+      "section": "north",
+      "title": "Таверна Jacob's",
+      "hint": "Millport. Найди книгу и прочитай.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "17173",
+          "url": "https://news.17173.com/content/11192026/083042367.shtml"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "pineapple",
+      "section": "north",
+      "title": "Остановка на Cicada Avenue",
+      "hint": "Рядом с Bluegrass. Жёлтая остановка у дороги.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "freddie",
+      "section": "north",
+      "title": "Компаунд Фредди",
+      "hint": "Запад North Leonard County. Попасть внутрь — отдельная задача. Загляни ещё раз во время урагана.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead",
+      "image": "images/freddie.jpg"
+    },
+    {
+      "id": "jet-dog",
+      "section": "water",
+      "title": "Лай в открытом море",
+      "hint": "Уплыви далеко от берега, брось лодку и плавай несколько минут. Лучше у Key Lento. Услышишь лай — забирайся и не слезай до берега.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        },
+        {
+          "name": "Mashable",
+          "url": "https://me.mashable.com/entertainment/78588/the-gta-vi-easter-eggs-that-broke-the-internet"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "lighthouse",
+      "section": "water",
+      "title": "Маяк St. Lucia",
+      "hint": "Little Hardin Island, северная сторона, ночью. Потом вернись к маяку в полночь с биноклем.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        },
+        {
+          "name": "Mashable",
+          "url": "https://me.mashable.com/entertainment/78588/the-gta-vi-easter-eggs-that-broke-the-internet"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "signpost",
+      "section": "water",
+      "title": "Указатель у пианино",
+      "hint": "Острова южнее Cottonmouth Lake и Gambit Bay, тот, где пианино. Иди вглубь деревьев.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead",
+      "image": "images/signpost.jpg"
+    },
+    {
+      "id": "sea-monster",
+      "section": "water",
+      "title": "Морской монстр",
+      "hint": "Глубокие воды. Живым его пока никто не нашёл.",
+      "confidence": "rumor",
+      "sources": [
+        {
+          "name": "Mashable",
+          "url": "https://me.mashable.com/entertainment/78588/the-gta-vi-easter-eggs-that-broke-the-internet"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "ringtone",
+      "section": "phone",
+      "title": "Рингтон Wind Chimes",
+      "hint": "Телефон → Настройки → Рингтоны.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "rac7",
+      "section": "phone",
+      "title": "Пост про RAC 7",
+      "hint": "Snapmatic, листай ленту, ищи Barnyard Blue.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "DualShockers",
+          "url": "https://www.dualshockers.com/best-easter-eggs-in-gta-6/"
+        },
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "badlife",
+      "section": "phone",
+      "title": "Аккаунт badlife999",
+      "hint": "Snapmatic, найди аккаунт badlife999.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "vice-fm",
+      "section": "phone",
+      "title": "Ведущий Vice City FM",
+      "hint": "Включи Vice City FM и послушай ведущего.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "kaleidoscope",
+      "section": "phone",
+      "title": "Ведущий Kaleidoscope FM",
+      "hint": "Включи Kaleidoscope FM, ведущий DJ Dicky.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "podcast",
+      "section": "phone",
+      "title": "Подкаст Final Act",
+      "hint": "Выпуск «Juggling with the Turd».",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "bam-cards",
+      "section": "phone",
+      "title": "Карточки B.A.M.",
+      "hint": "Коллекционные карточки рестлеров, разбросаны по Leonida.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DualShockers",
+          "url": "https://www.dualshockers.com/best-easter-eggs-in-gta-6/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    },
+    {
+      "id": "plate",
+      "section": "phone",
+      "title": "Номер на угнанном Phoenix",
+      "hint": "Глава 1, миссия 5. Посмотри на номерной знак.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-24",
+      "added_by": "lead"
+    }
+  ]
+}
