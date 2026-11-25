@@ -314,6 +314,8 @@ PRINT_CSS = """
   .fig { float: right; margin: .4mm 0 1.2mm 3mm; text-indent: 0; text-align: right; }
   .fig img { display: block; max-width: 80mm; max-height: 55mm; border: 1px solid #000; margin-left: auto; }
   .cap { font-size: 7pt; margin-top: .4mm; }
+  .fig a, .mapfig a { display: block; }
+  @media screen { .fig img, .map { cursor: zoom-in; } }
   .mapfig { break-inside: avoid; margin: 2mm 0 0; }
   .clr { clear: both; }
   .map { display: block; max-width: 120mm; max-height: 90mm; border: 1px solid #000; }
@@ -421,7 +423,8 @@ def render_print_html(data: dict, images: bool = True, links: dict | None = None
             for item in items:
                 add(f'<div class="ci">[&nbsp;&nbsp;] {esc(item)}</div>\n')
             if pic(sec):
-                add(f'<div class="mapfig"><img class="map" src="{img_prefix}{esc(sec["image"])}" alt="">'
+                src = f'{img_prefix}{esc(sec["image"])}'
+                add(f'<div class="mapfig"><a href="{src}" target="_blank"><img class="map" src="{src}" alt=""></a>'
                     f'{cap(sec)}</div>\n')
             continue
 
@@ -439,7 +442,9 @@ def render_print_html(data: dict, images: bool = True, links: dict | None = None
                 f'<span class="k">{esc(e["title"])}</span> = {render_hint(e["hint"])}'
             )
             if pic(e):
-                add(f'<div class="e pic"><div class="fig"><img src="{img_prefix}{esc(e["image"])}" alt="">'
+                src = f'{img_prefix}{esc(e["image"])}'
+                add(f'<div class="e pic"><div class="fig"><a href="{src}" target="_blank" title="Открыть в полном размере">'
+                    f'<img src="{src}" alt=""></a>'
                     f'{cap(e)}</div>{line}</div>\n')
             else:
                 add(f'<div class="e">{line}</div>\n')
