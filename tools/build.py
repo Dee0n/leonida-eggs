@@ -656,6 +656,7 @@ MODERN_CSS = """
                  font: 700 17px var(--ui); text-transform: uppercase; cursor: pointer; padding: 6px 0; }
     .prompts { display: none; }
     .hud .r a.opt { display: none; }
+    .hud .l small, .hud .cnt { display: none; }
     .det h2 { font-size: 28px; }
   }
 """
