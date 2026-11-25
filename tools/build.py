@@ -242,12 +242,12 @@ POLL_JS = """
   var LV = null;
   try { LV = localStorage.getItem("lastVisit"); } catch (e) {}
   var today = new Date().toISOString().slice(0, 10);
-  Array.prototype.forEach.call(document.querySelectorAll("tr[data-added]"), function (tr) {
+  Array.prototype.forEach.call(document.querySelectorAll("[data-added]"), function (tr) {
     var add = tr.getAttribute("data-added"), mark = tr.querySelector(".new");
     if (!LV) return;
     if (add > LV && !mark) {
       mark = document.createElement("span"); mark.className = "new"; mark.textContent = "NEW!";
-      tr.querySelector("td.k").appendChild(mark);
+      tr.querySelector(".k").appendChild(mark);
     } else if (add <= LV && mark) { mark.parentNode.removeChild(mark); }
   });
   if (LV !== today) { try { localStorage.setItem("lastVisit", today); } catch (e) {} }
@@ -392,13 +392,15 @@ def render_html(data: dict, links: dict | None = None, img_prefix: str = "../",
     title = f"Коды к игре {meta['game']} :: LEONIDA-CHEATS"
     P: list[str] = []
     add = P.append
-    add('<!DOCTYPE html>\n<html lang="ru">\n<head>\n<meta charset="utf-8">\n')
-    add(f"<title>{esc(title)}</title>\n<style>{SITE_CSS}{BTN_CSS}</style>\n</head>\n<body>\n<a name=\"top\"></a>\n")
+    add('<!DOCTYPE html>\n<html lang="ru" data-theme="old">\n<head>\n<meta charset="utf-8">\n')
+    add(f"<title>{esc(title)}</title>\n{THEME_JS}<style>{SITE_CSS}{BTN_CSS}</style>\n</head>\n<body>\n<a name=\"top\"></a>\n")
     add('<table class="main"><tr><td colspan="2" class="top">'
         '<div class="logo">LEONIDA<span>-CHEATS</span> <small>.narod.ru</small></div>'
         '<div class="slogan">Коды, секреты и пасхалки к GTA VI. Без спойлеров.</div></td></tr>\n')
     nav = [lnk("Главная"), lnk("Коды"), lnk("Пасхалки"), lnk("Версия для печати"),
            lnk("Файлы", "Скачать PDF"), lnk("Форум"), lnk("Гостевая книга")]
+    if links.get("Современная версия"):
+        nav.append(f'<a href="{esc(links["Современная версия"])}" onclick="setTheme(\'modern\')" style="color:#ffcc00">Современная версия &raquo;</a>')
     add('<tr><td colspan="2" class="navbar">' + "<span>|</span>".join(nav) + "</td></tr>\n")
 
     latest = sorted(data["entries"], key=lambda e: str(e.get("added", "")), reverse=True)[:8]
@@ -514,6 +516,316 @@ def render_html(data: dict, links: dict | None = None, img_prefix: str = "../",
         f'{lnk("Форум")}<br>Сайт лучше всего смотрится в Internet Explorer 6.0 при разрешении 1024x768</td></tr>\n')
     add("</table>\n" + POLL_JS.replace("__POLLS_API__", POLLS_API) + "</body>\n</html>\n")
     return "".join(P)
+
+THEME_JS = """<script>
+(function () {
+  // выбор вида сайта запоминается: старый (2005) или современный
+  var want = null; try { want = localStorage.getItem("theme"); } catch (e) {}
+  var here = document.documentElement.getAttribute("data-theme");
+  if (here === "old" && want === "modern" && !/[?&]old/.test(location.search)) location.replace("modern.html" + location.hash);
+})();
+function setTheme(t) { try { localStorage.setItem("theme", t); } catch (e) {} }
+</script>
+"""
+
+FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
+         '<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400'
+         '&family=IBM+Plex+Mono:wght@500;600&display=swap&subset=cyrillic" rel="stylesheet">\n')
+
+MODERN_CSS = """
+  :root { --paper: #f3f0e8; --ink: #121212; --mute: #5f5b54; --rule: #d8d2c6; --hot: #e8336d; --ok: #2f7a4b; --warn: #a8661a;
+          --disp: "Oswald", "Arial Narrow", sans-serif; --text: "IBM Plex Sans", "Segoe UI", sans-serif; --mono: "IBM Plex Mono", Consolas, monospace; }
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: 76px; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.55 var(--text); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { color: var(--hot); }
+  .mast { max-width: 1180px; margin: 0 auto; padding: 28px 28px 0; }
+  .mast .row1 { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; font: 500 13px/1 var(--mono);
+                text-transform: uppercase; letter-spacing: .06em; color: var(--mute); border-bottom: 1px solid var(--ink); padding-bottom: 10px; }
+  .mast .row1 nav a { margin-left: 18px; text-decoration: none; }
+  .mast .row1 nav a:hover { text-decoration: underline; }
+  .mast h1 { font: 700 clamp(64px, 13vw, 168px)/.86 var(--disp); text-transform: uppercase; letter-spacing: -.01em; margin: 18px 0 6px; }
+  .mast h1 span { color: var(--hot); }
+  .mast .sub { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: end; padding: 6px 0 18px;
+               border-bottom: 3px solid var(--ink); }
+  .mast .sub p { margin: 0; max-width: 560px; font-size: 18px; text-wrap: pretty; }
+  .mast .sub .nums { font: 500 13px/1.5 var(--mono); text-align: right; color: var(--mute); font-variant-numeric: tabular-nums; }
+  .page { max-width: 1180px; margin: 0 auto; padding: 0 28px; display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 48px; }
+  .toc { position: sticky; top: 0; align-self: start; padding: 22px 0; max-height: 100vh; overflow: auto; }
+  .toc input { width: 100%; font: 15px var(--text); padding: 6px 0; border: 0; border-bottom: 1px solid var(--ink); background: transparent;
+               outline: none; margin-bottom: 18px; }
+  .toc input:focus { border-bottom-color: var(--hot); }
+  .toc a { display: grid; grid-template-columns: 30px 1fr auto; gap: 6px; padding: 6px 0; text-decoration: none; font-size: 14px;
+           border-top: 1px solid var(--rule); }
+  .toc a b { font: 600 12px/1.6 var(--mono); color: var(--hot); }
+  .toc a i { font: 500 12px/1.6 var(--mono); font-style: normal; color: var(--mute); font-variant-numeric: tabular-nums; }
+  .toc .legend { margin-top: 20px; font-size: 13px; color: var(--mute); line-height: 1.8; }
+  .toc .switch { margin-top: 18px; font: 500 12px var(--mono); text-transform: uppercase; letter-spacing: .06em; }
+  .toc .switch a { display: inline; border: 0; padding: 0; color: var(--mute); }
+  .toc .switch b { color: var(--ink); }
+  main { padding: 10px 0 60px; min-width: 0; }
+  .sec { padding-top: 26px; }
+  .sec > header { display: flex; align-items: baseline; gap: 16px; border-bottom: 3px solid var(--ink); padding-bottom: 6px; }
+  .sec > header .no { font: 600 14px var(--mono); color: var(--hot); }
+  .sec > header h2 { font: 700 44px/1 var(--disp); text-transform: uppercase; margin: 0; text-wrap: balance; }
+  .sec > header .n { margin-left: auto; font: 500 12px var(--mono); color: var(--mute); }
+  .sub2 { font: 600 12px var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--warn); padding: 22px 0 6px;
+          border-bottom: 1px solid var(--ink); }
+  .row { display: grid; grid-template-columns: 52px minmax(0, 1fr) 220px; gap: 18px; padding: 14px 0 16px; border-bottom: 1px solid var(--rule); }
+  .row.nopic { grid-template-columns: 52px minmax(0, 1fr); }
+  .row .num { font: 500 13px/1.7 var(--mono); color: var(--mute); font-variant-numeric: tabular-nums; }
+  .row .k { font-weight: 600; font-size: 17px; line-height: 1.35; text-wrap: balance; }
+  .row .h { margin-top: 4px; text-wrap: pretty; }
+  .row .src { margin-top: 6px; font: 500 11.5px var(--mono); text-transform: uppercase; letter-spacing: .05em; color: var(--mute); }
+  .src .confirmed { color: var(--ok); } .src .single { color: var(--warn); }
+  .row.hide { display: none; }
+  .th img { display: block; width: 100%; border-radius: 2px; outline: 1px solid rgba(0,0,0,.1); outline-offset: -1px; cursor: zoom-in; }
+  .th .cap { font: 500 11px var(--mono); color: var(--mute); margin-top: 4px; }
+  .code { font-weight: 600; }
+  .new { font: 600 10.5px var(--mono); color: var(--hot); margin-left: 8px; vertical-align: 2px; letter-spacing: .06em; animation: blink .8s steps(1) 3; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .check label { display: grid; grid-template-columns: 52px 22px 1fr; gap: 0; padding: 9px 0; border-bottom: 1px solid var(--rule); cursor: pointer; }
+  .check label .num { font: 500 13px/1.6 var(--mono); color: var(--mute); }
+  .check input { accent-color: var(--hot); margin: 4px 0 0; }
+  .check input:checked ~ span:last-child { color: var(--mute); text-decoration: line-through; }
+  .map { width: 100%; display: block; margin-top: 16px; border-radius: 2px; outline: 1px solid rgba(0,0,0,.1); cursor: zoom-in; }
+  .extra { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0 40px; }
+  .poll { padding: 16px 0; border-bottom: 1px solid var(--rule); }
+  .poll .bt { font: 600 12px var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--mute); }
+  .poll > b { display: block; font-size: 17px; margin: 4px 0 8px; }
+  .po { display: block; margin: 7px 0 0; font-size: 15px; } .po b { float: right; font: 500 13px var(--mono); font-variant-numeric: tabular-nums; }
+  .po input { accent-color: var(--hot); margin: 0 8px 0 0; }
+  .poll .bar { height: 3px; background: var(--rule); margin-top: 4px; }
+  .poll .bar i { display: block; height: 100%; background: var(--ink); }
+  .pt { margin-top: 10px; font: 500 12px var(--mono); color: var(--mute); }
+  .btnv { margin-top: 12px; padding: 8px 16px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); font: 600 13px var(--mono);
+          text-transform: uppercase; letter-spacing: .06em; cursor: pointer; border-radius: 0; transition-property: scale; transition-duration: .1s; }
+  .btnv:active { scale: .96; }
+  .res { font: 500 12px var(--mono); margin-left: 10px; }
+  footer { max-width: 1180px; margin: 0 auto; padding: 18px 28px 50px; border-top: 3px solid var(--ink); font-size: 13px; color: var(--mute); }
+  details summary { cursor: pointer; color: var(--ink); }
+  .empty { display: none; padding: 30px 0; color: var(--mute); }
+  #lb { display: none; position: fixed; inset: 0; background: rgba(18,18,18,.9); z-index: 99; overflow: auto; text-align: center; }
+  #lb.on { display: block; }
+  #lb .fr { display: inline-block; margin: 5vh auto 20px; max-width: 94%; text-align: left; }
+  #lb img { display: block; max-width: 100%; max-height: 82vh; }
+  #lb .lc { font: 500 12px var(--mono); padding-top: 8px; color: #bbb; }
+  #lb .lc a { color: #fff; }
+  #lb .lx { float: right; color: #fff; text-decoration: none; }
+  @media (max-width: 860px) {
+    .page { grid-template-columns: 1fr; gap: 0; }
+    .toc { position: static; max-height: none; padding-bottom: 0; }
+    .row { grid-template-columns: 40px minmax(0, 1fr); } .row .th { grid-column: 2; }
+    .sec > header h2 { font-size: 34px; }
+    .mast .sub { grid-template-columns: 1fr; } .mast .sub .nums { text-align: left; }
+  }
+"""
+
+MODERN_PRINT_CSS = """
+  @page { size: A4 portrait; margin: 13mm 12mm 14mm;
+    @bottom-left { content: "__FOOT__"; font: 7.5pt "IBM Plex Mono", Consolas, monospace; color: #666; }
+    @bottom-right { content: counter(page) " / " counter(pages); font: 7.5pt "IBM Plex Mono", Consolas, monospace; color: #666; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 8.6pt/1.4 "IBM Plex Sans", "Segoe UI", sans-serif; color: #121212; }
+  .top { border-bottom: 2pt solid #121212; padding-bottom: 2mm; margin-bottom: 3mm; }
+  .top .r1 { display: flex; justify-content: space-between; font: 500 7pt "IBM Plex Mono", monospace; text-transform: uppercase;
+             letter-spacing: .06em; color: #555; border-bottom: .6pt solid #121212; padding-bottom: 1.5mm; }
+  .top h1 { font: 700 46pt/.9 "Oswald", "Arial Narrow", sans-serif; text-transform: uppercase; margin: 2mm 0 1mm; }
+  .top h1 span { color: #e8336d; }
+  .lead { margin: 0 0 3mm; max-width: 140mm; }
+  .legend { font: 500 7pt "IBM Plex Mono", monospace; color: #555; margin-bottom: 3mm; text-transform: uppercase; letter-spacing: .04em; }
+  .cols { column-count: 2; column-gap: 8mm; column-rule: .4pt solid #d8d2c6; }
+  h2 { font: 700 17pt/1 "Oswald", "Arial Narrow", sans-serif; text-transform: uppercase; margin: 3mm 0 1.5mm; padding-bottom: 1mm;
+       border-bottom: 1.6pt solid #121212; break-after: avoid; }
+  h2 b { font: 600 7.5pt "IBM Plex Mono", monospace; color: #e8336d; margin-right: 2mm; vertical-align: 1.5mm; }
+  h3 { font: 600 6.8pt "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .08em; color: #a8661a; margin: 2.4mm 0 .8mm;
+       break-after: avoid; }
+  .e { break-inside: avoid; padding: 1.3mm 0 1.5mm; border-bottom: .4pt solid #d8d2c6; display: grid; grid-template-columns: 7mm 1fr; }
+  .e .num { font: 500 7pt/1.9 "IBM Plex Mono", monospace; color: #777; }
+  .e .k { font-weight: 600; }
+  .e .s { font: 500 6.3pt "IBM Plex Mono", monospace; text-transform: uppercase; color: #777; letter-spacing: .04em; }
+  .e img { display: block; max-width: 100%; max-height: 38mm; margin-top: 1.2mm; outline: .5pt solid rgba(0,0,0,.15); }
+  .e .cap { font: 500 6pt "IBM Plex Mono", monospace; color: #888; }
+  .ci { display: grid; grid-template-columns: 7mm 5mm 1fr; padding: .7mm 0; border-bottom: .4pt solid #d8d2c6; }
+  .ci .num { font: 500 7pt "IBM Plex Mono", monospace; color: #777; }
+  .ci i { display: inline-block; width: 2.8mm; height: 2.8mm; border: .7pt solid #121212; margin-top: .4mm; }
+  .map { width: 100%; margin-top: 2mm; break-inside: avoid; }
+  .code { font-weight: 600; }
+"""
+
+
+def render_modern(data: dict, links: dict | None = None, img_prefix: str = "../", need_credit: bool = False,
+                  print_mode: bool = False, footer_url: str = "") -> str:
+    """Современный вид: полевой справочник. print_mode=False — сайт, True — листок A4 в две колонки."""
+    links = links or {}
+    meta = data["meta"]
+    numbered = numbered_entries(data)
+    by_section: dict[str, list[tuple[int, dict]]] = {}
+    for num, e in numbered:
+        by_section.setdefault(e["section"], []).append((num, e))
+    fresh = _new_ids(data)
+    y, m, d = str(meta["date"]).split("-")
+    conf = {"confirmed": "подтверждено", "single": "одно сообщение", "rumor": "слух"}
+
+    def has_pic(item: dict) -> bool:
+        rel = item.get("image", "")
+        return bool(rel) and (ROOT / rel).is_file() and (bool(item.get("image_source")) or not need_credit)
+
+    def pic(item: dict) -> str:
+        if not has_pic(item):
+            return ""
+        url = f"{img_prefix}{esc(item['image'])}"
+        src = item.get("image_source")
+        cap = f'скрин: <a href="{esc(src["url"])}">{esc(src["name"])}</a>' if src else ""
+        if print_mode:
+            return f'<img src="{url}" alt=""><div class="cap">{cap}</div>'
+        return (f'<div class="th"><a class="zoom" href="{url}" target="_blank"><img src="{url}" alt="" loading="lazy"></a>'
+                f'<div class="cap">{cap}</div></div>')
+
+    def nsrc(e: dict) -> str:
+        n = len(e.get("sources", []))
+        return f'<span class="{e["confidence"]}">{conf[e["confidence"]]}</span> · источников: {n}'
+
+    secs = [s_ for s_ in data["sections"]
+            if (len(data["checklists"].get(s_["id"], [])) if s_.get("type") == "checklist" else len(by_section.get(s_["id"], [])))]
+    roman = {s_["id"]: (s_["title"].split(".", 1)[0] if "." in s_["title"][:5] else "") for s_ in secs}
+    name = {s_["id"]: (s_["title"].split(".", 1)[1].strip() if "." in s_["title"][:5] else s_["title"]) for s_ in secs}
+
+    P: list[str] = []
+    add = P.append
+    title = f"LEONIDA: пасхалки, коды и секреты {meta['game']}"
+    add('<!DOCTYPE html>\n<html lang="ru" data-theme="modern">\n<head>\n<meta charset="utf-8">\n'
+        '<meta name="viewport" content="width=device-width, initial-scale=1">\n' + FONTS)
+
+    if print_mode:
+        css = MODERN_PRINT_CSS.replace('"__FOOT__"', css_string(footer_url or f"LEONIDA · {meta['game']}"))
+        add(f"<title>{esc(title)}</title>\n<style>{css}{BTN_CSS}</style>\n</head>\n<body>\n")
+        add(f'<div class="top"><div class="r1"><span>Пасхалки, коды и секреты {esc(meta["game"])}</span>'
+            f'<span>Выпуск №{meta["issue"]} · {d}.{m}.{y} · {len(numbered)} записей</span></div>'
+            '<h1>Leonida<span>.</span></h1></div>\n')
+        add(f'<p class="lead">{esc(meta["intro"])}</p>\n')
+        add('<div class="legend">● подтверждено двумя источниками и больше · ○ одно сообщение · ◇ слух</div>\n<div class="cols">\n')
+        for s_ in secs:
+            add(f'<h2><b>{esc(roman[s_["id"]])}</b>{esc(name[s_["id"]])}</h2>\n')
+            if s_.get("type") == "checklist":
+                for i, it in enumerate(data["checklists"][s_["id"]], 1):
+                    add(f'<div class="ci"><span class="num">{i:02d}</span><i></i><span>{esc(it)}</span></div>\n')
+                if has_pic(s_):
+                    add(f'<img class="map" src="{img_prefix}{esc(s_["image"])}" alt="">\n')
+                continue
+            poi = False
+            for num, e in by_section[s_["id"]]:
+                if e.get("kind") == "poi" and not poi:
+                    poi = True
+                    add(f"<h3>{esc(POI_TITLE)}</h3>\n")
+                add(f'<div class="e"><span class="num">{num:03d}</span><div><span class="k">{CONFIDENCE_TAGS[e["confidence"]]} '
+                    f'{iconize(esc(e["title"]))}</span><br>{render_hint(e["hint"])}{pic(e)}</div></div>\n')
+        add("</div>\n</body>\n</html>\n")
+        return "".join(P)
+
+    add(f"<title>{esc(title)}</title>\n{THEME_JS}<style>{MODERN_CSS}{BTN_CSS}</style>\n</head>\n<body>\n")
+    add('<header class="mast"><div class="row1"><span>Листок пасхалок · без спойлеров</span><nav>'
+        f'<a href="{esc(links.get("Печать", "#"))}">Печать</a><a href="{esc(links.get("PDF", "#"))}">PDF</a>'
+        f'<a href="{esc(links.get("Прислать пасхалку", "#"))}">Прислать пасхалку</a><a href="{esc(links.get("GitHub", "#"))}">GitHub</a>'
+        '</nav></div>'
+        '<h1>Leonida<span>.</span></h1>'
+        f'<div class="sub"><p>{esc(meta["intro"])}</p>'
+        f'<div class="nums">Выпуск №{meta["issue"]}<br>Обновлено {d}.{m}.{y}<br>{len(numbered)} записей</div></div></header>\n')
+    add('<div class="page"><aside class="toc"><input id="q" type="search" placeholder="Поиск по листку" aria-label="Поиск">')
+    for s_ in secs:
+        n = len(data["checklists"][s_["id"]]) if s_.get("type") == "checklist" else len(by_section[s_["id"]])
+        add(f'<a href="#{esc(s_["id"])}"><b>{esc(roman[s_["id"]])}</b><span>{esc(name[s_["id"]])}</span><i>{n}</i></a>')
+    add('<a href="#polls"><b>·</b><span>Опросы</span><i></i></a>')
+    add('<div class="legend">● подтверждено<br>○ одно сообщение<br>◇ слух</div>'
+        '<div class="switch">Вид: <b>сейчас</b> / <a href="index.html?old" onclick="setTheme(\'old\')">2005</a></div>'
+        '</aside>\n<main>\n<p class="empty" id="empty">Ничего не нашлось.</p>\n')
+
+    for s_ in secs:
+        sid = esc(s_["id"])
+        if s_.get("type") == "checklist":
+            items = data["checklists"][s_["id"]]
+            add(f'<section class="sec" id="{sid}"><header><span class="no">{esc(roman[s_["id"]])}</span>'
+                f'<h2>{esc(name[s_["id"]])}</h2><span class="n">{len(items)} мест, отметки сохраняются</span></header><div class="check">')
+            for i, it in enumerate(items):
+                add(f'<label><span class="num">{i + 1:02d}</span><input type="checkbox" data-ck="{sid}-{i}"><span>{esc(it)}</span></label>')
+            add("</div>")
+            if has_pic(s_):
+                url = f"{img_prefix}{esc(s_['image'])}"
+                src = s_.get("image_source")
+                add(f'<div class="th"><a class="zoom" href="{url}" target="_blank"><img class="map" src="{url}" alt=""></a>'
+                    + (f'<div class="cap">скрин: <a href="{esc(src["url"])}">{esc(src["name"])}</a></div>' if src else "") + "</div>")
+            add("</section>\n")
+            continue
+        rows = by_section[s_["id"]]
+        add(f'<section class="sec" id="{sid}"><header><span class="no">{esc(roman[s_["id"]])}</span>'
+            f'<h2>{esc(name[s_["id"]])}</h2><span class="n">{len(rows)}</span></header>\n')
+        poi = False
+        for num, e in rows:
+            if e.get("kind") == "poi" and not poi:
+                poi = True
+                add(f'<div class="sub2">{esc(POI_TITLE)}</div>\n')
+            new = '<span class="new">NEW</span>' if e["id"] in fresh else ""
+            cls = "row" if has_pic(e) else "row nopic"
+            add(f'<article class="{cls}" id="e-{esc(e["id"])}" data-added="{esc(e.get("added", ""))}">'
+                f'<span class="num">{num:03d}</span><div><div class="k">{iconize(esc(e["title"]))}{new}</div>'
+                f'<div class="h">{render_hint(e["hint"])}</div><div class="src">{nsrc(e)}</div></div>{pic(e)}</article>\n')
+        add("</section>\n")
+
+    polls_path = ROOT / "data" / "polls.json"
+    polls = json.loads(polls_path.read_text(encoding="utf-8")) if polls_path.is_file() else []
+    add('<section class="sec" id="polls"><header><span class="no">·</span><h2>Опросы</h2></header><div class="extra">\n')
+    for poll in polls[:2]:
+        pid = esc(poll["id"])
+        opts = "".join(f'<label class="po"><input type="radio" name="p-{pid}" value="{n}">{esc(o)}</label>'
+                       for n, o in enumerate(poll["options"]))
+        add(f'<div class="poll" data-poll="{pid}" data-n="{len(poll["options"])}"><div class="bt">Опрос</div>'
+            f'<b>{esc(poll["question"])}</b><div class="pr">{opts}</div>'
+            '<div class="pa"><button type="button" class="btnv vote">Голосовать</button>'
+            '<a href="#" class="res">результаты</a></div></div>\n')
+    pool = [[e["id"], e["title"]] for _n, e in numbered if e["section"] not in ("controls", "cheats")]
+    pool_js = json.dumps(pool, ensure_ascii=False).replace("</", "<\\/")
+    add('<div class="poll"><div class="bt">Случайная пасхалка</div><b id="rnd"></b></div>\n</div></section>\n</main></div>\n')
+
+    sources: list[tuple[str, str]] = []
+    seen: set[str] = set()
+    for e in data["entries"]:
+        for src in e.get("sources", []):
+            if src["url"] not in seen:
+                seen.add(src["url"])
+                sources.append((src["name"], src["url"]))
+    add('<footer>'
+        f'<p>Фанатский некоммерческий проект, с Rockstar Games не связан. Данные и код на '
+        f'<a href="{esc(links.get("GitHub", "#"))}">GitHub</a>. Обновлено {d}.{m}.{y}.</p>'
+        '<details><summary>Источники (в заголовках статей бывают спойлеры)</summary><p>'
+        + " · ".join(f'<a href="{esc(u)}">{esc(n)}</a>' for n, u in sources) + "</p></details></footer>\n")
+    add("<script>var POOL=" + pool_js + ";</script>\n")
+    add("""<script>
+(function () {
+  var q = document.getElementById("q"), rows = document.querySelectorAll("article.row"), empty = document.getElementById("empty");
+  q.addEventListener("input", function () {
+    var v = q.value.trim().toLowerCase(), shown = 0;
+    Array.prototype.forEach.call(rows, function (r) {
+      var hit = !v || r.textContent.toLowerCase().indexOf(v) >= 0;
+      r.classList.toggle("hide", !hit); if (hit) shown++;
+    });
+    Array.prototype.forEach.call(document.querySelectorAll("section.sec"), function (s) {
+      var g = s.querySelectorAll("article.row"); if (!g.length) { s.style.display = v ? "none" : ""; return; }
+      s.style.display = Array.prototype.some.call(g, function (r) { return !r.classList.contains("hide"); }) ? "" : "none";
+    });
+    empty.style.display = shown ? "none" : "block";
+  });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-ck]"), function (b) {
+    var k = "ck-" + b.getAttribute("data-ck");
+    try { b.checked = localStorage.getItem(k) === "1"; } catch (e) {}
+    b.addEventListener("change", function () { try { localStorage.setItem(k, b.checked ? "1" : ""); } catch (e) {} });
+  });
+})();
+</script>
+""")
+    add(POLL_JS.replace("__POLLS_API__", POLLS_API) + "</body>\n</html>\n")
+    return "".join(P)
+
 
 PRINT_CSS = """
   @page {
@@ -843,7 +1155,14 @@ def cmd_site(args: argparse.Namespace) -> int:
     print_page = SITE / "print.html"
     print_page.write_text(render_print_html(data, links=links, img_prefix="", need_credit=True,
                                             footer_url=SITE_URL + "print.html"), encoding="utf-8")
-    site_links = dict(links, **{"Версия для печати": "print.html"})
+    site_links = dict(links, **{"Версия для печати": "print.html", "Современная версия": "modern.html"})
+    modern_links = dict(links, **{"Печать": "print-modern.html", "PDF": "leonida_easter_eggs_modern.pdf"})
+    (SITE / "modern.html").write_text(render_modern(data, links=modern_links, img_prefix="", need_credit=True), encoding="utf-8")
+    pm = SITE / "print-modern.html"
+    pm.write_text(render_modern(data, img_prefix="", need_credit=True, print_mode=True,
+                                footer_url=SITE_URL + "modern.html"), encoding="utf-8")
+    if make_pdf(pm, SITE / "leonida_easter_eggs_modern.pdf"):
+        print(f"Готово: {SITE / 'leonida_easter_eggs_modern.pdf'}")
     index.write_text(render_html(data, links=site_links, img_prefix="", need_credit=True), encoding="utf-8")
     print(f"Готово: {print_page}")
     (SITE / "leonida_easter_eggs.txt").write_text(render_txt(data), encoding="utf-8")
@@ -877,7 +1196,7 @@ def make_pdf(html_path: Path, pdf_path: Path) -> bool:
         print(f"PDF открыт в другой программе, закрой его и запусти build ещё раз: {pdf_path}")
         return False
     subprocess.run(
-        [browser, "--headless=new", "--disable-gpu", "--no-pdf-header-footer",
+        [browser, "--headless=new", "--disable-gpu", "--no-pdf-header-footer", "--virtual-time-budget=8000",
          f"--print-to-pdf={pdf_path}", html_path.resolve().as_uri()],
         capture_output=True, timeout=120,
     )

@@ -1,8 +1,17 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="old">
 <head>
 <meta charset="utf-8">
 <title>Коды к игре Grand Theft Auto VI :: LEONIDA-CHEATS</title>
+<script>
+(function () {
+  // выбор вида сайта запоминается: старый (2005) или современный
+  var want = null; try { want = localStorage.getItem("theme"); } catch (e) {}
+  var here = document.documentElement.getAttribute("data-theme");
+  if (here === "old" && want === "modern" && !/[?&]old/.test(location.search)) location.replace("modern.html" + location.hash);
+})();
+function setTheme(t) { try { localStorage.setItem("theme", t); } catch (e) {} }
+</script>
 <style>
   body { margin: 0; padding: 12px 0; background: #6b8eb3; font: 11px/1.4 Verdana, Tahoma, Arial, sans-serif; color: #000; }
   a { color: #0000cc; } a:visited { color: #551a8b; } a:hover { color: #cc0000; }
@@ -80,7 +89,7 @@
 <body>
 <a name="top"></a>
 <table class="main"><tr><td colspan="2" class="top"><div class="logo">LEONIDA<span>-CHEATS</span> <small>.narod.ru</small></div><div class="slogan">Коды, секреты и пасхалки к GTA VI. Без спойлеров.</div></td></tr>
-<tr><td colspan="2" class="navbar"><a href="./">Главная</a><span>|</span><a href="./">Коды</a><span>|</span><a href="./">Пасхалки</a><span>|</span><a href="print.html">Версия для печати</a><span>|</span><a href="leonida_easter_eggs.pdf">Скачать PDF</a><span>|</span><a href="https://github.com/Dee0n/leonida-eggs/issues">Форум</a><span>|</span><a href="https://github.com/Dee0n/leonida-eggs/issues">Гостевая книга</a></td></tr>
+<tr><td colspan="2" class="navbar"><a href="./">Главная</a><span>|</span><a href="./">Коды</a><span>|</span><a href="./">Пасхалки</a><span>|</span><a href="print.html">Версия для печати</a><span>|</span><a href="leonida_easter_eggs.pdf">Скачать PDF</a><span>|</span><a href="https://github.com/Dee0n/leonida-eggs/issues">Форум</a><span>|</span><a href="https://github.com/Dee0n/leonida-eggs/issues">Гостевая книга</a><span>|</span><a href="modern.html" onclick="setTheme('modern')" style="color:#ffcc00">Современная версия &raquo;</a></td></tr>
 <tr><td colspan="2" class="ticker"><marquee scrollamount="3"><b>Новое на сайте:</b> 25.11.2026: Заброшенный склад в Capri &nbsp;&nbsp;*&nbsp;&nbsp; 25.11.2026: Постер в клубе The Vault: секретная станция &nbsp;&nbsp;*&nbsp;&nbsp; 25.11.2026: Дом с открытым гаражом в Port Gellhorn &nbsp;&nbsp;*&nbsp;&nbsp; 25.11.2026: Таблички Hollow Earth &nbsp;&nbsp;*&nbsp;&nbsp; 25.11.2026: Треугольник/Y дважды при выходе из машины &nbsp;&nbsp;*&nbsp;&nbsp; 25.11.2026: Удерживать Круг/B у машины или стены &nbsp;&nbsp;*&nbsp;&nbsp; 25.11.2026: L3 у перил &nbsp;&nbsp;*&nbsp;&nbsp; 25.11.2026: Удерживать Круг/B на краю бассейна или причала</marquee></td></tr>
 <tr><td class="left">
 <div class="box"><div class="bt">Меню</div><div class="bb">&raquo; <a href="./">Главная</a><br>&raquo; <a href="print.html">Версия для печати</a><br>&raquo; <a href="leonida_easter_eggs.pdf">Скачать PDF</a><br>&raquo; <a href="https://github.com/Dee0n/leonida-eggs/issues/new?template=egg.yml">Прислать пасхалку</a><br>&raquo; <a href="https://github.com/Dee0n/leonida-eggs/issues">Форум</a><br></div></div>
@@ -252,12 +261,12 @@
   var LV = null;
   try { LV = localStorage.getItem("lastVisit"); } catch (e) {}
   var today = new Date().toISOString().slice(0, 10);
-  Array.prototype.forEach.call(document.querySelectorAll("tr[data-added]"), function (tr) {
+  Array.prototype.forEach.call(document.querySelectorAll("[data-added]"), function (tr) {
     var add = tr.getAttribute("data-added"), mark = tr.querySelector(".new");
     if (!LV) return;
     if (add > LV && !mark) {
       mark = document.createElement("span"); mark.className = "new"; mark.textContent = "NEW!";
-      tr.querySelector("td.k").appendChild(mark);
+      tr.querySelector(".k").appendChild(mark);
     } else if (add <= LV && mark) { mark.parentNode.removeChild(mark); }
   });
   if (LV !== today) { try { localStorage.setItem("lastVisit", today); } catch (e) {} }
