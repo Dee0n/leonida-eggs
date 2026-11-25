@@ -533,92 +533,84 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="
          '&family=IBM+Plex+Mono:wght@500;600&display=swap&subset=cyrillic" rel="stylesheet">\n')
 
 MODERN_CSS = """
-  :root { --paper: #f3f0e8; --ink: #121212; --mute: #5f5b54; --rule: #d8d2c6; --hot: #e8336d; --ok: #2f7a4b; --warn: #a8661a;
+  :root { --paper: #f4f2ec; --ink: #141414; --mute: #67635c; --rule: #dcd7cc; --hover: #ebe7dd; --hot: #e8336d;
+          --ok: #2f7a4b; --warn: #c08321; --rum: #9a9a9a;
           --disp: "Oswald", "Arial Narrow", sans-serif; --text: "IBM Plex Sans", "Segoe UI", sans-serif; --mono: "IBM Plex Mono", Consolas, monospace; }
   * { box-sizing: border-box; }
-  html { scroll-padding-top: 76px; }
-  body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.55 var(--text); -webkit-font-smoothing: antialiased; }
-  a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  html { scroll-padding-top: 108px; }
+  body { margin: 0; overflow-x: hidden; background: var(--paper); color: var(--ink); font: 15px/1.5 var(--text); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 1px; }
   a:hover { color: var(--hot); }
-  .mast { max-width: 1180px; margin: 0 auto; padding: 28px 28px 0; }
-  .mast .row1 { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; font: 500 13px/1 var(--mono);
-                text-transform: uppercase; letter-spacing: .06em; color: var(--mute); border-bottom: 1px solid var(--ink); padding-bottom: 10px; }
-  .mast .row1 nav a { margin-left: 18px; text-decoration: none; }
-  .mast .row1 nav a:hover { text-decoration: underline; }
-  .mast h1 { font: 700 clamp(64px, 13vw, 168px)/.86 var(--disp); text-transform: uppercase; letter-spacing: -.01em; margin: 18px 0 6px; }
-  .mast h1 span { color: var(--hot); }
-  .mast .sub { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: end; padding: 6px 0 18px;
-               border-bottom: 3px solid var(--ink); }
-  .mast .sub p { margin: 0; max-width: 560px; font-size: 18px; text-wrap: pretty; }
-  .mast .sub .nums { font: 500 13px/1.5 var(--mono); text-align: right; color: var(--mute); font-variant-numeric: tabular-nums; }
-  .page { max-width: 1180px; margin: 0 auto; padding: 0 28px; display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 48px; }
-  .toc { position: sticky; top: 0; align-self: start; padding: 22px 0; max-height: 100vh; overflow: auto; }
-  .toc input { width: 100%; font: 15px var(--text); padding: 6px 0; border: 0; border-bottom: 1px solid var(--ink); background: transparent;
-               outline: none; margin-bottom: 18px; }
-  .toc input:focus { border-bottom-color: var(--hot); }
-  .toc a { display: grid; grid-template-columns: 30px 1fr auto; gap: 6px; padding: 6px 0; text-decoration: none; font-size: 14px;
-           border-top: 1px solid var(--rule); }
-  .toc a b { font: 600 12px/1.6 var(--mono); color: var(--hot); }
-  .toc a i { font: 500 12px/1.6 var(--mono); font-style: normal; color: var(--mute); font-variant-numeric: tabular-nums; }
-  .toc .legend { margin-top: 20px; font-size: 13px; color: var(--mute); line-height: 1.8; }
-  .toc .switch { margin-top: 18px; font: 500 12px var(--mono); text-transform: uppercase; letter-spacing: .06em; }
-  .toc .switch a { display: inline; border: 0; padding: 0; color: var(--mute); }
-  .toc .switch b { color: var(--ink); }
-  main { padding: 10px 0 60px; min-width: 0; }
-  .sec { padding-top: 26px; }
-  .sec > header { display: flex; align-items: baseline; gap: 16px; border-bottom: 3px solid var(--ink); padding-bottom: 6px; }
-  .sec > header .no { font: 600 14px var(--mono); color: var(--hot); }
-  .sec > header h2 { font: 700 44px/1 var(--disp); text-transform: uppercase; margin: 0; text-wrap: balance; }
-  .sec > header .n { margin-left: auto; font: 500 12px var(--mono); color: var(--mute); }
-  .sub2 { font: 600 12px var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--warn); padding: 22px 0 6px;
-          border-bottom: 1px solid var(--ink); }
-  .row { display: grid; grid-template-columns: 52px minmax(0, 1fr) 220px; gap: 18px; padding: 14px 0 16px; border-bottom: 1px solid var(--rule); }
-  .row.nopic { grid-template-columns: 52px minmax(0, 1fr); }
-  .row .num { font: 500 13px/1.7 var(--mono); color: var(--mute); font-variant-numeric: tabular-nums; }
-  .row .k { font-weight: 600; font-size: 17px; line-height: 1.35; text-wrap: balance; }
-  .row .h { margin-top: 4px; text-wrap: pretty; }
-  .row .src { margin-top: 6px; font: 500 11.5px var(--mono); text-transform: uppercase; letter-spacing: .05em; color: var(--mute); }
-  .src .confirmed { color: var(--ok); } .src .single { color: var(--warn); }
-  .row.hide { display: none; }
-  .th img { display: block; width: 100%; border-radius: 2px; outline: 1px solid rgba(0,0,0,.1); outline-offset: -1px; cursor: zoom-in; }
-  .th .cap { font: 500 11px var(--mono); color: var(--mute); margin-top: 4px; }
+  .top { position: sticky; top: 0; z-index: 20; background: var(--paper); border-bottom: 1px solid var(--ink); }
+  .top .in { max-width: 1240px; margin: 0 auto; padding: 0 20px; height: 56px; display: flex; align-items: center; gap: 20px; }
+  .logo { font: 700 24px/1 var(--disp); text-transform: uppercase; text-decoration: none; letter-spacing: .01em; white-space: nowrap; }
+  .logo span { color: var(--hot); }
+  #q { flex: 1; min-width: 0; max-width: 520px; height: 36px; padding: 0 12px; font: 15px var(--text); border: 1px solid var(--ink); border-radius: 0;
+       background: #fff; outline: none; }
+  #q:focus { border-color: var(--hot); box-shadow: 0 0 0 2px rgba(232,51,109,.18); }
+  .top nav { margin-left: auto; display: flex; gap: 16px; font: 500 12.5px var(--mono); text-transform: uppercase; letter-spacing: .04em; white-space: nowrap; }
+  .top nav a { text-decoration: none; }
+  .tabs { max-width: 1240px; margin: 0 auto; padding: 0 20px; display: flex; gap: 2px; overflow-x: auto; }
+  .tab { position: relative; padding: 10px 12px 9px; font: 500 13px var(--text); background: none; border: 0; cursor: pointer; color: var(--mute);
+         white-space: nowrap; border-bottom: 2px solid transparent; }
+  .tab b { font: 500 11px var(--mono); margin-left: 5px; color: var(--mute); font-variant-numeric: tabular-nums; }
+  .tab:hover { color: var(--ink); }
+  .tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--hot); }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 20px 60px; }
+  .intro { display: flex; justify-content: space-between; gap: 20px; padding: 14px 0 6px; color: var(--mute); font-size: 14px; }
+  .intro .nums { font: 500 12px var(--mono); }
+  .legend { font: 500 12px var(--mono); color: var(--mute); }
+  .sec { padding-top: 18px; }
+  .sec h2 { display: flex; align-items: baseline; gap: 10px; margin: 0; padding: 0 0 6px; border-bottom: 2px solid var(--ink);
+            font: 700 22px/1.1 var(--disp); text-transform: uppercase; }
+  .sec h2 small { font: 500 12px var(--mono); color: var(--mute); }
+  .sub2 { padding: 12px 10px 4px; font: 600 11.5px var(--mono); text-transform: uppercase; letter-spacing: .07em; color: var(--warn); }
+  .row { display: grid; grid-template-columns: minmax(200px, 30%) minmax(0, 1fr) 112px; gap: 16px; padding: 9px 10px;
+         border-bottom: 1px solid var(--rule); align-items: start; }
+  .row:hover { background: var(--hover); }
+  .row:target { background: #fbe3ea; }
+  .row .k { font-weight: 600; line-height: 1.35; }
+  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; vertical-align: 1px; background: var(--rum); }
+  .dot.confirmed { background: var(--ok); } .dot.single { background: var(--warn); }
+  .row .h { color: #2b2925; }
+  .row.hide, .sec.hide { display: none; }
+  .th a { display: block; }
+  .th img { display: block; width: 112px; height: 63px; object-fit: cover; border-radius: 2px; outline: 1px solid rgba(0,0,0,.1);
+            outline-offset: -1px; cursor: zoom-in; }
+  .th .cap { font: 500 10px var(--mono); color: var(--mute); margin-top: 2px; white-space: nowrap; }
   .code { font-weight: 600; }
-  .new { font: 600 10.5px var(--mono); color: var(--hot); margin-left: 8px; vertical-align: 2px; letter-spacing: .06em; animation: blink .8s steps(1) 3; }
-  @keyframes blink { 50% { opacity: 0; } }
-  .check label { display: grid; grid-template-columns: 52px 22px 1fr; gap: 0; padding: 9px 0; border-bottom: 1px solid var(--rule); cursor: pointer; }
-  .check label .num { font: 500 13px/1.6 var(--mono); color: var(--mute); }
+  .new { font: 600 10px var(--mono); color: var(--hot); margin-left: 6px; letter-spacing: .05em; }
+  .check label { display: grid; grid-template-columns: 26px 1fr; padding: 8px 10px; border-bottom: 1px solid var(--rule); cursor: pointer; }
+  .check label:hover { background: var(--hover); }
   .check input { accent-color: var(--hot); margin: 4px 0 0; }
-  .check input:checked ~ span:last-child { color: var(--mute); text-decoration: line-through; }
-  .map { width: 100%; display: block; margin-top: 16px; border-radius: 2px; outline: 1px solid rgba(0,0,0,.1); cursor: zoom-in; }
-  .extra { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0 40px; }
-  .poll { padding: 16px 0; border-bottom: 1px solid var(--rule); }
-  .poll .bt { font: 600 12px var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--mute); }
-  .poll > b { display: block; font-size: 17px; margin: 4px 0 8px; }
-  .po { display: block; margin: 7px 0 0; font-size: 15px; } .po b { float: right; font: 500 13px var(--mono); font-variant-numeric: tabular-nums; }
+  .check input:checked + span { color: var(--mute); text-decoration: line-through; }
+  .map { display: block; max-width: 640px; width: 100%; margin-top: 12px; cursor: zoom-in; outline: 1px solid rgba(0,0,0,.1); }
+  .extra { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0 40px; }
+  .poll { padding: 14px 0; }
+  .poll .bt { font: 600 11.5px var(--mono); text-transform: uppercase; letter-spacing: .07em; color: var(--mute); }
+  .poll > b { display: block; margin: 4px 0 6px; font-size: 16px; }
+  .po { display: block; margin: 6px 0 0; } .po b { float: right; font: 500 12px var(--mono); font-variant-numeric: tabular-nums; }
   .po input { accent-color: var(--hot); margin: 0 8px 0 0; }
-  .poll .bar { height: 3px; background: var(--rule); margin-top: 4px; }
-  .poll .bar i { display: block; height: 100%; background: var(--ink); }
-  .pt { margin-top: 10px; font: 500 12px var(--mono); color: var(--mute); }
-  .btnv { margin-top: 12px; padding: 8px 16px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); font: 600 13px var(--mono);
-          text-transform: uppercase; letter-spacing: .06em; cursor: pointer; border-radius: 0; transition-property: scale; transition-duration: .1s; }
+  .poll .bar { height: 3px; background: var(--rule); margin-top: 3px; } .poll .bar i { display: block; height: 100%; background: var(--ink); }
+  .pt { margin-top: 8px; font: 500 12px var(--mono); color: var(--mute); }
+  .btnv { margin-top: 10px; height: 34px; padding: 0 16px; border: 0; background: var(--ink); color: var(--paper); font: 600 12px var(--mono);
+          text-transform: uppercase; letter-spacing: .05em; cursor: pointer; transition-property: scale; transition-duration: .1s; }
   .btnv:active { scale: .96; }
   .res { font: 500 12px var(--mono); margin-left: 10px; }
-  footer { max-width: 1180px; margin: 0 auto; padding: 18px 28px 50px; border-top: 3px solid var(--ink); font-size: 13px; color: var(--mute); }
+  .empty { display: none; padding: 30px 10px; color: var(--mute); }
+  footer { max-width: 1240px; margin: 0 auto; padding: 16px 20px 50px; border-top: 1px solid var(--ink); font-size: 13px; color: var(--mute); }
   details summary { cursor: pointer; color: var(--ink); }
-  .empty { display: none; padding: 30px 0; color: var(--mute); }
-  #lb { display: none; position: fixed; inset: 0; background: rgba(18,18,18,.9); z-index: 99; overflow: auto; text-align: center; }
+  #lb { display: none; position: fixed; inset: 0; background: rgba(20,20,20,.9); z-index: 99; overflow: auto; text-align: center; }
   #lb.on { display: block; }
   #lb .fr { display: inline-block; margin: 5vh auto 20px; max-width: 94%; text-align: left; }
   #lb img { display: block; max-width: 100%; max-height: 82vh; }
-  #lb .lc { font: 500 12px var(--mono); padding-top: 8px; color: #bbb; }
-  #lb .lc a { color: #fff; }
-  #lb .lx { float: right; color: #fff; text-decoration: none; }
-  @media (max-width: 860px) {
-    .page { grid-template-columns: 1fr; gap: 0; }
-    .toc { position: static; max-height: none; padding-bottom: 0; }
-    .row { grid-template-columns: 40px minmax(0, 1fr); } .row .th { grid-column: 2; }
-    .sec > header h2 { font-size: 34px; }
-    .mast .sub { grid-template-columns: 1fr; } .mast .sub .nums { text-align: left; }
+  #lb .lc { font: 500 12px var(--mono); padding-top: 8px; color: #bbb; } #lb .lc a, #lb .lx { color: #fff; } #lb .lx { float: right; text-decoration: none; }
+  @media (max-width: 760px) {
+    .top .in { gap: 10px; } .top nav { display: none; }
+    .row { grid-template-columns: minmax(0, 1fr) 88px; gap: 4px 12px; }
+    .row .h { grid-column: 1; } .row .th { grid-column: 2; grid-row: 1 / span 2; }
+    .th img { width: 88px; height: 50px; } .th .cap { display: none; }
+    .intro { flex-direction: column; gap: 4px; }
   }
 """
 
@@ -725,30 +717,40 @@ def render_modern(data: dict, links: dict | None = None, img_prefix: str = "../"
         return "".join(P)
 
     add(f"<title>{esc(title)}</title>\n{THEME_JS}<style>{MODERN_CSS}{BTN_CSS}</style>\n</head>\n<body>\n")
-    add('<header class="mast"><div class="row1"><span>Листок пасхалок · без спойлеров</span><nav>'
-        f'<a href="{esc(links.get("Печать", "#"))}">Печать</a><a href="{esc(links.get("PDF", "#"))}">PDF</a>'
-        f'<a href="{esc(links.get("Прислать пасхалку", "#"))}">Прислать пасхалку</a><a href="{esc(links.get("GitHub", "#"))}">GitHub</a>'
-        '</nav></div>'
-        '<h1>Leonida<span>.</span></h1>'
-        f'<div class="sub"><p>{esc(meta["intro"])}</p>'
-        f'<div class="nums">Выпуск №{meta["issue"]}<br>Обновлено {d}.{m}.{y}<br>{len(numbered)} записей</div></div></header>\n')
-    add('<div class="page"><aside class="toc"><input id="q" type="search" placeholder="Поиск по листку" aria-label="Поиск">')
-    for s_ in secs:
-        n = len(data["checklists"][s_["id"]]) if s_.get("type") == "checklist" else len(by_section[s_["id"]])
-        add(f'<a href="#{esc(s_["id"])}"><b>{esc(roman[s_["id"]])}</b><span>{esc(name[s_["id"]])}</span><i>{n}</i></a>')
-    add('<a href="#polls"><b>·</b><span>Опросы</span><i></i></a>')
-    add('<div class="legend">● подтверждено<br>○ одно сообщение<br>◇ слух</div>'
-        '<div class="switch">Вид: <b>сейчас</b> / <a href="index.html?old" onclick="setTheme(\'old\')">2005</a></div>'
-        '</aside>\n<main>\n<p class="empty" id="empty">Ничего не нашлось.</p>\n')
+
+    def kind_of(e: dict) -> str:
+        if e["section"] in ("cheats", "controls"):
+            return e["section"]
+        return "poi" if e.get("kind") == "poi" else "egg"
+
+    counts = {"all": len(numbered), "egg": 0, "poi": 0, "cheats": 0, "controls": 0}
+    for _n, e in numbered:
+        counts[kind_of(e)] += 1
+    wn = sum(len(v) for v in data["checklists"].values())
+    tabs = [("all", "Всё", counts["all"]), ("egg", "Пасхалки", counts["egg"]), ("poi", "Точки интереса", counts["poi"]),
+            ("cheats", "Читы", counts["cheats"]), ("controls", "Кнопки", counts["controls"]), ("waink", "WAiNK", wn)]
+    add('<header class="top"><div class="in"><a class="logo" href="#">Leonida<span>.</span></a>'
+        '<input id="q" type="search" placeholder="Поиск: место, отсылка, код" aria-label="Поиск" autocomplete="off">'
+        f'<nav><a href="{esc(links.get("Печать", "#"))}">Печать</a><a href="{esc(links.get("PDF", "#"))}">PDF</a>'
+        f'<a href="{esc(links.get("Прислать пасхалку", "#"))}">Прислать</a>'
+        '<a href="index.html?old" onclick="setTheme(\'old\')">Вид 2005</a></nav></div>'
+        '<div class="tabs" role="tablist">'
+        + "".join(f'<button class="tab" role="tab" data-f="{k}" aria-selected="{"true" if k == "all" else "false"}">{t}<b>{n}</b></button>'
+                  for k, t, n in tabs)
+        + "</div></header>\n")
+    add(f'<div class="wrap"><div class="intro"><span>{esc(meta["intro"])}</span>'
+        f'<span class="nums">выпуск №{meta["issue"]} · {d}.{m}.{y} · '
+        '<span class="legend"><span class="dot confirmed"></span>подтверждено <span class="dot single"></span>одно сообщение</span></span></div>\n'
+        '<p class="empty" id="empty">Ничего не нашлось.</p>\n')
 
     for s_ in secs:
         sid = esc(s_["id"])
         if s_.get("type") == "checklist":
             items = data["checklists"][s_["id"]]
-            add(f'<section class="sec" id="{sid}"><header><span class="no">{esc(roman[s_["id"]])}</span>'
-                f'<h2>{esc(name[s_["id"]])}</h2><span class="n">{len(items)} мест, отметки сохраняются</span></header><div class="check">')
-            for i, it in enumerate(items):
-                add(f'<label><span class="num">{i + 1:02d}</span><input type="checkbox" data-ck="{sid}-{i}"><span>{esc(it)}</span></label>')
+            add(f'<section class="sec" id="{sid}" data-kind="waink"><h2>{esc(s_["title"])}<small>{len(items)} · отметки сохраняются</small></h2>'
+                '<div class="check">')
+            for i2, it in enumerate(items):
+                add(f'<label><input type="checkbox" data-ck="{sid}-{i2}"><span>{i2 + 1}. {esc(it)}</span></label>')
             add("</div>")
             if has_pic(s_):
                 url = f"{img_prefix}{esc(s_['image'])}"
@@ -758,23 +760,22 @@ def render_modern(data: dict, links: dict | None = None, img_prefix: str = "../"
             add("</section>\n")
             continue
         rows = by_section[s_["id"]]
-        add(f'<section class="sec" id="{sid}"><header><span class="no">{esc(roman[s_["id"]])}</span>'
-            f'<h2>{esc(name[s_["id"]])}</h2><span class="n">{len(rows)}</span></header>\n')
+        add(f'<section class="sec" id="{sid}"><h2>{esc(s_["title"])}<small>{len(rows)}</small></h2>\n')
         poi = False
         for num, e in rows:
             if e.get("kind") == "poi" and not poi:
                 poi = True
-                add(f'<div class="sub2">{esc(POI_TITLE)}</div>\n')
+                add(f'<div class="sub2" data-kind="poi">{esc(POI_TITLE)}</div>\n')
             new = '<span class="new">NEW</span>' if e["id"] in fresh else ""
-            cls = "row" if has_pic(e) else "row nopic"
-            add(f'<article class="{cls}" id="e-{esc(e["id"])}" data-added="{esc(e.get("added", ""))}">'
-                f'<span class="num">{num:03d}</span><div><div class="k">{iconize(esc(e["title"]))}{new}</div>'
-                f'<div class="h">{render_hint(e["hint"])}</div><div class="src">{nsrc(e)}</div></div>{pic(e)}</article>\n')
+            add(f'<article class="row" id="e-{esc(e["id"])}" data-kind="{kind_of(e)}" data-added="{esc(e.get("added", ""))}">'
+                f'<div class="k" title="{conf[e["confidence"]]}, источников: {len(e.get("sources", []))}">'
+                f'<span class="dot {e["confidence"]}"></span>{iconize(esc(e["title"]))}{new}</div>'
+                f'<div class="h">{render_hint(e["hint"])}</div>{pic(e) or "<span></span>"}</article>\n')
         add("</section>\n")
 
     polls_path = ROOT / "data" / "polls.json"
     polls = json.loads(polls_path.read_text(encoding="utf-8")) if polls_path.is_file() else []
-    add('<section class="sec" id="polls"><header><span class="no">·</span><h2>Опросы</h2></header><div class="extra">\n')
+    add('<section class="sec" id="polls"><h2>Опросы</h2><div class="extra">\n')
     for poll in polls[:2]:
         pid = esc(poll["id"])
         opts = "".join(f'<label class="po"><input type="radio" name="p-{pid}" value="{n}">{esc(o)}</label>'
@@ -785,7 +786,7 @@ def render_modern(data: dict, links: dict | None = None, img_prefix: str = "../"
             '<a href="#" class="res">результаты</a></div></div>\n')
     pool = [[e["id"], e["title"]] for _n, e in numbered if e["section"] not in ("controls", "cheats")]
     pool_js = json.dumps(pool, ensure_ascii=False).replace("</", "<\\/")
-    add('<div class="poll"><div class="bt">Случайная пасхалка</div><b id="rnd"></b></div>\n</div></section>\n</main></div>\n')
+    add('<div class="poll"><div class="bt">Случайная пасхалка</div><b id="rnd"></b></div>\n</div></section>\n</div>\n')
 
     sources: list[tuple[str, str]] = []
     seen: set[str] = set()
@@ -802,19 +803,33 @@ def render_modern(data: dict, links: dict | None = None, img_prefix: str = "../"
     add("<script>var POOL=" + pool_js + ";</script>\n")
     add("""<script>
 (function () {
-  var q = document.getElementById("q"), rows = document.querySelectorAll("article.row"), empty = document.getElementById("empty");
-  q.addEventListener("input", function () {
+  var q = document.getElementById("q"), empty = document.getElementById("empty"), f = "all";
+  var rows = document.querySelectorAll("article.row"), secs = document.querySelectorAll("section.sec");
+  function apply() {
     var v = q.value.trim().toLowerCase(), shown = 0;
     Array.prototype.forEach.call(rows, function (r) {
-      var hit = !v || r.textContent.toLowerCase().indexOf(v) >= 0;
+      var hit = (f === "all" || r.getAttribute("data-kind") === f) && (!v || r.textContent.toLowerCase().indexOf(v) >= 0);
       r.classList.toggle("hide", !hit); if (hit) shown++;
     });
-    Array.prototype.forEach.call(document.querySelectorAll("section.sec"), function (s) {
-      var g = s.querySelectorAll("article.row"); if (!g.length) { s.style.display = v ? "none" : ""; return; }
-      s.style.display = Array.prototype.some.call(g, function (r) { return !r.classList.contains("hide"); }) ? "" : "none";
+    Array.prototype.forEach.call(document.querySelectorAll(".sub2"), function (h) { h.classList.toggle("hide", f !== "all" && f !== "poi"); });
+    Array.prototype.forEach.call(secs, function (s) {
+      var g = s.querySelectorAll("article.row"), k = s.getAttribute("data-kind");
+      var vis = g.length ? Array.prototype.some.call(g, function (r) { return !r.classList.contains("hide"); })
+                         : (k ? (f === "all" || f === k) && !v : f === "all" && !v);
+      if (k === "waink" && v) vis = s.textContent.toLowerCase().indexOf(v) >= 0;
+      s.classList.toggle("hide", !vis); if (vis && !g.length) shown++;
     });
     empty.style.display = shown ? "none" : "block";
+  }
+  q.addEventListener("input", apply);
+  Array.prototype.forEach.call(document.querySelectorAll(".tab"), function (t) {
+    t.addEventListener("click", function () {
+      f = t.getAttribute("data-f");
+      Array.prototype.forEach.call(document.querySelectorAll(".tab"), function (x) { x.setAttribute("aria-selected", x === t ? "true" : "false"); });
+      apply(); window.scrollTo(0, 0);
+    });
   });
+  document.addEventListener("keydown", function (e) { if (e.key === "/" && document.activeElement !== q) { e.preventDefault(); q.focus(); } });
   Array.prototype.forEach.call(document.querySelectorAll("[data-ck]"), function (b) {
     var k = "ck-" + b.getAttribute("data-ck");
     try { b.checked = localStorage.getItem(k) === "1"; } catch (e) {}
