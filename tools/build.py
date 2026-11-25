@@ -400,7 +400,7 @@ def render_html(data: dict, links: dict | None = None, img_prefix: str = "../",
     nav = [lnk("Главная"), lnk("Коды"), lnk("Пасхалки"), lnk("Версия для печати"),
            lnk("Файлы", "Скачать PDF"), lnk("Форум"), lnk("Гостевая книга")]
     if links.get("Современная версия"):
-        nav.append(f'<a href="{esc(links["Современная версия"])}" onclick="setTheme(\'modern\')" style="color:#ffcc00">Современная версия &raquo;</a>')
+        nav.append(f'<a href="{esc(links["Современная версия"])}" style="color:#ffcc00">Современная версия &raquo;</a>')
     add('<tr><td colspan="2" class="navbar">' + "<span>|</span>".join(nav) + "</td></tr>\n")
 
     latest = sorted(data["entries"], key=lambda e: str(e.get("added", "")), reverse=True)[:8]
@@ -522,7 +522,7 @@ THEME_JS = """<script>
   // выбор вида сайта запоминается: старый (2005) или современный
   var want = null; try { want = localStorage.getItem("theme"); } catch (e) {}
   var here = document.documentElement.getAttribute("data-theme");
-  if (here === "old" && want === "modern" && !/[?&]old/.test(location.search)) location.replace("modern.html" + location.hash);
+  // старый вид всегда по умолчанию, современный открывается только по ссылке
 })();
 function setTheme(t) { try { localStorage.setItem("theme", t); } catch (e) {} }
 </script>
@@ -533,21 +533,23 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="
          '&family=IBM+Plex+Mono:wght@500;600&display=swap&subset=cyrillic" rel="stylesheet">\n')
 
 MODERN_CSS = """
-  :root { --paper: #f4f2ec; --ink: #141414; --mute: #67635c; --rule: #dcd7cc; --hover: #ebe7dd; --hot: #e8336d;
-          --ok: #2f7a4b; --warn: #c08321; --rum: #9a9a9a;
-          --disp: "Oswald", "Arial Narrow", sans-serif; --text: "IBM Plex Sans", "Segoe UI", sans-serif; --mono: "IBM Plex Mono", Consolas, monospace; }
+  :root { --paper: #ffffff; --ink: #1d1d1f; --mute: #6e6e73; --rule: #e5e5e5; --hover: #f5f7fa; --hot: #0b62d6;
+          --ok: #1f8a4c; --warn: #d08a1e; --rum: #9a9a9a;
+          --disp: system-ui, "Segoe UI", Roboto, Arial, sans-serif; --text: system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+          --mono: ui-monospace, Consolas, monospace; }
   * { box-sizing: border-box; }
   html { scroll-padding-top: 108px; }
   body { margin: 0; overflow-x: hidden; background: var(--paper); color: var(--ink); font: 15px/1.5 var(--text); -webkit-font-smoothing: antialiased; }
-  a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 1px; }
-  a:hover { color: var(--hot); }
-  .top { position: sticky; top: 0; z-index: 20; background: var(--paper); border-bottom: 1px solid var(--ink); }
+  a { color: var(--hot); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  a:hover { text-decoration: none; }
+  .top nav a, .logo { color: var(--ink); }
+  .top { position: sticky; top: 0; z-index: 20; background: var(--paper); border-bottom: 1px solid var(--rule); }
   .top .in { max-width: 1240px; margin: 0 auto; padding: 0 20px; height: 56px; display: flex; align-items: center; gap: 20px; }
-  .logo { font: 700 24px/1 var(--disp); text-transform: uppercase; text-decoration: none; letter-spacing: .01em; white-space: nowrap; }
+  .logo { font: 700 19px/1 var(--text); text-decoration: none; white-space: nowrap; }
   .logo span { color: var(--hot); }
-  #q { flex: 1; min-width: 0; max-width: 520px; height: 36px; padding: 0 12px; font: 15px var(--text); border: 1px solid var(--ink); border-radius: 0;
+  #q { flex: 1; min-width: 0; max-width: 520px; height: 36px; padding: 0 12px; font: 15px var(--text); border: 1px solid #c9c9cf; border-radius: 6px;
        background: #fff; outline: none; }
-  #q:focus { border-color: var(--hot); box-shadow: 0 0 0 2px rgba(232,51,109,.18); }
+  #q:focus { border-color: var(--hot); box-shadow: 0 0 0 3px rgba(11,98,214,.15); }
   .top nav { margin-left: auto; display: flex; gap: 18px; font-size: 14px; white-space: nowrap; }
   .top nav a { text-decoration: none; }
   .tabs { max-width: 1240px; margin: 0 auto; padding: 0 20px; display: flex; gap: 2px; overflow-x: auto; }
@@ -561,14 +563,14 @@ MODERN_CSS = """
   .intro .nums { font-size: 13px; }
   .legend { color: var(--mute); }
   .sec { padding-top: 18px; }
-  .sec h2 { display: flex; align-items: baseline; gap: 10px; margin: 0; padding: 0 0 6px; border-bottom: 2px solid var(--ink);
-            font: 700 22px/1.1 var(--disp); text-transform: uppercase; }
+  .sec h2 { display: flex; align-items: baseline; gap: 10px; margin: 0; padding: 0 0 8px; border-bottom: 1px solid var(--ink);
+            font: 700 22px/1.2 var(--text); }
   .sec h2 small { font: 400 13px var(--text); color: var(--mute); }
   .sub2 { padding: 14px 10px 4px; font-weight: 600; color: var(--mute); border-bottom: 1px solid var(--rule); }
   .row { display: grid; grid-template-columns: minmax(200px, 30%) minmax(0, 1fr) 112px; gap: 16px; padding: 9px 10px;
          border-bottom: 1px solid var(--rule); align-items: start; }
   .row:hover { background: var(--hover); }
-  .row:target { background: #fbe3ea; }
+  .row:target { background: #e8f0fc; }
   .row .k { font-weight: 600; line-height: 1.35; }
   .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; vertical-align: 1px; background: var(--rum); }
   .dot.confirmed { background: var(--ok); } .dot.single { background: var(--warn); }
@@ -591,14 +593,14 @@ MODERN_CSS = """
   .poll > b { display: block; margin: 4px 0 6px; font-size: 16px; }
   .po { display: block; margin: 6px 0 0; } .po b { float: right; font: 500 12px var(--mono); font-variant-numeric: tabular-nums; }
   .po input { accent-color: var(--hot); margin: 0 8px 0 0; }
-  .poll .bar { height: 3px; background: var(--rule); margin-top: 3px; } .poll .bar i { display: block; height: 100%; background: var(--ink); }
+  .poll .bar { height: 4px; border-radius: 2px; background: var(--rule); margin-top: 3px; } .poll .bar i { display: block; height: 100%; border-radius: 2px; background: var(--hot); }
   .pt { margin-top: 8px; font-size: 13px; color: var(--mute); }
-  .btnv { margin-top: 10px; height: 34px; padding: 0 16px; border: 0; background: var(--ink); color: var(--paper); font: 600 14px var(--text);
+  .btnv { margin-top: 10px; height: 34px; padding: 0 16px; border: 0; border-radius: 6px; background: var(--hot); color: #fff; font: 600 14px var(--text);
           cursor: pointer; transition-property: scale; transition-duration: .1s; }
   .btnv:active { scale: .96; }
   .res { font-size: 13px; margin-left: 10px; }
   .empty { display: none; padding: 30px 10px; color: var(--mute); }
-  footer { max-width: 1240px; margin: 0 auto; padding: 16px 20px 50px; border-top: 1px solid var(--ink); font-size: 13px; color: var(--mute); }
+  footer { max-width: 1240px; margin: 0 auto; padding: 16px 20px 50px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--mute); }
   details summary { cursor: pointer; color: var(--ink); }
   #lb { display: none; position: fixed; inset: 0; background: rgba(20,20,20,.9); z-index: 99; overflow: auto; text-align: center; }
   #lb.on { display: block; }
@@ -616,31 +618,31 @@ MODERN_CSS = """
 
 MODERN_PRINT_CSS = """
   @page { size: A4 portrait; margin: 13mm 12mm 14mm;
-    @bottom-left { content: "__FOOT__"; font: 7.5pt "IBM Plex Mono", Consolas, monospace; color: #666; }
-    @bottom-right { content: counter(page) " / " counter(pages); font: 7.5pt "IBM Plex Mono", Consolas, monospace; color: #666; } }
+    @bottom-left { content: "__FOOT__"; font: 7.5pt Consolas, monospace; color: #666; }
+    @bottom-right { content: counter(page) " / " counter(pages); font: 7.5pt Consolas, monospace; color: #666; } }
   * { box-sizing: border-box; }
-  body { margin: 0; font: 8.6pt/1.4 "IBM Plex Sans", "Segoe UI", sans-serif; color: #121212; }
+  body { margin: 0; font: 8.6pt/1.4 "Segoe UI", Arial, sans-serif; color: #121212; }
   .top { border-bottom: 2pt solid #121212; padding-bottom: 2mm; margin-bottom: 3mm; }
-  .top .r1 { display: flex; justify-content: space-between; font: 500 7pt "IBM Plex Mono", monospace; text-transform: uppercase;
+  .top .r1 { display: flex; justify-content: space-between; font: 500 7pt Consolas, monospace; text-transform: uppercase;
              letter-spacing: .06em; color: #555; border-bottom: .6pt solid #121212; padding-bottom: 1.5mm; }
-  .top h1 { font: 700 46pt/.9 "Oswald", "Arial Narrow", sans-serif; text-transform: uppercase; margin: 2mm 0 1mm; }
-  .top h1 span { color: #e8336d; }
+  .top h1 { font: 700 26pt/1.05 "Segoe UI", Arial, sans-serif; margin: 2mm 0 1mm; }
+  .top h1 span { color: #0b62d6; }
   .lead { margin: 0 0 3mm; max-width: 140mm; }
-  .legend { font: 500 7pt "IBM Plex Mono", monospace; color: #555; margin-bottom: 3mm; text-transform: uppercase; letter-spacing: .04em; }
+  .legend { font: 500 7pt Consolas, monospace; color: #555; margin-bottom: 3mm; text-transform: uppercase; letter-spacing: .04em; }
   .cols { column-count: 2; column-gap: 8mm; column-rule: .4pt solid #d8d2c6; }
-  h2 { font: 700 17pt/1 "Oswald", "Arial Narrow", sans-serif; text-transform: uppercase; margin: 3mm 0 1.5mm; padding-bottom: 1mm;
+  h2 { font: 700 13pt/1.15 "Segoe UI", Arial, sans-serif; margin: 3mm 0 1.5mm; padding-bottom: 1mm;
        border-bottom: 1.6pt solid #121212; break-after: avoid; }
-  h2 b { font: 600 7.5pt "IBM Plex Mono", monospace; color: #e8336d; margin-right: 2mm; vertical-align: 1.5mm; }
-  h3 { font: 600 6.8pt "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .08em; color: #a8661a; margin: 2.4mm 0 .8mm;
+  h2 b { font: 600 7.5pt Consolas, monospace; color: #0b62d6; margin-right: 2mm; vertical-align: 1.5mm; }
+  h3 { font: 600 6.8pt Consolas, monospace; text-transform: uppercase; letter-spacing: .08em; color: #a8661a; margin: 2.4mm 0 .8mm;
        break-after: avoid; }
   .e { break-inside: avoid; padding: 1.3mm 0 1.5mm; border-bottom: .4pt solid #d8d2c6; display: grid; grid-template-columns: 7mm 1fr; }
-  .e .num { font: 500 7pt/1.9 "IBM Plex Mono", monospace; color: #777; }
+  .e .num { font: 500 7pt/1.9 Consolas, monospace; color: #777; }
   .e .k { font-weight: 600; }
-  .e .s { font: 500 6.3pt "IBM Plex Mono", monospace; text-transform: uppercase; color: #777; letter-spacing: .04em; }
+  .e .s { font: 500 6.3pt Consolas, monospace; text-transform: uppercase; color: #777; letter-spacing: .04em; }
   .e img { display: block; max-width: 100%; max-height: 38mm; margin-top: 1.2mm; outline: .5pt solid rgba(0,0,0,.15); }
-  .e .cap { font: 500 6pt "IBM Plex Mono", monospace; color: #888; }
+  .e .cap { font: 500 6pt Consolas, monospace; color: #888; }
   .ci { display: grid; grid-template-columns: 7mm 5mm 1fr; padding: .7mm 0; border-bottom: .4pt solid #d8d2c6; }
-  .ci .num { font: 500 7pt "IBM Plex Mono", monospace; color: #777; }
+  .ci .num { font: 500 7pt Consolas, monospace; color: #777; }
   .ci i { display: inline-block; width: 2.8mm; height: 2.8mm; border: .7pt solid #121212; margin-top: .4mm; }
   .map { width: 100%; margin-top: 2mm; break-inside: avoid; }
   .code { font-weight: 600; }
@@ -688,14 +690,14 @@ def render_modern(data: dict, links: dict | None = None, img_prefix: str = "../"
     add = P.append
     title = f"LEONIDA: пасхалки, коды и секреты {meta['game']}"
     add('<!DOCTYPE html>\n<html lang="ru" data-theme="modern">\n<head>\n<meta charset="utf-8">\n'
-        '<meta name="viewport" content="width=device-width, initial-scale=1">\n' + FONTS)
+        '<meta name="viewport" content="width=device-width, initial-scale=1">\n')
 
     if print_mode:
         css = MODERN_PRINT_CSS.replace('"__FOOT__"', css_string(footer_url or f"LEONIDA · {meta['game']}"))
         add(f"<title>{esc(title)}</title>\n<style>{css}{BTN_CSS}</style>\n</head>\n<body>\n")
         add(f'<div class="top"><div class="r1"><span>Пасхалки, коды и секреты {esc(meta["game"])}</span>'
             f'<span>Выпуск №{meta["issue"]} · {d}.{m}.{y} · {len(numbered)} записей</span></div>'
-            '<h1>Leonida<span>.</span></h1></div>\n')
+            '<h1>Пасхалки, коды и секреты GTA 6</h1></div>\n')
         add(f'<p class="lead">{esc(meta["intro"])}</p>\n')
         add('<div class="legend">● подтверждено двумя источниками и больше · ○ одно сообщение · ◇ слух</div>\n<div class="cols">\n')
         for s_ in secs:
@@ -729,18 +731,19 @@ def render_modern(data: dict, links: dict | None = None, img_prefix: str = "../"
     wn = sum(len(v) for v in data["checklists"].values())
     tabs = [("all", "Всё", counts["all"]), ("egg", "Пасхалки", counts["egg"]), ("poi", "Точки интереса", counts["poi"]),
             ("cheats", "Читы", counts["cheats"]), ("controls", "Кнопки", counts["controls"]), ("waink", "WAiNK", wn)]
-    add('<header class="top"><div class="in"><a class="logo" href="#">Leonida</a>'
+    add('<header class="top"><div class="in"><a class="logo" href="#">Пасхалки GTA 6</a>'
         '<input id="q" type="search" placeholder="Поиск" aria-label="Поиск" autocomplete="off">'
-        f'<nav><a href="{esc(links.get("Печать", "#"))}">Печать</a><a href="{esc(links.get("PDF", "#"))}">PDF</a>'
-        f'<a href="{esc(links.get("Прислать пасхалку", "#"))}">Прислать</a>'
-        '<a href="index.html?old" onclick="setTheme(\'old\')">Вид 2005</a></nav></div>'
+        f'<nav><a href="{esc(links.get("Печать", "#"))}">Версия для печати</a><a href="{esc(links.get("PDF", "#"))}">Скачать PDF</a>'
+        f'<a href="{esc(links.get("Прислать пасхалку", "#"))}">Прислать свою пасхалку</a>'
+        '<a href="index.html">Старый вид сайта</a></nav></div>'
         '<div class="tabs" role="tablist">'
         + "".join(f'<button class="tab" role="tab" data-f="{k}" aria-selected="{"true" if k == "all" else "false"}">{t}<b>{n}</b></button>'
                   for k, t, n in tabs)
         + "</div></header>\n")
     add(f'<div class="wrap"><div class="intro"><span>{esc(meta["intro"])}</span>'
-        f'<span class="nums">Выпуск №{meta["issue"]}, {d}.{m}.{y}. '
-        '<span class="legend"><span class="dot confirmed"></span>подтверждено <span class="dot single"></span>одно сообщение</span></span></div>\n'
+        f'<span class="nums">Выпуск №{meta["issue"]} от {d}.{m}.{y}. '
+        '<span class="legend"><span class="dot confirmed"></span>подтверждено двумя источниками и больше &nbsp; '
+        '<span class="dot single"></span>пока один источник</span></span></div>\n'
         '<p class="empty" id="empty">Ничего не нашлось.</p>\n')
 
     for s_ in secs:

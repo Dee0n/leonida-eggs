@@ -3,33 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap&subset=cyrillic" rel="stylesheet">
 <title>LEONIDA: пасхалки, коды и секреты Grand Theft Auto VI</title>
 <script>
 (function () {
   // выбор вида сайта запоминается: старый (2005) или современный
   var want = null; try { want = localStorage.getItem("theme"); } catch (e) {}
   var here = document.documentElement.getAttribute("data-theme");
-  if (here === "old" && want === "modern" && !/[?&]old/.test(location.search)) location.replace("modern.html" + location.hash);
+  // старый вид всегда по умолчанию, современный открывается только по ссылке
 })();
 function setTheme(t) { try { localStorage.setItem("theme", t); } catch (e) {} }
 </script>
 <style>
-  :root { --paper: #f4f2ec; --ink: #141414; --mute: #67635c; --rule: #dcd7cc; --hover: #ebe7dd; --hot: #e8336d;
-          --ok: #2f7a4b; --warn: #c08321; --rum: #9a9a9a;
-          --disp: "Oswald", "Arial Narrow", sans-serif; --text: "IBM Plex Sans", "Segoe UI", sans-serif; --mono: "IBM Plex Mono", Consolas, monospace; }
+  :root { --paper: #ffffff; --ink: #1d1d1f; --mute: #6e6e73; --rule: #e5e5e5; --hover: #f5f7fa; --hot: #0b62d6;
+          --ok: #1f8a4c; --warn: #d08a1e; --rum: #9a9a9a;
+          --disp: system-ui, "Segoe UI", Roboto, Arial, sans-serif; --text: system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+          --mono: ui-monospace, Consolas, monospace; }
   * { box-sizing: border-box; }
   html { scroll-padding-top: 108px; }
   body { margin: 0; overflow-x: hidden; background: var(--paper); color: var(--ink); font: 15px/1.5 var(--text); -webkit-font-smoothing: antialiased; }
-  a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 1px; }
-  a:hover { color: var(--hot); }
-  .top { position: sticky; top: 0; z-index: 20; background: var(--paper); border-bottom: 1px solid var(--ink); }
+  a { color: var(--hot); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  a:hover { text-decoration: none; }
+  .top nav a, .logo { color: var(--ink); }
+  .top { position: sticky; top: 0; z-index: 20; background: var(--paper); border-bottom: 1px solid var(--rule); }
   .top .in { max-width: 1240px; margin: 0 auto; padding: 0 20px; height: 56px; display: flex; align-items: center; gap: 20px; }
-  .logo { font: 700 24px/1 var(--disp); text-transform: uppercase; text-decoration: none; letter-spacing: .01em; white-space: nowrap; }
+  .logo { font: 700 19px/1 var(--text); text-decoration: none; white-space: nowrap; }
   .logo span { color: var(--hot); }
-  #q { flex: 1; min-width: 0; max-width: 520px; height: 36px; padding: 0 12px; font: 15px var(--text); border: 1px solid var(--ink); border-radius: 0;
+  #q { flex: 1; min-width: 0; max-width: 520px; height: 36px; padding: 0 12px; font: 15px var(--text); border: 1px solid #c9c9cf; border-radius: 6px;
        background: #fff; outline: none; }
-  #q:focus { border-color: var(--hot); box-shadow: 0 0 0 2px rgba(232,51,109,.18); }
+  #q:focus { border-color: var(--hot); box-shadow: 0 0 0 3px rgba(11,98,214,.15); }
   .top nav { margin-left: auto; display: flex; gap: 18px; font-size: 14px; white-space: nowrap; }
   .top nav a { text-decoration: none; }
   .tabs { max-width: 1240px; margin: 0 auto; padding: 0 20px; display: flex; gap: 2px; overflow-x: auto; }
@@ -43,14 +44,14 @@ function setTheme(t) { try { localStorage.setItem("theme", t); } catch (e) {} }
   .intro .nums { font-size: 13px; }
   .legend { color: var(--mute); }
   .sec { padding-top: 18px; }
-  .sec h2 { display: flex; align-items: baseline; gap: 10px; margin: 0; padding: 0 0 6px; border-bottom: 2px solid var(--ink);
-            font: 700 22px/1.1 var(--disp); text-transform: uppercase; }
+  .sec h2 { display: flex; align-items: baseline; gap: 10px; margin: 0; padding: 0 0 8px; border-bottom: 1px solid var(--ink);
+            font: 700 22px/1.2 var(--text); }
   .sec h2 small { font: 400 13px var(--text); color: var(--mute); }
   .sub2 { padding: 14px 10px 4px; font-weight: 600; color: var(--mute); border-bottom: 1px solid var(--rule); }
   .row { display: grid; grid-template-columns: minmax(200px, 30%) minmax(0, 1fr) 112px; gap: 16px; padding: 9px 10px;
          border-bottom: 1px solid var(--rule); align-items: start; }
   .row:hover { background: var(--hover); }
-  .row:target { background: #fbe3ea; }
+  .row:target { background: #e8f0fc; }
   .row .k { font-weight: 600; line-height: 1.35; }
   .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; vertical-align: 1px; background: var(--rum); }
   .dot.confirmed { background: var(--ok); } .dot.single { background: var(--warn); }
@@ -73,14 +74,14 @@ function setTheme(t) { try { localStorage.setItem("theme", t); } catch (e) {} }
   .poll > b { display: block; margin: 4px 0 6px; font-size: 16px; }
   .po { display: block; margin: 6px 0 0; } .po b { float: right; font: 500 12px var(--mono); font-variant-numeric: tabular-nums; }
   .po input { accent-color: var(--hot); margin: 0 8px 0 0; }
-  .poll .bar { height: 3px; background: var(--rule); margin-top: 3px; } .poll .bar i { display: block; height: 100%; background: var(--ink); }
+  .poll .bar { height: 4px; border-radius: 2px; background: var(--rule); margin-top: 3px; } .poll .bar i { display: block; height: 100%; border-radius: 2px; background: var(--hot); }
   .pt { margin-top: 8px; font-size: 13px; color: var(--mute); }
-  .btnv { margin-top: 10px; height: 34px; padding: 0 16px; border: 0; background: var(--ink); color: var(--paper); font: 600 14px var(--text);
+  .btnv { margin-top: 10px; height: 34px; padding: 0 16px; border: 0; border-radius: 6px; background: var(--hot); color: #fff; font: 600 14px var(--text);
           cursor: pointer; transition-property: scale; transition-duration: .1s; }
   .btnv:active { scale: .96; }
   .res { font-size: 13px; margin-left: 10px; }
   .empty { display: none; padding: 30px 10px; color: var(--mute); }
-  footer { max-width: 1240px; margin: 0 auto; padding: 16px 20px 50px; border-top: 1px solid var(--ink); font-size: 13px; color: var(--mute); }
+  footer { max-width: 1240px; margin: 0 auto; padding: 16px 20px 50px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--mute); }
   details summary { cursor: pointer; color: var(--ink); }
   #lb { display: none; position: fixed; inset: 0; background: rgba(20,20,20,.9); z-index: 99; overflow: auto; text-align: center; }
   #lb.on { display: block; }
@@ -105,8 +106,8 @@ function setTheme(t) { try { localStorage.setItem("theme", t); } catch (e) {} }
 </style>
 </head>
 <body>
-<header class="top"><div class="in"><a class="logo" href="#">Leonida</a><input id="q" type="search" placeholder="Поиск" aria-label="Поиск" autocomplete="off"><nav><a href="print-modern.html">Печать</a><a href="leonida_easter_eggs_modern.pdf">PDF</a><a href="https://github.com/Dee0n/leonida-eggs/issues/new?template=egg.yml">Прислать</a><a href="index.html?old" onclick="setTheme('old')">Вид 2005</a></nav></div><div class="tabs" role="tablist"><button class="tab" role="tab" data-f="all" aria-selected="true">Всё<b>94</b></button><button class="tab" role="tab" data-f="egg" aria-selected="false">Пасхалки<b>34</b></button><button class="tab" role="tab" data-f="poi" aria-selected="false">Точки интереса<b>23</b></button><button class="tab" role="tab" data-f="cheats" aria-selected="false">Читы<b>20</b></button><button class="tab" role="tab" data-f="controls" aria-selected="false">Кнопки<b>17</b></button><button class="tab" role="tab" data-f="waink" aria-selected="false">WAiNK<b>12</b></button></div></header>
-<div class="wrap"><div class="intro"><span>Все найденные пасхалки GTA 6 в одном месте. Пишем, где искать и что нажать, а что там будет, увидите сами.</span><span class="nums">Выпуск №1, 25.11.2026. <span class="legend"><span class="dot confirmed"></span>подтверждено <span class="dot single"></span>одно сообщение</span></span></div>
+<header class="top"><div class="in"><a class="logo" href="#">Пасхалки GTA 6</a><input id="q" type="search" placeholder="Поиск" aria-label="Поиск" autocomplete="off"><nav><a href="print-modern.html">Версия для печати</a><a href="leonida_easter_eggs_modern.pdf">Скачать PDF</a><a href="https://github.com/Dee0n/leonida-eggs/issues/new?template=egg.yml">Прислать свою пасхалку</a><a href="index.html">Старый вид сайта</a></nav></div><div class="tabs" role="tablist"><button class="tab" role="tab" data-f="all" aria-selected="true">Всё<b>94</b></button><button class="tab" role="tab" data-f="egg" aria-selected="false">Пасхалки<b>34</b></button><button class="tab" role="tab" data-f="poi" aria-selected="false">Точки интереса<b>23</b></button><button class="tab" role="tab" data-f="cheats" aria-selected="false">Читы<b>20</b></button><button class="tab" role="tab" data-f="controls" aria-selected="false">Кнопки<b>17</b></button><button class="tab" role="tab" data-f="waink" aria-selected="false">WAiNK<b>12</b></button></div></header>
+<div class="wrap"><div class="intro"><span>Здесь собраны пасхалки GTA 6: где каждая находится и что там нужно сделать. Что именно вы там увидите, не пишем, чтобы не спойлерить. Названия мест даны по-английски, как на карте в игре.</span><span class="nums">Выпуск №1 от 25.11.2026. <span class="legend"><span class="dot confirmed"></span>подтверждено двумя источниками и больше &nbsp; <span class="dot single"></span>пока один источник</span></span></div>
 <p class="empty" id="empty">Ничего не нашлось.</p>
 <section class="sec" id="keys"><h2>I. Leonida Keys<small>18</small></h2>
 <article class="row" id="e-tommy-tower" data-kind="egg" data-added="2026-11-24"><div class="k" title="подтверждено, источников: 3"><span class="dot confirmed"></span>Радиовышка Badger R&amp;D</div><div class="h">Key Lento, нужна открытая вся карта. Поднимись в комнату управления, опусти рычаг питания, нажми кнопку на стене и подожди у телевизора.</div><span></span></article>

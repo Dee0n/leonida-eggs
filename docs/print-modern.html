@@ -3,35 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap&subset=cyrillic" rel="stylesheet">
 <title>LEONIDA: пасхалки, коды и секреты Grand Theft Auto VI</title>
 <style>
   @page { size: A4 portrait; margin: 13mm 12mm 14mm;
-    @bottom-left { content: "https://dee0n.github.io/leonida-eggs/modern.html"; font: 7.5pt "IBM Plex Mono", Consolas, monospace; color: #666; }
-    @bottom-right { content: counter(page) " / " counter(pages); font: 7.5pt "IBM Plex Mono", Consolas, monospace; color: #666; } }
+    @bottom-left { content: "https://dee0n.github.io/leonida-eggs/modern.html"; font: 7.5pt Consolas, monospace; color: #666; }
+    @bottom-right { content: counter(page) " / " counter(pages); font: 7.5pt Consolas, monospace; color: #666; } }
   * { box-sizing: border-box; }
-  body { margin: 0; font: 8.6pt/1.4 "IBM Plex Sans", "Segoe UI", sans-serif; color: #121212; }
+  body { margin: 0; font: 8.6pt/1.4 "Segoe UI", Arial, sans-serif; color: #121212; }
   .top { border-bottom: 2pt solid #121212; padding-bottom: 2mm; margin-bottom: 3mm; }
-  .top .r1 { display: flex; justify-content: space-between; font: 500 7pt "IBM Plex Mono", monospace; text-transform: uppercase;
+  .top .r1 { display: flex; justify-content: space-between; font: 500 7pt Consolas, monospace; text-transform: uppercase;
              letter-spacing: .06em; color: #555; border-bottom: .6pt solid #121212; padding-bottom: 1.5mm; }
-  .top h1 { font: 700 46pt/.9 "Oswald", "Arial Narrow", sans-serif; text-transform: uppercase; margin: 2mm 0 1mm; }
-  .top h1 span { color: #e8336d; }
+  .top h1 { font: 700 26pt/1.05 "Segoe UI", Arial, sans-serif; margin: 2mm 0 1mm; }
+  .top h1 span { color: #0b62d6; }
   .lead { margin: 0 0 3mm; max-width: 140mm; }
-  .legend { font: 500 7pt "IBM Plex Mono", monospace; color: #555; margin-bottom: 3mm; text-transform: uppercase; letter-spacing: .04em; }
+  .legend { font: 500 7pt Consolas, monospace; color: #555; margin-bottom: 3mm; text-transform: uppercase; letter-spacing: .04em; }
   .cols { column-count: 2; column-gap: 8mm; column-rule: .4pt solid #d8d2c6; }
-  h2 { font: 700 17pt/1 "Oswald", "Arial Narrow", sans-serif; text-transform: uppercase; margin: 3mm 0 1.5mm; padding-bottom: 1mm;
+  h2 { font: 700 13pt/1.15 "Segoe UI", Arial, sans-serif; margin: 3mm 0 1.5mm; padding-bottom: 1mm;
        border-bottom: 1.6pt solid #121212; break-after: avoid; }
-  h2 b { font: 600 7.5pt "IBM Plex Mono", monospace; color: #e8336d; margin-right: 2mm; vertical-align: 1.5mm; }
-  h3 { font: 600 6.8pt "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .08em; color: #a8661a; margin: 2.4mm 0 .8mm;
+  h2 b { font: 600 7.5pt Consolas, monospace; color: #0b62d6; margin-right: 2mm; vertical-align: 1.5mm; }
+  h3 { font: 600 6.8pt Consolas, monospace; text-transform: uppercase; letter-spacing: .08em; color: #a8661a; margin: 2.4mm 0 .8mm;
        break-after: avoid; }
   .e { break-inside: avoid; padding: 1.3mm 0 1.5mm; border-bottom: .4pt solid #d8d2c6; display: grid; grid-template-columns: 7mm 1fr; }
-  .e .num { font: 500 7pt/1.9 "IBM Plex Mono", monospace; color: #777; }
+  .e .num { font: 500 7pt/1.9 Consolas, monospace; color: #777; }
   .e .k { font-weight: 600; }
-  .e .s { font: 500 6.3pt "IBM Plex Mono", monospace; text-transform: uppercase; color: #777; letter-spacing: .04em; }
+  .e .s { font: 500 6.3pt Consolas, monospace; text-transform: uppercase; color: #777; letter-spacing: .04em; }
   .e img { display: block; max-width: 100%; max-height: 38mm; margin-top: 1.2mm; outline: .5pt solid rgba(0,0,0,.15); }
-  .e .cap { font: 500 6pt "IBM Plex Mono", monospace; color: #888; }
+  .e .cap { font: 500 6pt Consolas, monospace; color: #888; }
   .ci { display: grid; grid-template-columns: 7mm 5mm 1fr; padding: .7mm 0; border-bottom: .4pt solid #d8d2c6; }
-  .ci .num { font: 500 7pt "IBM Plex Mono", monospace; color: #777; }
+  .ci .num { font: 500 7pt Consolas, monospace; color: #777; }
   .ci i { display: inline-block; width: 2.8mm; height: 2.8mm; border: .7pt solid #121212; margin-top: .4mm; }
   .map { width: 100%; margin-top: 2mm; break-inside: avoid; }
   .code { font-weight: 600; }
@@ -46,8 +45,8 @@
 </style>
 </head>
 <body>
-<div class="top"><div class="r1"><span>Пасхалки, коды и секреты Grand Theft Auto VI</span><span>Выпуск №1 · 25.11.2026 · 94 записей</span></div><h1>Leonida<span>.</span></h1></div>
-<p class="lead">Все найденные пасхалки GTA 6 в одном месте. Пишем, где искать и что нажать, а что там будет, увидите сами.</p>
+<div class="top"><div class="r1"><span>Пасхалки, коды и секреты Grand Theft Auto VI</span><span>Выпуск №1 · 25.11.2026 · 94 записей</span></div><h1>Пасхалки, коды и секреты GTA 6</h1></div>
+<p class="lead">Здесь собраны пасхалки GTA 6: где каждая находится и что там нужно сделать. Что именно вы там увидите, не пишем, чтобы не спойлерить. Названия мест даны по-английски, как на карте в игре.</p>
 <div class="legend">● подтверждено двумя источниками и больше · ○ одно сообщение · ◇ слух</div>
 <div class="cols">
 <h2><b>I</b>Leonida Keys</h2>
