@@ -253,13 +253,13 @@
       lb.className = "on";
     };
   });
-  var API = "https://abacus.jasoncameron.dev/", NS = "leonida-eggs";
+  var API = "https://countapi.mileshilliard.com/api/v1/", NS = "leonida-eggs";
   function ls(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
   // счётчик бесплатный и бывает медленным: ждём не дольше 8 секунд
   function cnt(key, hit) {
     var ctl = window.AbortController ? new AbortController() : null;
     var t = setTimeout(function () { if (ctl) ctl.abort(); }, 8000);
-    return fetch(API + (hit ? "hit/" : "get/") + NS + "/" + key, ctl ? { signal: ctl.signal } : {})
+    return fetch(API + (hit ? "hit/" : "get/") + NS + "-" + key, ctl ? { signal: ctl.signal } : {})
       .then(function (x) { clearTimeout(t); return x.ok ? x.json() : { value: 0 }; })
       .then(function (j) { return j.value || 0; })
       .catch(function () { clearTimeout(t); return null; });
