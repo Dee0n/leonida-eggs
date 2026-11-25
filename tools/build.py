@@ -558,92 +558,105 @@ function setTheme(t) { try { localStorage.setItem("theme", t); } catch (e) {} }
 </script>
 """
 
+GFONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
+          '<link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&family=PT+Sans:ital,wght@0,400;0,700;1,400'
+          '&display=swap&subset=cyrillic" rel="stylesheet">\n')
+
 MODERN_CSS = """
-  :root { --paper: #ffffff; --ink: #1d1d1f; --mute: #6e6e73; --rule: #e5e5e5; --hover: #f5f7fa; --hot: #0b62d6;
-          --ok: #1f8a4c; --warn: #d08a1e; --rum: #9a9a9a;
-          --disp: system-ui, "Segoe UI", Roboto, Arial, sans-serif; --text: system-ui, "Segoe UI", Roboto, Arial, sans-serif;
-          --mono: ui-monospace, Consolas, monospace; }
+  /* меню паузы GTA 6: карта-вода фоном, тёмные панели, выбранная строка инвертируется, подсказки кнопок внизу */
+  :root { --water: #1d5674; --water2: #153f57; --panel: rgba(11, 17, 32, .9); --panel2: rgba(22, 30, 52, .92); --line: rgba(255,255,255,.12);
+          --text: #f2f4f8; --mute: #9aa6b8; --sel: #ffffff; --seltext: #0d1220; --pink: #ff4f9a; --ok: #46c27a; --warn: #f0b23a;
+          --ui: "PT Sans Narrow", "Arial Narrow", Arial, sans-serif; --body: "PT Sans", Arial, sans-serif; color-scheme: dark; }
   * { box-sizing: border-box; }
-  html { scroll-padding-top: 108px; }
-  body { margin: 0; overflow-x: hidden; background: var(--paper); color: var(--ink); font: 15px/1.5 var(--text); -webkit-font-smoothing: antialiased; }
-  a { color: var(--hot); text-underline-offset: 3px; text-decoration-thickness: 1px; }
-  a:hover { text-decoration: none; }
-  .top nav a, .logo { color: var(--ink); }
-  .top { position: sticky; top: 0; z-index: 20; background: var(--paper); border-bottom: 1px solid var(--rule); }
-  .top .in { max-width: 1240px; margin: 0 auto; padding: 0 20px; height: 56px; display: flex; align-items: center; gap: 20px; }
-  .logo { font: 700 19px/1 var(--text); text-decoration: none; white-space: nowrap; }
-  .logo span { color: var(--hot); }
-  #q { flex: 1; min-width: 0; max-width: 520px; height: 36px; padding: 0 12px; font: 15px var(--text); border: 1px solid #c9c9cf; border-radius: 6px;
-       background: #fff; outline: none; }
-  #q:focus { border-color: var(--hot); box-shadow: 0 0 0 3px rgba(11,98,214,.15); }
-  .top nav { margin-left: auto; display: flex; gap: 18px; font-size: 14px; white-space: nowrap; }
-  .top nav a { text-decoration: none; }
-  .tabs { max-width: 1240px; margin: 0 auto; padding: 0 20px; display: flex; gap: 2px; overflow-x: auto; }
-  .tab { position: relative; padding: 10px 12px 9px; font: 500 13px var(--text); background: none; border: 0; cursor: pointer; color: var(--mute);
-         white-space: nowrap; border-bottom: 2px solid transparent; }
-  .tab b { font-weight: 400; margin-left: 5px; color: var(--mute); font-variant-numeric: tabular-nums; }
-  .tab:hover { color: var(--ink); }
-  .tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--hot); }
-  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 20px 60px; }
-  .intro { display: flex; justify-content: space-between; gap: 20px; padding: 14px 0 6px; color: var(--mute); font-size: 14px; }
-  .intro .nums { font-size: 13px; }
-  .legend { color: var(--mute); }
-  .sec { padding-top: 18px; }
-  .sec h2 { display: flex; align-items: baseline; gap: 10px; margin: 0; padding: 0 0 8px; border-bottom: 1px solid var(--ink);
-            font: 700 22px/1.2 var(--text); }
-  .sec h2 small { font: 400 13px var(--text); color: var(--mute); }
-  .chapters .chrow { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 16px; padding: 10px; border-bottom: 1px solid var(--rule); }
-  .chapters .chn { font-weight: 700; }
-  .chapters ul { margin: 0; padding: 0; list-style: none; columns: 2 260px; column-gap: 28px; }
-  .chapters li { break-inside: avoid; padding: 1px 0; }
-  .sec.chapters:not(.on) { display: none; }
-  .sub2 { padding: 14px 10px 4px; font-weight: 600; color: var(--mute); border-bottom: 1px solid var(--rule); }
-  .row { display: grid; grid-template-columns: minmax(200px, 30%) minmax(0, 1fr) 112px; gap: 16px; padding: 9px 10px;
-         border-bottom: 1px solid var(--rule); align-items: start; }
-  .row:hover { background: var(--hover); }
-  .row:target { background: #e8f0fc; }
-  .row .k { font-weight: 600; line-height: 1.35; }
-  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; vertical-align: 1px; background: var(--rum); }
+  html, body { height: 100%; }
+  body { margin: 0; color: var(--text); font: 16px/1.5 var(--body); -webkit-font-smoothing: antialiased; overflow: hidden;
+         background: radial-gradient(1200px 700px at 70% 30%, #2a7194 0%, var(--water) 45%, var(--water2) 100%); }
+  a { color: var(--pink); }
+  .app { height: 100%; display: grid; grid-template-rows: auto auto 1fr auto; max-width: 1400px; margin: 0 auto;
+         padding: 14px max(16px, env(safe-area-inset-right, 0px)) 10px max(16px, env(safe-area-inset-left, 0px)); gap: 10px; }
+  .hud { display: flex; justify-content: space-between; align-items: center; font: 700 15px var(--ui); letter-spacing: .03em; }
+  .hud .l { color: var(--text); text-transform: uppercase; } .hud .l small { color: var(--mute); font-weight: 400; margin-left: 10px; }
+  .hud .r { display: flex; gap: 16px; align-items: center; }
+  .hud .r a { color: var(--text); text-decoration: none; text-transform: uppercase; font-weight: 700; }
+  .hud .r a:hover { color: var(--pink); }
+  .hud .cnt { color: var(--ok); font-variant-numeric: tabular-nums; }
+  .tabs { display: flex; gap: 2px; background: var(--panel); padding: 4px; overflow-x: auto; scrollbar-width: none; }
+  .tab { flex: 0 0 auto; border: 0; background: none; color: var(--mute); font: 700 16px var(--ui); text-transform: uppercase; letter-spacing: .04em;
+         padding: 8px 14px; cursor: pointer; }
+  .tab:hover { color: var(--text); }
+  .tab[aria-selected="true"] { background: var(--pink); color: #fff; }
+  .tab b { font-weight: 400; opacity: .75; margin-left: 6px; font-variant-numeric: tabular-nums; }
+  .main { min-height: 0; display: grid; grid-template-columns: minmax(280px, 400px) minmax(0, 1fr); gap: 10px; }
+  .list { background: var(--panel); min-height: 0; display: flex; flex-direction: column; }
+  .search { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+  .search input { flex: 1; min-width: 0; background: rgba(255,255,255,.06); border: 1px solid var(--line); color: var(--text);
+                  font: 16px var(--body); padding: 6px 10px; outline: none; }
+  .search input:focus { border-color: var(--pink); }
+  ul.items { list-style: none; margin: 0; padding: 4px 0; overflow-y: auto; flex: 1; scrollbar-color: #3a4560 transparent; }
+  .grp { padding: 12px 14px 4px; font: 700 13px var(--ui); text-transform: uppercase; letter-spacing: .08em; color: var(--mute); }
+  .it { display: grid; grid-template-columns: 12px minmax(0, 1fr) auto; gap: 8px; align-items: baseline; padding: 7px 14px;
+        cursor: pointer; font: 700 17px/1.25 var(--ui); letter-spacing: .01em; }
+  .it:hover { background: rgba(255,255,255,.07); }
+  .it.on { background: var(--sel); color: var(--seltext); }
+  .it.on .dot { box-shadow: 0 0 0 2px var(--sel); }
+  .it .k { min-width: 0; }
+  .it .ch { font: 400 13px var(--ui); color: var(--mute); white-space: nowrap; }
+  .it.on .ch { color: #4a5262; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #888; align-self: center; }
   .dot.confirmed { background: var(--ok); } .dot.single { background: var(--warn); }
-  .row .h { color: #2b2925; }
-  .row.hide, .sec.hide { display: none; }
-  .th > a.zoom { display: block; }
-  .th img { display: block; width: 112px; height: 63px; object-fit: cover; border-radius: 2px; outline: 1px solid rgba(0,0,0,.1);
-            outline-offset: -1px; cursor: zoom-in; }
-  .th .cap { font-size: 11px; color: var(--mute); margin-top: 2px; white-space: nowrap; }
-  .code { font-weight: 600; }
-  .new { font-size: 12px; font-weight: 600; color: var(--hot); margin-left: 6px; }
-  .check label { display: grid; grid-template-columns: 26px 1fr; padding: 8px 10px; border-bottom: 1px solid var(--rule); cursor: pointer; }
-  .check label:hover { background: var(--hover); }
-  .check input { accent-color: var(--hot); margin: 4px 0 0; }
-  .check input:checked + span { color: var(--mute); text-decoration: line-through; }
-  .map { display: block; max-width: 640px; width: 100%; margin-top: 12px; cursor: zoom-in; outline: 1px solid rgba(0,0,0,.1); }
-  .extra { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0 40px; }
-  .poll { padding: 14px 0; }
-  .poll .bt { font-size: 13px; color: var(--mute); }
-  .poll > b { display: block; margin: 4px 0 6px; font-size: 16px; }
-  .po { display: block; margin: 6px 0 0; } .po b { float: right; font: 500 12px var(--mono); font-variant-numeric: tabular-nums; }
-  .po input { accent-color: var(--hot); margin: 0 8px 0 0; }
-  .poll .bar { height: 4px; border-radius: 2px; background: var(--rule); margin-top: 3px; } .poll .bar i { display: block; height: 100%; border-radius: 2px; background: var(--hot); }
-  .pt { margin-top: 8px; font-size: 13px; color: var(--mute); }
-  .btnv { margin-top: 10px; height: 34px; padding: 0 16px; border: 0; border-radius: 6px; background: var(--hot); color: #fff; font: 600 14px var(--text);
-          cursor: pointer; transition-property: scale; transition-duration: .1s; }
+  .it[hidden], .grp[hidden] { display: none; }
+  .new { font: 700 12px var(--ui); color: var(--pink); margin-left: 6px; letter-spacing: .04em; }
+  .detail { background: var(--panel2); min-height: 0; overflow-y: auto; padding: 22px 26px 30px; }
+  .det h2 { font: 700 34px/1.05 var(--ui); text-transform: uppercase; margin: 0 0 6px; letter-spacing: .01em; text-wrap: balance; }
+  .det .where { font: 700 14px var(--ui); text-transform: uppercase; letter-spacing: .06em; color: var(--pink); margin-bottom: 14px; }
+  .det .h { font-size: 18px; line-height: 1.6; max-width: 62ch; }
+  .det .meta { margin-top: 16px; font-size: 14px; color: var(--mute); }
+  .det .meta a { color: var(--mute); }
+  .det .shot { margin-top: 18px; max-width: 720px; }
+  .det .shot img { display: block; width: 100%; cursor: zoom-in; }
+  .det .shot .cap { font-size: 13px; color: var(--mute); margin-top: 4px; }
+  .det .back { display: none; }
+  .det ul.links { list-style: none; padding: 0; margin: 0; }
+  .det ul.links li { padding: 8px 0; border-bottom: 1px solid var(--line); }
+  .det ul.links a { color: var(--text); text-decoration: none; font-weight: 700; } .det ul.links a:hover { color: var(--pink); }
+  .det ul.links span { color: var(--mute); }
+  .det .map { display: block; width: 100%; max-width: 900px; cursor: zoom-in; }
+  .chk label { display: flex; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--line); cursor: pointer; font-size: 17px; }
+  .chk input { accent-color: var(--pink); width: 18px; height: 18px; margin-top: 3px; }
+  .chk input:checked + span { color: var(--mute); text-decoration: line-through; }
+  .code { font-weight: 700; }
+  .prompts { display: flex; justify-content: flex-end; gap: 22px; font: 700 15px var(--ui); text-transform: uppercase; letter-spacing: .03em; }
+  .prompts span { display: inline-flex; align-items: center; gap: 7px; }
+  .poll { padding: 4px 0 18px; border-bottom: 1px solid var(--line); margin-bottom: 18px; }
+  .poll .bt { font: 700 13px var(--ui); text-transform: uppercase; letter-spacing: .08em; color: var(--mute); }
+  .poll > b { display: block; font: 700 24px var(--ui); text-transform: uppercase; margin: 4px 0 8px; }
+  .po { display: block; margin: 8px 0 0; font-size: 17px; } .po b { float: right; font-variant-numeric: tabular-nums; }
+  .po input { accent-color: var(--pink); margin-right: 10px; }
+  .poll .bar { height: 4px; background: rgba(255,255,255,.12); margin-top: 4px; } .poll .bar i { display: block; height: 100%; background: var(--pink); }
+  .pt { margin-top: 10px; font-size: 14px; color: var(--mute); }
+  .btnv { margin-top: 12px; border: 0; background: var(--sel); color: var(--seltext); font: 700 16px var(--ui); text-transform: uppercase;
+          letter-spacing: .04em; padding: 8px 18px; cursor: pointer; transition-property: scale; transition-duration: .1s; }
   .btnv:active { scale: .96; }
-  .res { font-size: 13px; margin-left: 10px; }
-  .empty { display: none; padding: 30px 10px; color: var(--mute); }
-  footer { max-width: 1240px; margin: 0 auto; padding: 16px 20px 50px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--mute); }
-  details summary { cursor: pointer; color: var(--ink); }
-  #lb { display: none; position: fixed; inset: 0; background: rgba(20,20,20,.9); z-index: 99; overflow: auto; text-align: center; }
+  .res { margin-left: 12px; color: var(--mute); }
+  #lb { display: none; position: fixed; inset: 0; background: rgba(5,8,16,.92); z-index: 99; overflow: auto; text-align: center; }
   #lb.on { display: block; }
   #lb .fr { display: inline-block; margin: 5vh auto 20px; max-width: 94%; text-align: left; }
   #lb img { display: block; max-width: 100%; max-height: 82vh; }
-  #lb .lc { font: 500 12px var(--mono); padding-top: 8px; color: #bbb; } #lb .lc a, #lb .lx { color: #fff; } #lb .lx { float: right; text-decoration: none; }
-  @media (max-width: 760px) {
-    .top .in { gap: 10px; } .top nav { display: none; }
-    .row { grid-template-columns: minmax(0, 1fr) 88px; gap: 4px 12px; }
-    .row .h { grid-column: 1; } .row .th { grid-column: 2; grid-row: 1 / span 2; }
-    .th img { width: 88px; height: 50px; } .th .cap { display: none; }
-    .intro { flex-direction: column; gap: 4px; }
+  #lb .lc { font: 700 14px var(--ui); padding-top: 8px; color: var(--mute); text-transform: uppercase; }
+  #lb .lc a, #lb .lx { color: #fff; } #lb .lx { float: right; text-decoration: none; }
+  :focus-visible { outline: 2px solid var(--pink); outline-offset: 2px; }
+  @media (max-width: 820px) {
+    body { overflow: auto; }
+    .app { height: auto; min-height: 100%; grid-template-rows: auto auto auto; }
+    .main { grid-template-columns: 1fr; }
+    .list { max-height: none; } ul.items { overflow: visible; }
+    .detail { display: none; position: fixed; inset: 0; z-index: 50; padding: calc(16px + env(safe-area-inset-top, 0px)) 18px 30px; background: #0f1729; }
+    .detail.open { display: block; }
+    .det .back { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px; border: 0; background: none; color: var(--text);
+                 font: 700 17px var(--ui); text-transform: uppercase; cursor: pointer; padding: 6px 0; }
+    .prompts { display: none; }
+    .hud .r a.opt { display: none; }
+    .det h2 { font-size: 28px; }
   }
 """
 
@@ -652,18 +665,18 @@ MODERN_PRINT_CSS = """
     @bottom-left { content: "__FOOT__"; font: 7.5pt Consolas, monospace; color: #666; }
     @bottom-right { content: counter(page) " / " counter(pages); font: 7.5pt Consolas, monospace; color: #666; } }
   * { box-sizing: border-box; }
-  body { margin: 0; font: 8.6pt/1.4 "Segoe UI", Arial, sans-serif; color: #121212; }
+  body { margin: 0; font: 8.6pt/1.4 "PT Sans", Arial, sans-serif; color: #121212; }
   .top { border-bottom: 2pt solid #121212; padding-bottom: 2mm; margin-bottom: 3mm; }
   .top .r1 { display: flex; justify-content: space-between; font: 500 7pt Consolas, monospace; text-transform: uppercase;
              letter-spacing: .06em; color: #555; border-bottom: .6pt solid #121212; padding-bottom: 1.5mm; }
-  .top h1 { font: 700 26pt/1.05 "Segoe UI", Arial, sans-serif; margin: 2mm 0 1mm; }
-  .top h1 span { color: #0b62d6; }
+  .top h1 { font: 700 26pt/1.05 "PT Sans", Arial, sans-serif; margin: 2mm 0 1mm; }
+  .top h1 span { color: #e0337f; }
   .lead { margin: 0 0 3mm; max-width: 140mm; }
   .legend { font: 500 7pt Consolas, monospace; color: #555; margin-bottom: 3mm; text-transform: uppercase; letter-spacing: .04em; }
   .cols { column-count: 2; column-gap: 8mm; column-rule: .4pt solid #d8d2c6; }
-  h2 { font: 700 13pt/1.15 "Segoe UI", Arial, sans-serif; margin: 3mm 0 1.5mm; padding-bottom: 1mm;
+  h2 { font: 700 14pt/1.1 "PT Sans Narrow", "PT Sans", Arial, sans-serif; text-transform: uppercase; margin: 3mm 0 1.5mm; padding-bottom: 1mm;
        border-bottom: 1.6pt solid #121212; break-after: avoid; }
-  h2 b { font: 600 7.5pt Consolas, monospace; color: #0b62d6; margin-right: 2mm; vertical-align: 1.5mm; }
+  h2 b { font: 600 7.5pt Consolas, monospace; color: #e0337f; margin-right: 2mm; vertical-align: 1.5mm; }
   h3 { font: 600 6.8pt Consolas, monospace; text-transform: uppercase; letter-spacing: .08em; color: #a8661a; margin: 2.4mm 0 .8mm;
        break-after: avoid; }
   .e { break-inside: avoid; padding: 1.3mm 0 1.5mm; border-bottom: .4pt solid #d8d2c6; display: grid; grid-template-columns: 7mm 1fr; }
@@ -725,7 +738,7 @@ def render_modern(data: dict, links: dict | None = None, img_prefix: str = "../"
 
     if print_mode:
         css = MODERN_PRINT_CSS.replace('"__FOOT__"', css_string(footer_url or f"LEONIDA · {meta['game']}"))
-        add(f"<title>{esc(title)}</title>\n<style>{css}{BTN_CSS}</style>\n</head>\n<body>\n")
+        add(f"<title>{esc(title)}</title>\n{GFONTS}<style>{css}{BTN_CSS}</style>\n</head>\n<body>\n")
         add(f'<div class="top"><div class="r1"><span>Пасхалки, коды и секреты {esc(meta["game"])}</span>'
             f'<span>Выпуск №{meta["issue"]} · {d}.{m}.{y} · {len(numbered)} записей</span></div>'
             '<h1>Пасхалки, коды и секреты GTA 6</h1></div>\n')
@@ -755,144 +768,159 @@ def render_modern(data: dict, links: dict | None = None, img_prefix: str = "../"
         add("</div>\n</body>\n</html>\n")
         return "".join(P)
 
-    add(f"<title>{esc(title)}</title>\n{THEME_JS}<style>{MODERN_CSS}{BTN_CSS}</style>\n</head>\n<body>\n")
+    add(f"<title>{esc(title)}</title>\n{GFONTS}{THEME_JS}<style>{MODERN_CSS}{BTN_CSS}</style>\n</head>\n<body>\n")
 
     def kind_of(e: dict) -> str:
         if e["section"] in ("cheats", "controls"):
             return e["section"]
         return "poi" if e.get("kind") == "poi" else "egg"
 
-    counts = {"all": len(numbered), "egg": 0, "poi": 0, "cheats": 0, "controls": 0}
+    counts = {"egg": 0, "poi": 0, "cheats": 0, "controls": 0}
     for _n, e in numbered:
         counts[kind_of(e)] += 1
-    wn = sum(len(v) for v in data["checklists"].values())
-    tabs = [("all", "Всё", counts["all"]), ("egg", "Пасхалки", counts["egg"]), ("poi", "Точки интереса", counts["poi"]),
-            ("cheats", "Читы", counts["cheats"]), ("controls", "Кнопки", counts["controls"]), ("waink", "WAiNK", wn),
-            ("chapters", "По главам", sum(len(v) for _k, v in chapter_groups(data)))]
-    add('<header class="top"><div class="in"><a class="logo" href="#">Пасхалки GTA 6</a>'
-        '<input id="q" type="search" placeholder="Поиск" aria-label="Поиск" autocomplete="off">'
-        f'<nav><a href="{esc(links.get("Печать", "#"))}">Версия для печати</a><a href="{esc(links.get("PDF", "#"))}">Скачать PDF</a>'
-        f'<a href="{esc(links.get("Прислать пасхалку", "#"))}">Прислать свою пасхалку</a>'
-        '<a href="index.html">Старый вид сайта</a></nav></div>'
-        '<div class="tabs" role="tablist">'
-        + "".join(f'<button class="tab" role="tab" data-f="{k}" aria-selected="{"true" if k == "all" else "false"}">{t}<b>{n}</b></button>'
-                  for k, t, n in tabs)
-        + "</div></header>\n")
-    add(f'<div class="wrap"><div class="intro"><span>{esc(meta["intro"])}</span>'
-        f'<span class="nums">Выпуск №{meta["issue"]} от {d}.{m}.{y}. '
-        '<span class="legend"><span class="dot confirmed"></span>подтверждено двумя источниками и больше &nbsp; '
-        '<span class="dot single"></span>пока один источник</span></span></div>\n'
-        '<p class="empty" id="empty">Ничего не нашлось.</p>\n')
-
     groups = chapter_groups(data)
-    if groups:
-        add('<section class="sec chapters" id="chapters" data-kind="chapters"><h2>По главам<small>что когда открывается</small></h2>')
-        for cname, items in groups:
-            add(f'<div class="chrow"><div class="chn">{esc(cname)}</div><ul>'
-                + "".join(f"<li>{chapter_item(e)}</li>" for e in items) + "</ul></div>")
-        add("</section>\n")
-
-    for s_ in secs:
-        sid = esc(s_["id"])
-        if s_.get("type") == "checklist":
-            items = data["checklists"][s_["id"]]
-            add(f'<section class="sec" id="{sid}" data-kind="waink"><h2>{esc(s_["title"])}<small>{len(items)} · отметки сохраняются</small></h2>'
-                '<div class="check">')
-            for i2, it in enumerate(items):
-                add(f'<label><input type="checkbox" data-ck="{sid}-{i2}"><span>{i2 + 1}. {esc(it)}</span></label>')
-            add("</div>")
-            if has_pic(s_):
-                url = f"{img_prefix}{esc(s_['image'])}"
-                src = s_.get("image_source")
-                add(f'<div class="th"><a class="zoom" href="{url}" target="_blank"><img class="map" src="{url}" alt=""></a>'
-                    + (f'<div class="cap">скрин: <a href="{esc(src["url"])}">{esc(src["name"])}</a></div>' if src else "") + "</div>")
-            add("</section>\n")
-            continue
-        rows = by_section[s_["id"]]
-        add(f'<section class="sec" id="{sid}"><h2>{esc(s_["title"])}<small>{len(rows)}</small></h2>\n')
-        poi = False
-        for num, e in rows:
-            if e.get("kind") == "poi" and not poi:
-                poi = True
-                add(f'<div class="sub2" data-kind="poi">{esc(POI_TITLE)}</div>\n')
-            new = '<span class="new">новое</span>' if e["id"] in fresh else ""
-            add(f'<article class="row" id="e-{esc(e["id"])}" data-kind="{kind_of(e)}" data-added="{esc(e.get("added", ""))}">'
-                f'<div class="k" title="{conf[e["confidence"]]}, источников: {len(e.get("sources", []))}">'
-                f'<span class="dot {e["confidence"]}"></span>{iconize(esc(e["title"]))}{new}</div>'
-                f'<div class="h">{render_hint(e["hint"])}</div>{pic(e) or "<span></span>"}</article>\n')
-        add("</section>\n")
-
     polls_path = ROOT / "data" / "polls.json"
     polls = json.loads(polls_path.read_text(encoding="utf-8")) if polls_path.is_file() else []
-    add('<section class="sec" id="polls"><h2>Опросы</h2><div class="extra">\n')
-    for poll in polls[:2]:
+    waink = [s_ for s_ in secs if s_.get("type") == "checklist"]
+    tabs = [("egg", "Пасхалки", counts["egg"]), ("poi", "Точки интереса", counts["poi"]), ("cheats", "Читы", counts["cheats"]),
+            ("controls", "Кнопки", counts["controls"]), ("waink", "WAiNK", sum(len(data["checklists"][w["id"]]) for w in waink)),
+            ("chapters", "По главам", len(groups)), ("polls", "Опросы", len(polls))]
+
+    items: list[str] = []
+    dets: list[str] = []
+    seen_group: set[tuple[str, str]] = set()
+    for s_ in secs:
+        if s_.get("type") == "checklist":
+            continue
+        for _num, e in by_section[s_["id"]]:
+            k = kind_of(e)
+            if k in ("egg", "poi") and (k, s_["id"]) not in seen_group:
+                seen_group.add((k, s_["id"]))
+                items.append(f'<li class="grp" data-tab="{k}">{esc(name[s_["id"]])}</li>')
+            ch = f'<span class="ch">гл. {e["chapter"]}</span>' if e.get("chapter") else '<span></span>'
+            items.append(f'<li class="it" data-tab="{k}" data-t="e-{esc(e["id"])}" data-added="{esc(e.get("added", ""))}" tabindex="-1">'
+                         f'<span class="dot {e["confidence"]}"></span><span class="k">{iconize(esc(e["title"]))}</span>{ch}</li>')
+            where = esc(s_["title"]) + (f" · глава {e['chapter']}" if e.get("chapter") else "")
+            if e.get("chapter_note"):
+                where += " · " + esc(e["chapter_note"])
+            srcs = ", ".join(f'<a href="{esc(x["url"])}">{esc(x["name"])}</a>' for x in e.get("sources", []))
+            dets.append(f'<article class="det" id="e-{esc(e["id"])}" hidden><button class="back" type="button">'
+                        f'<span class="btn cir">○</span> Назад</button>'
+                        f'<h2>{iconize(esc(e["title"]))}</h2><div class="where">{where}</div>'
+                        f'<div class="h">{render_hint(e["hint"])}</div>{pic(e)}'
+                        f'<div class="meta">{conf[e["confidence"]].capitalize()}. Источники: {srcs}</div></article>')
+    for w in waink:
+        for i2, it in enumerate(data["checklists"][w["id"]]):
+            items.append(f'<li class="it" data-tab="waink" data-t="wk-{esc(w["id"])}" tabindex="-1"><span class="dot"></span>'
+                         f'<span class="k">{i2 + 1}. {esc(it)}</span><span></span></li>')
+        boxes = "".join(f'<label><input type="checkbox" data-ck="{esc(w["id"])}-{i2}"><span>{i2 + 1}. {esc(it)}</span></label>'
+                        for i2, it in enumerate(data["checklists"][w["id"]]))
+        mp = ""
+        if has_pic(w):
+            url = f"{img_prefix}{esc(w['image'])}"
+            src = w.get("image_source")
+            mp = (f'<div class="shot"><a class="zoom" href="{url}" target="_blank"><img class="map" src="{url}" alt=""></a>'
+                  + (f'<div class="cap">Скрин: <a href="{esc(src["url"])}">{esc(src["name"])}</a></div>' if src else "") + "</div>")
+        dets.append(f'<article class="det" id="wk-{esc(w["id"])}" hidden><button class="back" type="button"><span class="btn cir">○</span> Назад</button>'
+                    f'<h2>{esc(w["title"])}</h2><div class="where">Отмечай найденное, отметки сохраняются</div>'
+                    f'<div class="chk">{boxes}</div>{mp}</article>')
+    for gi, (cname, gitems) in enumerate(groups):
+        items.append(f'<li class="it" data-tab="chapters" data-t="ch-{gi}" tabindex="-1"><span class="dot"></span>'
+                     f'<span class="k">{esc(cname)}</span><span class="ch">{len(gitems)}</span></li>')
+        lis = "".join(f'<li>{chapter_item(e)}</li>' for e in gitems)
+        dets.append(f'<article class="det" id="ch-{gi}" hidden><button class="back" type="button"><span class="btn cir">○</span> Назад</button>'
+                    f'<h2>{esc(cname)}</h2><div class="where">Что можно найти, начиная с этого момента</div><ul class="links">{lis}</ul></article>')
+    for pi, poll in enumerate(polls):
         pid = esc(poll["id"])
+        items.append(f'<li class="it" data-tab="polls" data-t="pl-{pid}" tabindex="-1"><span class="dot"></span>'
+                     f'<span class="k">{esc(poll["question"])}</span><span></span></li>')
         opts = "".join(f'<label class="po"><input type="radio" name="p-{pid}" value="{n}">{esc(o)}</label>'
                        for n, o in enumerate(poll["options"]))
-        add(f'<div class="poll" data-poll="{pid}" data-n="{len(poll["options"])}"><div class="bt">Опрос</div>'
-            f'<b>{esc(poll["question"])}</b><div class="pr">{opts}</div>'
-            '<div class="pa"><button type="button" class="btnv vote">Голосовать</button>'
-            '<a href="#" class="res">результаты</a></div></div>\n')
+        dets.append(f'<article class="det" id="pl-{pid}" hidden><button class="back" type="button"><span class="btn cir">○</span> Назад</button>'
+                    f'<div class="poll" data-poll="{pid}" data-n="{len(poll["options"])}"><div class="bt">Опрос</div>'
+                    f'<b>{esc(poll["question"])}</b><div class="pr">{opts}</div>'
+                    '<div class="pa"><button type="button" class="btnv vote">Голосовать</button>'
+                    '<a href="#" class="res">Результаты</a></div></div>'
+                    '<div class="poll"><div class="bt">Случайная пасхалка</div><b id="rnd"></b></div></article>')
+
+    add('<div class="app">')
+    add(f'<header class="hud"><div class="l">Пасхалки GTA 6<small>выпуск №{meta["issue"]}, {d}.{m}.{y}</small></div>'
+        f'<div class="r"><span class="cnt">{len(numbered)} записей</span>'
+        f'<a class="opt" href="{esc(links.get("Печать", "#"))}">Печать</a><a class="opt" href="{esc(links.get("PDF", "#"))}">PDF</a>'
+        f'<a class="opt" href="{esc(links.get("Прислать пасхалку", "#"))}">Прислать свою</a>'
+        '<a href="index.html">Старый вид</a></div></header>\n')
+    add('<nav class="tabs" role="tablist">' + "".join(
+        f'<button class="tab" role="tab" data-f="{k}" aria-selected="{"true" if k == "egg" else "false"}">{t}<b>{n}</b></button>'
+        for k, t, n in tabs) + "</nav>\n")
+    add('<div class="main"><div class="list"><div class="search"><input id="q" type="search" placeholder="Поиск" aria-label="Поиск" autocomplete="off"></div>'
+        '<ul class="items" id="items">' + "".join(items) + "</ul></div>\n")
+    add('<div class="detail" id="detail">' + "".join(dets) + "</div></div>\n")
+    add('<footer class="prompts"><span><span class="key dp">↑</span><span class="key dp">↓</span> Выбрать</span>'
+        '<span><span class="key">/</span> Поиск</span><span><span class="key">Esc</span> Сбросить</span></footer>\n</div>\n')
+
     pool = [[e["id"], e["title"]] for _n, e in numbered if e["section"] not in ("controls", "cheats")]
     pool_js = json.dumps(pool, ensure_ascii=False).replace("</", "<\\/")
-    add('<div class="poll"><div class="bt">Случайная пасхалка</div><b id="rnd"></b></div>\n</div></section>\n</div>\n')
-
-    sources: list[tuple[str, str]] = []
-    seen: set[str] = set()
-    for e in data["entries"]:
-        for src in e.get("sources", []):
-            if src["url"] not in seen:
-                seen.add(src["url"])
-                sources.append((src["name"], src["url"]))
-    add('<footer>'
-        f'<p>Фанатский некоммерческий проект, с Rockstar Games не связан. Данные и код на '
-        f'<a href="{esc(links.get("GitHub", "#"))}">GitHub</a>. Обновлено {d}.{m}.{y}.</p>'
-        '<details><summary>Источники (в заголовках статей бывают спойлеры)</summary><p>'
-        + " · ".join(f'<a href="{esc(u)}">{esc(n)}</a>' for n, u in sources) + "</p></details></footer>\n")
     add("<script>var POOL=" + pool_js + ";</script>\n")
     add("""<script>
 (function () {
-  var q = document.getElementById("q"), empty = document.getElementById("empty"), f = "all";
-  var rows = document.querySelectorAll("article.row"), secs = document.querySelectorAll("section.sec");
-  function apply() {
-    var v = q.value.trim().toLowerCase(), shown = 0;
-    Array.prototype.forEach.call(rows, function (r) {
-      var hit = (f === "all" || r.getAttribute("data-kind") === f) && (!v || r.textContent.toLowerCase().indexOf(v) >= 0);
-      r.classList.toggle("hide", !hit); if (hit) shown++;
-    });
-    Array.prototype.forEach.call(document.querySelectorAll(".sub2"), function (h) { h.classList.toggle("hide", f !== "all" && f !== "poi"); });
-    Array.prototype.forEach.call(secs, function (s) {
-      var g = s.querySelectorAll("article.row"), k = s.getAttribute("data-kind");
-      var vis = g.length ? Array.prototype.some.call(g, function (r) { return !r.classList.contains("hide"); })
-                         : (k ? (f === "all" || f === k) && !v : f === "all" && !v);
-      if (k === "waink" && v) vis = s.textContent.toLowerCase().indexOf(v) >= 0;
-      if (k === "chapters") { s.classList.toggle("on", f === "chapters"); vis = f === "chapters"; }
-      else if (f === "chapters") vis = false;
-      s.classList.toggle("hide", !vis); if (vis && !g.length) shown++;
-    });
-    empty.style.display = shown ? "none" : "block";
+  var q = document.getElementById("q"), items = Array.prototype.slice.call(document.querySelectorAll("#items .it")),
+      grps = document.querySelectorAll("#items .grp"), detail = document.getElementById("detail"), tab = "egg", cur = null;
+  var mobile = function () { return window.matchMedia("(max-width: 820px)").matches; };
+  function visible() { return items.filter(function (li) { return !li.hidden; }); }
+  function show(li, open) {
+    if (!li) return;
+    items.forEach(function (x) { x.classList.toggle("on", x === li); });
+    Array.prototype.forEach.call(detail.querySelectorAll(".det"), function (d) { d.hidden = d.id !== li.getAttribute("data-t"); });
+    cur = li; li.scrollIntoView({ block: "nearest" }); detail.scrollTop = 0;
+    if (open && mobile()) detail.classList.add("open");
   }
-  q.addEventListener("input", apply);
-  Array.prototype.forEach.call(document.querySelectorAll(".tab"), function (t) {
-    t.addEventListener("click", function () {
-      f = t.getAttribute("data-f");
-      Array.prototype.forEach.call(document.querySelectorAll(".tab"), function (x) { x.setAttribute("aria-selected", x === t ? "true" : "false"); });
-      apply(); window.scrollTo(0, 0);
+  function apply() {
+    var v = q.value.trim().toLowerCase();
+    items.forEach(function (li) {
+      var hit = v ? (li.textContent + " " + (document.getElementById(li.getAttribute("data-t")) || {}).textContent).toLowerCase().indexOf(v) >= 0
+                  : li.getAttribute("data-tab") === tab;
+      li.hidden = !hit;
     });
+    Array.prototype.forEach.call(grps, function (g) { g.hidden = !!v || g.getAttribute("data-tab") !== tab; });
+    var vis = visible();
+    if (!mobile() && vis.length && (!cur || cur.hidden)) show(vis[0]);
+  }
+  function setTab(t) {
+    tab = t; q.value = "";
+    Array.prototype.forEach.call(document.querySelectorAll(".tab"), function (x) { x.setAttribute("aria-selected", x.getAttribute("data-f") === t ? "true" : "false"); });
+    cur = null; apply();
+  }
+  Array.prototype.forEach.call(document.querySelectorAll(".tab"), function (b) { b.addEventListener("click", function () { setTab(b.getAttribute("data-f")); }); });
+  items.forEach(function (li) { li.addEventListener("click", function () { show(li, true); }); });
+  q.addEventListener("input", function () { cur = null; apply(); });
+  Array.prototype.forEach.call(detail.querySelectorAll(".back"), function (b) { b.addEventListener("click", function () { detail.classList.remove("open"); }); });
+  function go(hash) {
+    var id = (hash || "").replace("#", ""); if (!id) return false;
+    var li = items.filter(function (x) { return x.getAttribute("data-t") === id; })[0]; if (!li) return false;
+    setTab(li.getAttribute("data-tab")); show(li, true); return true;
+  }
+  window.addEventListener("hashchange", function () { go(location.hash); });
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#e-"]'); if (!a) return;
+    e.preventDefault(); go(a.getAttribute("href"));
   });
-  document.addEventListener("keydown", function (e) { if (e.key === "/" && document.activeElement !== q) { e.preventDefault(); q.focus(); } });
-  Array.prototype.forEach.call(document.querySelectorAll(".chapters a"), function (a) {
-    a.addEventListener("click", function () {
-      f = "all"; q.value = "";
-      Array.prototype.forEach.call(document.querySelectorAll(".tab"), function (x) { x.setAttribute("aria-selected", x.getAttribute("data-f") === "all" ? "true" : "false"); });
-      apply();
-    });
+  document.addEventListener("keydown", function (e) {
+    if (document.getElementById("lb") && document.getElementById("lb").className === "on") return;
+    var inField = e.target.tagName === "INPUT" && e.target.type !== "checkbox" && e.target.type !== "radio";
+    if (e.key === "/" && !inField) { e.preventDefault(); q.focus(); return; }
+    if (e.key === "Escape") { if (detail.classList.contains("open")) detail.classList.remove("open"); else { q.value = ""; q.blur(); apply(); } return; }
+    if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+      var vis = visible(); if (!vis.length) return; e.preventDefault();
+      var i = vis.indexOf(cur); i = e.key === "ArrowDown" ? Math.min(vis.length - 1, i + 1) : Math.max(0, i - 1);
+      show(vis[i]);
+    }
   });
   Array.prototype.forEach.call(document.querySelectorAll("[data-ck]"), function (b) {
     var k = "ck-" + b.getAttribute("data-ck");
     try { b.checked = localStorage.getItem(k) === "1"; } catch (e) {}
     b.addEventListener("change", function () { try { localStorage.setItem(k, b.checked ? "1" : ""); } catch (e) {} });
   });
+  if (!go(location.hash)) apply();
 })();
 </script>
 """)
