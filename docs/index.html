@@ -254,35 +254,57 @@
     };
   });
   var API = "https://abacus.jasoncameron.dev/", NS = "leonida-eggs";
+  function ls(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+  // счётчик бесплатный и бывает медленным: ждём не дольше 8 секунд
   function cnt(key, hit) {
-    return fetch(API + (hit ? "hit/" : "get/") + NS + "/" + key)
-      .then(function (x) { return x.ok ? x.json() : { value: 0 }; })
-      .then(function (j) { return j.value || 0; }).catch(function () { return 0; });
+    var ctl = window.AbortController ? new AbortController() : null;
+    var t = setTimeout(function () { if (ctl) ctl.abort(); }, 8000);
+    return fetch(API + (hit ? "hit/" : "get/") + NS + "/" + key, ctl ? { signal: ctl.signal } : {})
+      .then(function (x) { clearTimeout(t); return x.ok ? x.json() : { value: 0 }; })
+      .then(function (j) { return j.value || 0; })
+      .catch(function () { clearTimeout(t); return null; });
   }
   Array.prototype.forEach.call(document.querySelectorAll(".poll"), function (box) {
     var id = box.getAttribute("data-poll"), n = +box.getAttribute("data-n");
     var labels = Array.prototype.map.call(box.querySelectorAll(".po"), function (l) { return l.textContent.trim(); });
-    function show(mine) {
-      var ks = []; for (var i = 0; i < n; i++) ks.push(cnt("p-" + id + "-" + i, mine === i));
-      Promise.all(ks).then(function (v) {
-        var tot = v.reduce(function (a, b) { return a + b; }, 0), out = "";
-        v.forEach(function (c, i) {
-          var pc = tot ? Math.round(c * 100 / tot) : 0;
-          out += '<div class="po">' + h(labels[i]) + ' <b>' + pc + '%</b><div class="bar"><i style="width:' + pc + '%"></i></div></div>';
-        });
-        box.querySelector(".pr").innerHTML = out;
-        box.querySelector(".pa").innerHTML = '<div class="pt">Всего ответов: ' + tot +
-          (localStorage.getItem("poll-" + id) !== null ? "<br>Спасибо, ваш голос учтён!" : "") + "</div>";
+    var pr = box.querySelector(".pr"), pa = box.querySelector(".pa");
+    function results(v, note) {
+      var ok = v.every(function (x) { return x !== null; });
+      if (!ok) { pa.innerHTML = '<div class="pt">' + note + '<br>Результаты сейчас не загрузились, загляните позже.</div>'; return; }
+      var tot = v.reduce(function (a, b) { return a + b; }, 0), out = "";
+      v.forEach(function (c, i) {
+        var pc = tot ? Math.round(c * 100 / tot) : 0;
+        out += '<div class="po">' + h(labels[i]) + ' <b>' + pc + '%</b><div class="bar"><i style="width:' + pc + '%"></i></div></div>';
+      });
+      pr.innerHTML = out;
+      pa.innerHTML = '<div class="pt">Всего ответов: ' + tot + (note ? "<br>" + note : "") + "</div>";
+    }
+    function load(note) {
+      var ks = []; for (var i = 0; i < n; i++) ks.push(cnt("p-" + id + "-" + i, false));
+      Promise.all(ks).then(function (v) { results(v, note); });
+    }
+    function send(opt, note) {
+      pa.innerHTML = '<div class="pt">Голос отправляется...</div>';
+      cnt("p-" + id + "-" + opt, true).then(function (v) {
+        if (v === null) { ls("poll-pending-" + id, String(opt)); results([null], "Спасибо! Голос дойдёт при следующем заходе."); return; }
+        ls("poll-pending-" + id, "");
+        load(note);
       });
     }
-    if (localStorage.getItem("poll-" + id) !== null) { show(-1); return; }
+    var pending = ls("poll-pending-" + id);
+    if (pending) { send(+pending, "Спасибо, ваш голос учтён!"); return; }
+    if (ls("poll-" + id) !== null) { load("Вы уже голосовали."); return; }
     box.querySelector(".vote").onclick = function () {
       var r = box.querySelector("input:checked");
       if (!r) { alert("Выберите вариант ответа!"); return; }
-      localStorage.setItem("poll-" + id, r.value);
-      show(+r.value);
+      ls("poll-" + id, r.value);
+      send(+r.value, "Спасибо, ваш голос учтён!");
     };
-    box.querySelector(".res").onclick = function (ev) { ev.preventDefault(); show(-1); };
+    box.querySelector(".res").onclick = function (ev) {
+      ev.preventDefault();
+      pa.innerHTML = '<div class="pt">Загрузка...</div>';
+      load("");
+    };
   });
   var st = document.getElementById("stars");
   if (st) fetch("https://api.github.com/repos/" + R).then(function (x) { return x.json(); })
