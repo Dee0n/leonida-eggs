@@ -662,35 +662,42 @@ MODERN_CSS = """
 """
 
 MODERN_PRINT_CSS = """
-  @page { size: A4 portrait; margin: 13mm 12mm 14mm;
-    @bottom-left { content: "__FOOT__"; font: 7.5pt Consolas, monospace; color: #666; }
-    @bottom-right { content: counter(page) " / " counter(pages); font: 7.5pt Consolas, monospace; color: #666; } }
-  * { box-sizing: border-box; }
-  body { margin: 0; font: 8.6pt/1.4 "PT Sans", Arial, sans-serif; color: #121212; }
-  .top { border-bottom: 2pt solid #121212; padding-bottom: 2mm; margin-bottom: 3mm; }
-  .top .r1 { display: flex; justify-content: space-between; font: 500 7pt Consolas, monospace; text-transform: uppercase;
-             letter-spacing: .06em; color: #555; border-bottom: .6pt solid #121212; padding-bottom: 1.5mm; }
-  .top h1 { font: 700 26pt/1.05 "PT Sans", Arial, sans-serif; margin: 2mm 0 1mm; }
-  .top h1 span { color: #e0337f; }
-  .lead { margin: 0 0 3mm; max-width: 140mm; }
-  .legend { font: 500 7pt Consolas, monospace; color: #555; margin-bottom: 3mm; text-transform: uppercase; letter-spacing: .04em; }
-  .cols { column-count: 2; column-gap: 8mm; column-rule: .4pt solid #d8d2c6; }
-  h2 { font: 700 14pt/1.1 "PT Sans Narrow", "PT Sans", Arial, sans-serif; text-transform: uppercase; margin: 3mm 0 1.5mm; padding-bottom: 1mm;
-       border-bottom: 1.6pt solid #121212; break-after: avoid; }
-  h2 b { font: 600 7.5pt Consolas, monospace; color: #e0337f; margin-right: 2mm; vertical-align: 1.5mm; }
-  h3 { font: 600 6.8pt Consolas, monospace; text-transform: uppercase; letter-spacing: .08em; color: #a8661a; margin: 2.4mm 0 .8mm;
-       break-after: avoid; }
-  .e { break-inside: avoid; padding: 1.3mm 0 1.5mm; border-bottom: .4pt solid #d8d2c6; display: grid; grid-template-columns: 7mm 1fr; }
-  .e .num { font: 500 7pt/1.9 Consolas, monospace; color: #777; }
-  .e .k { font-weight: 600; }
-  .e .s { font: 500 6.3pt Consolas, monospace; text-transform: uppercase; color: #777; letter-spacing: .04em; }
-  .e img { display: block; max-width: 100%; max-height: 38mm; margin-top: 1.2mm; outline: .5pt solid rgba(0,0,0,.15); }
-  .e .cap { font: 500 6pt Consolas, monospace; color: #888; }
-  .ci { display: grid; grid-template-columns: 7mm 5mm 1fr; padding: .7mm 0; border-bottom: .4pt solid #d8d2c6; }
-  .ci .num { font: 500 7pt Consolas, monospace; color: #777; }
-  .ci i { display: inline-block; width: 2.8mm; height: 2.8mm; border: .7pt solid #121212; margin-top: .4mm; }
+  /* распечатка в стиле меню паузы: тёмная полоса-шапка с вкладками, синие плашки разделов, белый лист */
+  @page { size: A4 portrait; margin: 11mm 11mm 13mm;
+    @bottom-left { content: "__FOOT__"; font: 7.5pt "PT Sans", Arial, sans-serif; color: #667; }
+    @bottom-right { content: counter(page) " / " counter(pages); font: 700 8pt "PT Sans Narrow", Arial, sans-serif; color: #141a2e; } }
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { margin: 0; font: 8.7pt/1.38 "PT Sans", Arial, sans-serif; color: #141a2e; }
+  .hud { background: #141a2e; color: #fff; padding: 3mm 4mm 0; margin-bottom: 3mm; }
+  .hud .r1 { display: flex; justify-content: space-between; align-items: baseline; }
+  .hud h1 { margin: 0; font: 700 20pt/1 "PT Sans Narrow", Arial, sans-serif; text-transform: uppercase; letter-spacing: .02em; }
+  .hud .meta { font: 700 8pt "PT Sans Narrow", Arial, sans-serif; text-transform: uppercase; color: #9aa6b8; letter-spacing: .04em; }
+  .hud .meta b { color: #46c27a; }
+  .hud .tabs { display: flex; flex-wrap: wrap; gap: 0; margin-top: 2.4mm; }
+  .hud .tabs span { font: 700 8pt "PT Sans Narrow", Arial, sans-serif; text-transform: uppercase; letter-spacing: .04em; color: #c5cddb;
+                    padding: 1.2mm 2.6mm; }
+  .hud .tabs span:first-child { background: #ff4f9a; color: #fff; }
+  .lead { margin: 0 0 1.6mm; }
+  .legend { font: 700 7.5pt "PT Sans Narrow", Arial, sans-serif; text-transform: uppercase; color: #556; margin-bottom: 3mm; letter-spacing: .03em; }
+  .cols { column-count: 2; column-gap: 7mm; }
+  h2 { font: 700 11pt/1 "PT Sans Narrow", Arial, sans-serif; text-transform: uppercase; letter-spacing: .04em; margin: 3mm 0 1.4mm;
+       padding: 1.6mm 2.6mm; background: #141a2e; color: #fff; border-left: 2mm solid #ff4f9a; break-after: avoid; }
+  h3 { font: 700 7.8pt "PT Sans Narrow", Arial, sans-serif; text-transform: uppercase; letter-spacing: .06em; color: #8a93a6;
+       margin: 2.4mm 0 .6mm; break-after: avoid; }
+  .e { break-inside: avoid; padding: 1.2mm 0 1.4mm; border-bottom: .4pt solid #dde1ea; }
+  .e .k { font: 700 9.6pt/1.2 "PT Sans Narrow", Arial, sans-serif; }
+  .e .dot { display: inline-block; width: 2.2mm; height: 2.2mm; border-radius: 50%; background: #9a9a9a; margin-right: 1.4mm; vertical-align: .1mm; }
+  .e .dot.confirmed { background: #2f9e5f; } .e .dot.single { background: #e3a21a; }
+  .e .ch { font: 700 7pt "PT Sans Narrow", Arial, sans-serif; text-transform: uppercase; color: #fff; background: #ff4f9a; padding: 0 1.2mm;
+           margin-left: 1.4mm; vertical-align: .3mm; }
+  .e img { display: block; max-width: 100%; max-height: 38mm; margin-top: 1.2mm; }
+  .e .cap { font-size: 6.5pt; color: #889; }
+  .chap { break-inside: avoid; padding: 1.2mm 0; border-bottom: .4pt solid #dde1ea; }
+  .chap b { font: 700 8pt "PT Sans Narrow", Arial, sans-serif; text-transform: uppercase; color: #fff; background: #141a2e; padding: .3mm 1.6mm; margin-right: 1.4mm; }
+  .ci { padding: .7mm 0; border-bottom: .4pt solid #dde1ea; }
+  .ci i { display: inline-block; width: 2.8mm; height: 2.8mm; border: .8pt solid #141a2e; margin-right: 1.6mm; vertical-align: -.5mm; }
   .map { width: 100%; margin-top: 2mm; break-inside: avoid; }
-  .code { font-weight: 600; }
+  .code { font-weight: 700; }
 """
 
 
@@ -740,22 +747,23 @@ def render_modern(data: dict, links: dict | None = None, img_prefix: str = "../"
     if print_mode:
         css = MODERN_PRINT_CSS.replace('"__FOOT__"', css_string(footer_url or f"LEONIDA · {meta['game']}"))
         add(f"<title>{esc(title)}</title>\n{GFONTS}<style>{css}{BTN_CSS}</style>\n</head>\n<body>\n")
-        add(f'<div class="top"><div class="r1"><span>Пасхалки, коды и секреты {esc(meta["game"])}</span>'
-            f'<span>Выпуск №{meta["issue"]} · {d}.{m}.{y} · {len(numbered)} записей</span></div>'
-            '<h1>Пасхалки, коды и секреты GTA 6</h1></div>\n')
+        add(f'<div class="hud"><div class="r1"><h1>Пасхалки GTA 6</h1>'
+            f'<span class="meta">Выпуск №{meta["issue"]} · {d}.{m}.{y} · <b>{len(numbered)} записей</b></span></div>'
+            '<div class="tabs">' + "".join(f"<span>{esc(name[s_['id']])}</span>" for s_ in secs) + "</div></div>\n")
         add(f'<p class="lead">{esc(meta["intro"])}</p>\n')
-        add('<div class="legend">● подтверждено двумя источниками и больше · ○ одно сообщение · ◇ слух</div>\n<div class="cols">\n')
+        add('<div class="legend">● зелёная точка: подтверждено двумя источниками и больше · ● жёлтая: пока один источник</div>\n<div class="cols">\n')
         groups = chapter_groups(data)
         if groups:
             add("<h2>По главам</h2>\n")
             for cname, items in groups:
-                names = ", ".join(iconize(esc(e["title"])) for e in items)
-                add(f'<div class="e"><span class="num"></span><div><span class="k">{esc(cname)}:</span> {names}</div></div>\n')
+                names = ", ".join(iconize(esc(e["title"])) + (f" ({esc(e['chapter_note'])})" if e.get("chapter_note") else "")
+                                  for e in items)
+                add(f'<div class="chap"><b>{esc(cname)}</b>{names}</div>\n')
         for s_ in secs:
-            add(f'<h2><b>{esc(roman[s_["id"]])}</b>{esc(name[s_["id"]])}</h2>\n')
+            add(f'<h2>{esc(name[s_["id"]])}</h2>\n')
             if s_.get("type") == "checklist":
                 for i, it in enumerate(data["checklists"][s_["id"]], 1):
-                    add(f'<div class="ci"><span class="num">{i:02d}</span><i></i><span>{esc(it)}</span></div>\n')
+                    add(f'<div class="ci"><i></i>{i}. {esc(it)}</div>\n')
                 if has_pic(s_):
                     add(f'<img class="map" src="{img_prefix}{esc(s_["image"])}" alt="">\n')
                 continue
@@ -764,8 +772,9 @@ def render_modern(data: dict, links: dict | None = None, img_prefix: str = "../"
                 if e.get("kind") == "poi" and not poi:
                     poi = True
                     add(f"<h3>{esc(POI_TITLE)}</h3>\n")
-                add(f'<div class="e"><span class="num">{num:03d}</span><div><span class="k">{CONFIDENCE_TAGS[e["confidence"]]} '
-                    f'{iconize(esc(e["title"]))}</span><br>{render_hint(e["hint"])}{pic(e)}</div></div>\n')
+                ch = f'<span class="ch">глава {e["chapter"]}</span>' if e.get("chapter") else ""
+                add(f'<div class="e"><span class="dot {e["confidence"]}"></span><span class="k">{iconize(esc(e["title"]))}</span>{ch}'
+                    f'<br>{render_hint(e["hint"])}{pic(e)}</div>\n')
         add("</div>\n</body>\n</html>\n")
         return "".join(P)
 
