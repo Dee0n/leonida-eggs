@@ -265,7 +265,7 @@ function setTheme(t) { try { localStorage.setItem("theme", t); } catch (e) {} }
     var add = tr.getAttribute("data-added"), mark = tr.querySelector(".new");
     if (!LV) return;
     if (add > LV && !mark) {
-      mark = document.createElement("span"); mark.className = "new"; mark.textContent = "NEW!";
+      mark = document.createElement("span"); mark.className = "new"; mark.textContent = document.documentElement.getAttribute("data-theme") === "modern" ? "новое" : "NEW!";
       tr.querySelector(".k").appendChild(mark);
     } else if (add <= LV && mark) { mark.parentNode.removeChild(mark); }
   });

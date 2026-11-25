@@ -246,7 +246,7 @@ POLL_JS = """
     var add = tr.getAttribute("data-added"), mark = tr.querySelector(".new");
     if (!LV) return;
     if (add > LV && !mark) {
-      mark = document.createElement("span"); mark.className = "new"; mark.textContent = "NEW!";
+      mark = document.createElement("span"); mark.className = "new"; mark.textContent = document.documentElement.getAttribute("data-theme") === "modern" ? "новое" : "NEW!";
       tr.querySelector(".k").appendChild(mark);
     } else if (add <= LV && mark) { mark.parentNode.removeChild(mark); }
   });
@@ -548,23 +548,23 @@ MODERN_CSS = """
   #q { flex: 1; min-width: 0; max-width: 520px; height: 36px; padding: 0 12px; font: 15px var(--text); border: 1px solid var(--ink); border-radius: 0;
        background: #fff; outline: none; }
   #q:focus { border-color: var(--hot); box-shadow: 0 0 0 2px rgba(232,51,109,.18); }
-  .top nav { margin-left: auto; display: flex; gap: 16px; font: 500 12.5px var(--mono); text-transform: uppercase; letter-spacing: .04em; white-space: nowrap; }
+  .top nav { margin-left: auto; display: flex; gap: 18px; font-size: 14px; white-space: nowrap; }
   .top nav a { text-decoration: none; }
   .tabs { max-width: 1240px; margin: 0 auto; padding: 0 20px; display: flex; gap: 2px; overflow-x: auto; }
   .tab { position: relative; padding: 10px 12px 9px; font: 500 13px var(--text); background: none; border: 0; cursor: pointer; color: var(--mute);
          white-space: nowrap; border-bottom: 2px solid transparent; }
-  .tab b { font: 500 11px var(--mono); margin-left: 5px; color: var(--mute); font-variant-numeric: tabular-nums; }
+  .tab b { font-weight: 400; margin-left: 5px; color: var(--mute); font-variant-numeric: tabular-nums; }
   .tab:hover { color: var(--ink); }
   .tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--hot); }
   .wrap { max-width: 1240px; margin: 0 auto; padding: 0 20px 60px; }
   .intro { display: flex; justify-content: space-between; gap: 20px; padding: 14px 0 6px; color: var(--mute); font-size: 14px; }
-  .intro .nums { font: 500 12px var(--mono); }
-  .legend { font: 500 12px var(--mono); color: var(--mute); }
+  .intro .nums { font-size: 13px; }
+  .legend { color: var(--mute); }
   .sec { padding-top: 18px; }
   .sec h2 { display: flex; align-items: baseline; gap: 10px; margin: 0; padding: 0 0 6px; border-bottom: 2px solid var(--ink);
             font: 700 22px/1.1 var(--disp); text-transform: uppercase; }
-  .sec h2 small { font: 500 12px var(--mono); color: var(--mute); }
-  .sub2 { padding: 12px 10px 4px; font: 600 11.5px var(--mono); text-transform: uppercase; letter-spacing: .07em; color: var(--warn); }
+  .sec h2 small { font: 400 13px var(--text); color: var(--mute); }
+  .sub2 { padding: 14px 10px 4px; font-weight: 600; color: var(--mute); border-bottom: 1px solid var(--rule); }
   .row { display: grid; grid-template-columns: minmax(200px, 30%) minmax(0, 1fr) 112px; gap: 16px; padding: 9px 10px;
          border-bottom: 1px solid var(--rule); align-items: start; }
   .row:hover { background: var(--hover); }
@@ -574,12 +574,12 @@ MODERN_CSS = """
   .dot.confirmed { background: var(--ok); } .dot.single { background: var(--warn); }
   .row .h { color: #2b2925; }
   .row.hide, .sec.hide { display: none; }
-  .th a { display: block; }
+  .th > a.zoom { display: block; }
   .th img { display: block; width: 112px; height: 63px; object-fit: cover; border-radius: 2px; outline: 1px solid rgba(0,0,0,.1);
             outline-offset: -1px; cursor: zoom-in; }
-  .th .cap { font: 500 10px var(--mono); color: var(--mute); margin-top: 2px; white-space: nowrap; }
+  .th .cap { font-size: 11px; color: var(--mute); margin-top: 2px; white-space: nowrap; }
   .code { font-weight: 600; }
-  .new { font: 600 10px var(--mono); color: var(--hot); margin-left: 6px; letter-spacing: .05em; }
+  .new { font-size: 12px; font-weight: 600; color: var(--hot); margin-left: 6px; }
   .check label { display: grid; grid-template-columns: 26px 1fr; padding: 8px 10px; border-bottom: 1px solid var(--rule); cursor: pointer; }
   .check label:hover { background: var(--hover); }
   .check input { accent-color: var(--hot); margin: 4px 0 0; }
@@ -587,16 +587,16 @@ MODERN_CSS = """
   .map { display: block; max-width: 640px; width: 100%; margin-top: 12px; cursor: zoom-in; outline: 1px solid rgba(0,0,0,.1); }
   .extra { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0 40px; }
   .poll { padding: 14px 0; }
-  .poll .bt { font: 600 11.5px var(--mono); text-transform: uppercase; letter-spacing: .07em; color: var(--mute); }
+  .poll .bt { font-size: 13px; color: var(--mute); }
   .poll > b { display: block; margin: 4px 0 6px; font-size: 16px; }
   .po { display: block; margin: 6px 0 0; } .po b { float: right; font: 500 12px var(--mono); font-variant-numeric: tabular-nums; }
   .po input { accent-color: var(--hot); margin: 0 8px 0 0; }
   .poll .bar { height: 3px; background: var(--rule); margin-top: 3px; } .poll .bar i { display: block; height: 100%; background: var(--ink); }
-  .pt { margin-top: 8px; font: 500 12px var(--mono); color: var(--mute); }
-  .btnv { margin-top: 10px; height: 34px; padding: 0 16px; border: 0; background: var(--ink); color: var(--paper); font: 600 12px var(--mono);
-          text-transform: uppercase; letter-spacing: .05em; cursor: pointer; transition-property: scale; transition-duration: .1s; }
+  .pt { margin-top: 8px; font-size: 13px; color: var(--mute); }
+  .btnv { margin-top: 10px; height: 34px; padding: 0 16px; border: 0; background: var(--ink); color: var(--paper); font: 600 14px var(--text);
+          cursor: pointer; transition-property: scale; transition-duration: .1s; }
   .btnv:active { scale: .96; }
-  .res { font: 500 12px var(--mono); margin-left: 10px; }
+  .res { font-size: 13px; margin-left: 10px; }
   .empty { display: none; padding: 30px 10px; color: var(--mute); }
   footer { max-width: 1240px; margin: 0 auto; padding: 16px 20px 50px; border-top: 1px solid var(--ink); font-size: 13px; color: var(--mute); }
   details summary { cursor: pointer; color: var(--ink); }
@@ -656,7 +656,7 @@ def render_modern(data: dict, links: dict | None = None, img_prefix: str = "../"
     by_section: dict[str, list[tuple[int, dict]]] = {}
     for num, e in numbered:
         by_section.setdefault(e["section"], []).append((num, e))
-    fresh = _new_ids(data)
+    fresh: set[str] = set()  # «новое» ставит скрипт: только то, что появилось с прошлого визита
     y, m, d = str(meta["date"]).split("-")
     conf = {"confirmed": "подтверждено", "single": "одно сообщение", "rumor": "слух"}
 
@@ -729,8 +729,8 @@ def render_modern(data: dict, links: dict | None = None, img_prefix: str = "../"
     wn = sum(len(v) for v in data["checklists"].values())
     tabs = [("all", "Всё", counts["all"]), ("egg", "Пасхалки", counts["egg"]), ("poi", "Точки интереса", counts["poi"]),
             ("cheats", "Читы", counts["cheats"]), ("controls", "Кнопки", counts["controls"]), ("waink", "WAiNK", wn)]
-    add('<header class="top"><div class="in"><a class="logo" href="#">Leonida<span>.</span></a>'
-        '<input id="q" type="search" placeholder="Поиск: место, отсылка, код" aria-label="Поиск" autocomplete="off">'
+    add('<header class="top"><div class="in"><a class="logo" href="#">Leonida</a>'
+        '<input id="q" type="search" placeholder="Поиск" aria-label="Поиск" autocomplete="off">'
         f'<nav><a href="{esc(links.get("Печать", "#"))}">Печать</a><a href="{esc(links.get("PDF", "#"))}">PDF</a>'
         f'<a href="{esc(links.get("Прислать пасхалку", "#"))}">Прислать</a>'
         '<a href="index.html?old" onclick="setTheme(\'old\')">Вид 2005</a></nav></div>'
@@ -739,7 +739,7 @@ def render_modern(data: dict, links: dict | None = None, img_prefix: str = "../"
                   for k, t, n in tabs)
         + "</div></header>\n")
     add(f'<div class="wrap"><div class="intro"><span>{esc(meta["intro"])}</span>'
-        f'<span class="nums">выпуск №{meta["issue"]} · {d}.{m}.{y} · '
+        f'<span class="nums">Выпуск №{meta["issue"]}, {d}.{m}.{y}. '
         '<span class="legend"><span class="dot confirmed"></span>подтверждено <span class="dot single"></span>одно сообщение</span></span></div>\n'
         '<p class="empty" id="empty">Ничего не нашлось.</p>\n')
 
@@ -766,7 +766,7 @@ def render_modern(data: dict, links: dict | None = None, img_prefix: str = "../"
             if e.get("kind") == "poi" and not poi:
                 poi = True
                 add(f'<div class="sub2" data-kind="poi">{esc(POI_TITLE)}</div>\n')
-            new = '<span class="new">NEW</span>' if e["id"] in fresh else ""
+            new = '<span class="new">новое</span>' if e["id"] in fresh else ""
             add(f'<article class="row" id="e-{esc(e["id"])}" data-kind="{kind_of(e)}" data-added="{esc(e.get("added", ""))}">'
                 f'<div class="k" title="{conf[e["confidence"]]}, источников: {len(e.get("sources", []))}">'
                 f'<span class="dot {e["confidence"]}"></span>{iconize(esc(e["title"]))}{new}</div>'
