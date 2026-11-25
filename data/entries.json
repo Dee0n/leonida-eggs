@@ -5,7 +5,7 @@
     "issue": 1,
     "date": "2026-11-25",
     "game": "Grand Theft Auto VI",
-    "intro": "Где искать и что делать. Что там будет — не пишем. Названия мест — как на игровой карте. В конце раздела — точки интереса: туда просто прийти и посмотреть."
+    "intro": "Где искать и что делать. Что там будет — не пишем. Названия мест — как на игровой карте. В конце раздела — точки интереса: там просто посмотреть, отсылка названа сразу."
   },
   "sections": [
     {
@@ -171,7 +171,7 @@
     {
       "id": "jason-magazine",
       "section": "keys",
-      "title": "Журнал на террасе",
+      "title": "Журнал на террасе: йога-тренер Фабьен из GTA V",
       "hint": "Дом Джейсона, столик у скамьи для жима. Журнал Body Copy, страница 3.",
       "confidence": "single",
       "sources": [
@@ -187,7 +187,7 @@
     {
       "id": "jason-book",
       "section": "keys",
-      "title": "Книга у задней двери",
+      "title": "Книга у задней двери: мемуары гангстера из GTA IV",
       "hint": "Дом Джейсона, столик у задней двери, глава 1. Прочитай.",
       "confidence": "single",
       "sources": [
@@ -203,7 +203,7 @@
     {
       "id": "joystation",
       "section": "keys",
-      "title": "Приставка JoyStation",
+      "title": "JoyStation: отсылка к Clair Obscur и «Маяку»",
       "hint": "Дом Джейсона. Запусти игру Tenebrae Lux.",
       "confidence": "confirmed",
       "sources": [
@@ -223,7 +223,7 @@
     {
       "id": "rx-men",
       "section": "keys",
-      "title": "Комикс RX-Men №13",
+      "title": "Комикс RX-Men №13: пародия на «Людей Икс»",
       "hint": "Магазин 24/7 на севере Key Lento, стойка с журналами.",
       "confidence": "confirmed",
       "sources": [
@@ -263,7 +263,7 @@
     {
       "id": "brians-marina",
       "section": "keys",
-      "title": "Книга в Brian's Marina",
+      "title": "Книга в Brian's Marina: Флако Эрнандес из RDR 2",
       "hint": "Key Lento, Brian's Marina. Найди книгу внутри и прочитай.",
       "confidence": "single",
       "sources": [
@@ -333,7 +333,7 @@
     {
       "id": "souvenirs",
       "section": "keys",
-      "title": "Сувенирные лавки",
+      "title": "Сувенирные лавки: мишка Тревора и рубашка Томми",
       "hint": "Любая сувенирная лавка на Leonida Keys. Осмотри полки.",
       "confidence": "single",
       "sources": [
@@ -416,7 +416,7 @@
     {
       "id": "dexter",
       "section": "city",
-      "title": "Trinity Apartments",
+      "title": "Квартира Декстера Моргана: Trinity Apartments",
       "hint": "Washington Island, рядом с магазином Top Fun Drones. Внутрь нельзя, лезь на крышу.",
       "confidence": "confirmed",
       "sources": [
@@ -445,7 +445,7 @@
     {
       "id": "vercetti-mansion",
       "section": "city",
-      "title": "Особняк на Starfish Island",
+      "title": "Особняк Томми Версетти на Starfish Island",
       "hint": "Starfish Island, особняк у воды. Внутрь не пускают, смотри снаружи.",
       "confidence": "single",
       "sources": [
@@ -481,7 +481,7 @@
     {
       "id": "marbelle",
       "section": "city",
-      "title": "Отель Marbelle",
+      "title": "Отель Marbelle: отсылка к Silent Hill",
       "hint": "Южнее Crosstown. Поднимись на крышу.",
       "confidence": "single",
       "sources": [
@@ -532,7 +532,7 @@
     {
       "id": "little-sam",
       "section": "city",
-      "title": "Уборщик в клубе",
+      "title": "Уборщик Little Sam: камео Сэма Хаузера",
       "hint": "Глава 3, миссия 25 «Boobie Time». Смотри на уборщика в клубе.",
       "confidence": "single",
       "sources": [
@@ -671,7 +671,7 @@
     {
       "id": "monument",
       "section": "north",
-      "title": "Монумент в Manifest Canyon",
+      "title": "Монумент в Manifest Canyon: загадка в духе Mount Chiliad",
       "hint": "Север каньона, западнее трассы SR-73, севернее Port Gellhorn. Осмотри символы на основании или приходи ночью в грозу.",
       "confidence": "confirmed",
       "sources": [
@@ -716,7 +716,7 @@
     {
       "id": "mini-golf",
       "section": "north",
-      "title": "Мини-гольф на Valentine Drive",
+      "title": "Мини-гольф на Valentine Drive: Артур Морган из RDR 2",
       "hint": "Leonard County, рядом с картингом Hot Skidz. Пройди по деревянному настилу, смотри под ноги.",
       "confidence": "single",
       "sources": [
@@ -765,7 +765,7 @@
     {
       "id": "kalaga",
       "section": "north",
-      "title": "Вершина Mount Kalaga",
+      "title": "Вершина Mount Kalaga: мини-Стоунхендж",
       "hint": "Самый север карты. Поднимись на вершину.",
       "confidence": "single",
       "sources": [
@@ -832,7 +832,6 @@
       "added": "2026-11-24",
       "added_by": "lead",
       "image": "images/hyde-island.jpeg",
-      "kind": "poi",
       "image_source": {
         "name": "Beebom",
         "url": "https://beebom.com/gta-6-easter-eggs/"
@@ -853,7 +852,6 @@
       "added": "2026-11-24",
       "added_by": "lead",
       "image": "images/tallaloko.jpg",
-      "kind": "poi",
       "image_source": {
         "name": "Beebom",
         "url": "https://beebom.com/gta-6-easter-eggs/"
@@ -862,7 +860,7 @@
     {
       "id": "jacobs",
       "section": "north",
-      "title": "Таверна Jacob's",
+      "title": "Таверна Jacob's: вестерн про New Austin из RDR",
       "hint": "Millport. Найди книгу и прочитай.",
       "confidence": "single",
       "sources": [
@@ -878,7 +876,7 @@
     {
       "id": "pineapple",
       "section": "north",
-      "title": "Остановка на Cicada Avenue",
+      "title": "Остановка-ананас на Cicada Avenue: дом Губки Боба",
       "hint": "Рядом с Bluegrass. Жёлтая остановка у дороги.",
       "confidence": "single",
       "sources": [
@@ -1026,7 +1024,7 @@
     {
       "id": "ringtone",
       "section": "phone",
-      "title": "Рингтон Wind Chimes",
+      "title": "Рингтон Wind Chimes: телефон Майкла из GTA V",
       "hint": "Телефон → Настройки → Рингтоны.",
       "confidence": "single",
       "sources": [
@@ -1042,7 +1040,7 @@
     {
       "id": "rac7",
       "section": "phone",
-      "title": "Пост про RAC 7",
+      "title": "Пост про RAC 7: шутка про GTA 7",
       "hint": "Snapmatic, листай ленту, ищи Barnyard Blue.",
       "confidence": "confirmed",
       "sources": [
@@ -1062,7 +1060,7 @@
     {
       "id": "badlife",
       "section": "phone",
-      "title": "Аккаунт badlife999",
+      "title": "Аккаунт badlife999: отсылка к Juice WRLD",
       "hint": "Snapmatic, найди аккаунт badlife999.",
       "confidence": "single",
       "sources": [
@@ -1078,7 +1076,7 @@
     {
       "id": "vice-fm",
       "section": "phone",
-      "title": "Ведущий Vice City FM",
+      "title": "Ведущий Vice City FM: «Странный Эл» Янкович",
       "hint": "Включи Vice City FM и послушай ведущего.",
       "confidence": "single",
       "sources": [
@@ -1094,7 +1092,7 @@
     {
       "id": "kaleidoscope",
       "section": "phone",
-      "title": "Ведущий Kaleidoscope FM",
+      "title": "DJ Dicky на Kaleidoscope FM: Джереми Айронс",
       "hint": "Включи Kaleidoscope FM, ведущий DJ Dicky.",
       "confidence": "single",
       "sources": [
@@ -1110,7 +1108,7 @@
     {
       "id": "podcast",
       "section": "phone",
-      "title": "Подкаст Final Act",
+      "title": "Подкаст Final Act: Уэйд из GTA V",
       "hint": "Выпуск «Juggling with the Turd».",
       "confidence": "single",
       "sources": [
@@ -1126,7 +1124,7 @@
     {
       "id": "bam-cards",
       "section": "phone",
-      "title": "Карточки B.A.M.",
+      "title": "Карточки рестлеров B.A.M.",
       "hint": "Коллекционные карточки рестлеров, разбросаны по Leonida.",
       "confidence": "single",
       "sources": [
@@ -1142,7 +1140,7 @@
     {
       "id": "plate",
       "section": "phone",
-      "title": "Номер на угнанном Phoenix",
+      "title": "Номер на угнанном Phoenix: отсылка к «Сайнфелду»",
       "hint": "Глава 1, миссия 5. Посмотри на номерной знак.",
       "confidence": "single",
       "sources": [
