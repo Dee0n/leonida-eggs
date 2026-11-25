@@ -258,7 +258,7 @@
   // счётчик бесплатный и бывает медленным: ждём не дольше 8 секунд
   function cnt(key, hit) {
     var ctl = window.AbortController ? new AbortController() : null;
-    var t = setTimeout(function () { if (ctl) ctl.abort(); }, 8000);
+    var t = setTimeout(function () { if (ctl) ctl.abort(); }, 25000);
     return fetch(API + (hit ? "hit/" : "get/") + NS + "-" + key, ctl ? { signal: ctl.signal } : {})
       .then(function (x) { clearTimeout(t); return x.ok ? x.json() : { value: 0 }; })
       .then(function (j) { return j.value || 0; })
@@ -287,10 +287,12 @@
         if (mine !== undefined && mine >= 0) cached[mine]++;
         results(cached, note);
       } else {
-        pa.innerHTML = '<div class="pt">Загрузка результатов...</div>';
+        pa.innerHTML = '<div class="pt">' + (note ? note + "<br>" : "") + 'Результаты загружаются...</div>';
       }
       var ks = []; for (var i = 0; i < n; i++) ks.push(cnt("p-" + id + "-" + i, false));
       Promise.all(ks).then(function (v) {
+        // что не ответило - берём из кэша, чтобы не показывать пустоту
+        if (cached && cached.length === n) v = v.map(function (x, i) { return x === null ? cached[i] : x; });
         if (v.every(function (x) { return x !== null; })) { ls("poll-cache-" + id, JSON.stringify(v)); results(v, note); }
         else if (!cached) results(v, note);
       });
