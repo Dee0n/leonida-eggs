@@ -3,7 +3,7 @@
     "title": "ЛЕОНИДА",
     "subtitle": "ЛИСТОК ПАСХАЛОК",
     "issue": 1,
-    "date": "2026-11-24",
+    "date": "2026-11-25",
     "game": "Grand Theft Auto VI",
     "intro": "Где искать и что делать. Что там будет — не пишем. Названия мест — как на игровой карте."
   },
@@ -290,12 +290,16 @@
       "id": "base-jump",
       "section": "keys",
       "title": "Прыжок на авиабазу",
-      "hint": "Mile Zero Air Station. Разгонись по холму у забора вдоль трассы.",
-      "confidence": "single",
+      "hint": "Mile Zero Air Station, юго-запад Mariana County. Разгонись по куче земли у забора вдоль трассы или тарань главные ворота. На базе сразу 4 звезды.",
+      "confidence": "confirmed",
       "sources": [
         {
           "name": "DualShockers",
           "url": "https://www.dualshockers.com/best-easter-eggs-in-gta-6/"
+        },
+        {
+          "name": "Esports.ru",
+          "url": "https://esports.ru/igrovaya-industriya/articles/gta6-paskhalki/"
         }
       ],
       "added": "2026-11-24",
@@ -336,7 +340,7 @@
       "id": "crab-lab",
       "section": "keys",
       "title": "Крабовая лаборатория",
-      "hint": "Pelican Valley, болота Grassrivers к северу от Keys. Пароль к компьютеру вырезан на дереве в хижине. Сейф: 00072. Лодочный сарай: 0212.",
+      "hint": "Pelican Valley, болота Grassrivers к северу от Keys. Сначала включи щиток снаружи. Пароль к компьютеру вырезан на дереве в хижине. Сейф: 00072. Лодочный сарай: 0212.",
       "confidence": "confirmed",
       "sources": [
         {
@@ -346,11 +350,34 @@
         {
           "name": "Beebom",
           "url": "https://beebom.com/gta-6-easter-eggs/"
+        },
+        {
+          "name": "Red Bull",
+          "url": "https://www.redbull.com/int-en/gta-6-easter-eggs"
         }
       ],
       "added": "2026-11-24",
       "added_by": "lead",
       "image": "images/crab-lab.jpg"
+    },
+    {
+      "id": "capri-warehouse",
+      "section": "keys",
+      "title": "Заброшенный склад в Capri",
+      "hint": "Север Capri, заброшенный склад у Tortoise Lake. Приходи ночью, сначала сохранись. Оглуши прохожего, занеси на склад и положи на пентаграмму на полу. Держи под рукой коктейль Молотова или канистру.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "Metaratings",
+          "url": "https://cybersport.metaratings.ru/articles/paskhalki-i-sluchainye-sobytiya-v-gta-6-vse-nakhodki-igrokov/"
+        },
+        {
+          "name": "GTAside",
+          "url": "https://gtaside.com/tips/gta6/easter-eggs/"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "claude-daily"
     },
     {
       "id": "dexter",
@@ -469,6 +496,25 @@
       "added_by": "lead"
     },
     {
+      "id": "vault-poster",
+      "section": "city",
+      "title": "Постер в клубе The Vault",
+      "hint": "Downtown, клуб The Vault, красный постер сразу за входом. С главы 1. Отсканируй в WAiNK: R1 / RB.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "Red Bull",
+          "url": "https://www.redbull.com/int-en/gta-6-easter-eggs"
+        },
+        {
+          "name": "BGR",
+          "url": "https://www.bgr.com/2327391/gta-6-hidden-events-secrets-you-might-miss/"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "claude-daily"
+    },
+    {
       "id": "egg-tower",
       "section": "north",
       "title": "Вышка севернее Hamlet",
@@ -521,11 +567,15 @@
       "section": "north",
       "title": "Машина на обочине ночью",
       "hint": "Kelly County, грунтовка северо-западнее мотеля Starlet, восточнее Port Gellhorn. Нужна глава 2, ночь около 02:00. Машина с мигающими фарами, бывает не каждую ночь.",
-      "confidence": "single",
+      "confidence": "confirmed",
       "sources": [
         {
           "name": "Beebom",
           "url": "https://beebom.com/gta-6-easter-eggs/"
+        },
+        {
+          "name": "Спорт-Экспресс",
+          "url": "https://www.sport-express.ru/cybersport/videogames/reviews/sekrety-i-pashalki-gta-6-mesta-otsylki-i-nahodki-2476922/"
         }
       ],
       "added": "2026-11-24",
@@ -608,12 +658,20 @@
       "id": "mario",
       "section": "north",
       "title": "Руины у Mount Kalaga",
-      "hint": "Южнее Moreau, к северу от Mount Kalaga, место для медитации в руинах. Фиолетовый брезент: взаимодействуй, потом смотри вверх и прыгай с руин.",
-      "confidence": "single",
+      "hint": "Район Moreau, руины Lawton Co. Paper Mill к северу от Mount Kalaga, место для медитации. Фиолетовый брезент: взаимодействуй, потом смотри вверх и прыгай с руин.",
+      "confidence": "confirmed",
       "sources": [
         {
           "name": "Beebom",
           "url": "https://beebom.com/gta-6-easter-eggs/"
+        },
+        {
+          "name": "GTA6wiki.eu",
+          "url": "https://gta6wiki.eu/easter-eggs/"
+        },
+        {
+          "name": "Metaratings",
+          "url": "https://cybersport.metaratings.ru/articles/paskhalki-i-sluchainye-sobytiya-v-gta-6-vse-nakhodki-igrokov/"
         }
       ],
       "added": "2026-11-24",
@@ -654,12 +712,16 @@
       "id": "tootsie",
       "section": "north",
       "title": "Сбежавшая корова",
-      "hint": "Западнее Ambrosia, южнее Frogswater. Фермер плачет у дороги: догони корову.",
-      "confidence": "single",
+      "hint": "Западнее Ambrosia, южнее Frogswater. Играй за Лусию. Фермер плачет у дороги: догони корову.",
+      "confidence": "confirmed",
       "sources": [
         {
           "name": "Beebom",
           "url": "https://beebom.com/gta-6-easter-eggs/"
+        },
+        {
+          "name": "Metaratings",
+          "url": "https://cybersport.metaratings.ru/articles/paskhalki-i-sluchainye-sobytiya-v-gta-6-vse-nakhodki-igrokov/"
         }
       ],
       "added": "2026-11-24",
@@ -745,6 +807,40 @@
       "image": "images/freddie.jpg"
     },
     {
+      "id": "gellhorn-garage",
+      "section": "north",
+      "title": "Дом с открытым гаражом в Port Gellhorn",
+      "hint": "Kelly County, север Port Gellhorn, дом с открытым гаражом и компанией внутри. С 00:00 до 04:00. Присоединись и выпей с ними, в диалоге выбери «Rock On». Поезжай с ними в фургоне к костру и смотри в огонь.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "Esports.ru",
+          "url": "https://esports.ru/igrovaya-industriya/articles/gta6-paskhalki/"
+        },
+        {
+          "name": "GTACulture",
+          "url": "https://gtaculture.com/guides/gta-6-secrets-and-mysteries"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "claude-daily"
+    },
+    {
+      "id": "hollow-earth",
+      "section": "north",
+      "title": "Таблички Hollow Earth",
+      "hint": "Kelly County, западнее Emerald Springs. Иди по табличкам Hollow Earth до конца тропы. Поговори с продавцом: зажми L2.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GTACulture",
+          "url": "https://gtaculture.com/guides/gta-6-secrets-and-mysteries"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "claude-daily"
+    },
+    {
       "id": "jet-dog",
       "section": "water",
       "title": "Лай в открытом море",
@@ -767,7 +863,7 @@
       "id": "lighthouse",
       "section": "water",
       "title": "Маяк St. Lucia",
-      "hint": "Little Hardin Island, северная сторона, ночью. Потом вернись к маяку в полночь с биноклем.",
+      "hint": "Little Hardin Island, северная сторона, ночью. Потом вернись к маяку после полуночи, залезь наверх и около 01:30 смотри в бинокль на море.",
       "confidence": "confirmed",
       "sources": [
         {
@@ -777,6 +873,10 @@
         {
           "name": "Mashable",
           "url": "https://me.mashable.com/entertainment/78588/the-gta-vi-easter-eggs-that-broke-the-internet"
+        },
+        {
+          "name": "Metaratings",
+          "url": "https://cybersport.metaratings.ru/articles/paskhalki-i-sluchainye-sobytiya-v-gta-6-vse-nakhodki-igrokov/"
         }
       ],
       "added": "2026-11-24",
@@ -802,16 +902,17 @@
       "id": "sea-monster",
       "section": "water",
       "title": "Морской монстр",
-      "hint": "Глубокие воды. Живым его пока никто не нашёл.",
-      "confidence": "rumor",
+      "hint": "Глава 1, миссия «Island Dreams», задание Кентона. Под водой у затонувшего корабля смотри на дно. В свободной игре почти не встречается.",
+      "confidence": "single",
       "sources": [
         {
-          "name": "Mashable",
-          "url": "https://me.mashable.com/entertainment/78588/the-gta-vi-easter-eggs-that-broke-the-internet"
+          "name": "Metaratings",
+          "url": "https://cybersport.metaratings.ru/articles/paskhalki-i-sluchainye-sobytiya-v-gta-6-vse-nakhodki-igrokov/"
         }
       ],
       "added": "2026-11-24",
-      "added_by": "lead"
+      "added_by": "lead",
+      "note": "rumor -> single 2026-11-25: место и миссия по Metaratings; прежний источник Mashable был слухом без места"
     },
     {
       "id": "ringtone",
