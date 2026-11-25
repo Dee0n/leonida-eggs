@@ -280,7 +280,7 @@ POLL_JS = """
     return fetch(API + path, opt).then(function (x) { clearTimeout(t); return x.ok ? x.json() : null; })
       .catch(function () { clearTimeout(t); return null; });
   }
-  var boxes = Array.prototype.slice.call(document.querySelectorAll(".poll"));
+  var boxes = Array.prototype.slice.call(document.querySelectorAll(".poll[data-poll]"));
   var all = null;
   try { all = JSON.parse(ls("poll-cache") || "null"); } catch (e) {}
   var ready = [];
@@ -842,7 +842,8 @@ def render_modern(data: dict, links: dict | None = None, img_prefix: str = "../"
                     f'<b>{esc(poll["question"])}</b><div class="pr">{opts}</div>'
                     '<div class="pa"><button type="button" class="btnv vote">Голосовать</button>'
                     '<a href="#" class="res">Результаты</a></div></div>'
-                    '<div class="poll"><div class="bt">Случайная пасхалка</div><b id="rnd"></b></div></article>')
+                    + ('<div class="poll rnd"><div class="bt">Случайная пасхалка</div><b id="rnd"></b></div>' if pi == 0 else "")
+                    + '</article>')
 
     add('<div class="app">')
     add(f'<header class="hud"><div class="l">Пасхалки GTA 6<small>выпуск №{meta["issue"]}, {d}.{m}.{y}</small></div>'

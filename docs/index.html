@@ -308,7 +308,7 @@ function setTheme(t) { try { localStorage.setItem("theme", t); } catch (e) {} }
     return fetch(API + path, opt).then(function (x) { clearTimeout(t); return x.ok ? x.json() : null; })
       .catch(function () { clearTimeout(t); return null; });
   }
-  var boxes = Array.prototype.slice.call(document.querySelectorAll(".poll"));
+  var boxes = Array.prototype.slice.call(document.querySelectorAll(".poll[data-poll]"));
   var all = null;
   try { all = JSON.parse(ls("poll-cache") || "null"); } catch (e) {}
   var ready = [];
