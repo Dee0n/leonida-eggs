@@ -184,6 +184,8 @@ def validate(data: dict, strict: bool = False) -> tuple[list[str], list[str]]:
                 warnings.append(f"{where}: в hint слово «{word}» — похоже на описание награды")
         if not hint.strip():
             errors.append(f"{where}: пустой hint")
+        if "chapter" in e and not (isinstance(e["chapter"], int) and e["chapter"] >= 1):
+            errors.append(f"{where}: chapter должен быть целым числом от 1")
         if e.get("kind", "egg") not in KINDS:
             errors.append(f"{where}: kind должен быть egg или poi")
         if e.get("image") and not e.get("image_source"):
@@ -344,6 +346,26 @@ POLL_JS = """
 """
 
 
+def chapter_groups(data: dict) -> list[tuple[str, list[dict]]]:
+    """Записи, которые зависят от главы, сгруппированные по главам; в конце читы (после финала)."""
+    by: dict[int, list[dict]] = {}
+    for _n, e in numbered_entries(data):
+        if e.get("chapter"):
+            by.setdefault(int(e["chapter"]), []).append(e)
+    out = [(f"Глава {k}", by[k]) for k in sorted(by)]
+    cheats = [e for _n, e in numbered_entries(data) if e["section"] == "cheats"]
+    how = next((e for e in cheats if e["id"] == "cheat-how"), None)
+    if how:
+        n = len(cheats) - 1
+        out.append(("После финала", [dict(how, title="Читы: как вводить", chapter_note=f"и все {n} известных кодов в разделе читов")]))
+    return out
+
+
+def chapter_item(e: dict) -> str:
+    note = f" ({esc(e['chapter_note'])})" if e.get("chapter_note") else ""
+    return f'<a href="#e-{esc(e["id"])}">{iconize(esc(e["title"]))}</a>{note}'
+
+
 def _new_ids(data: dict, days: int = 2) -> set[str]:
     """Записи, добавленные за последние days дней от meta.date — помечаются NEW!"""
     from datetime import date, timedelta
@@ -415,7 +437,7 @@ def render_html(data: dict, links: dict | None = None, img_prefix: str = "../",
             ("Главная", None), ("Версия для печати", None), ("Файлы", "Скачать PDF"),
             ("Прислать пасхалку", None), ("Форум", None)])
         + "</div></div>\n")
-    add('<div class="box"><div class="bt">Разделы</div><div class="bb">')
+    add('<div class="box"><div class="bt">Разделы</div><div class="bb">&raquo; <a href="#chapters">По главам</a><br>')
     for sec in data["sections"]:
         if sec.get("type") == "checklist":
             n = len(data["checklists"].get(sec["id"], []))
@@ -464,6 +486,14 @@ def render_html(data: dict, links: dict | None = None, img_prefix: str = "../",
     pr = f' | {lnk("Версия для печати", "[Версия для печати]")}' if links.get("Версия для печати") else ""
     add(f'<div class="info">Добавлено: {d}.{m}.{y} | Выпуск №{meta["issue"]} | Записей: {len(numbered)}{pr}</div>\n')
     add(f'<p class="intro">{esc(meta["intro"])}</p>\n')
+
+    groups = chapter_groups(data)
+    if groups:
+        add('<a name="chapters" id="chapters"></a><table class="codes"><tr><th colspan="2" class="sech">По главам: что когда открывается</th></tr>\n'
+            '<tr><th class="colh" style="width:110px">Глава</th><th class="colh">Что уже можно найти (ссылки ведут на запись)</th></tr>\n')
+        for i, (name, items) in enumerate(groups):
+            add(f'<tr class="r{i % 2}"><td class="k">{esc(name)}</td><td>' + "<br>".join(chapter_item(e) for e in items) + "</td></tr>\n")
+        add('</table><div class="up"><a href="#top">[наверх]</a></div>\n')
 
     for sec in data["sections"]:
         sid = esc(sec["id"])
@@ -562,6 +592,11 @@ MODERN_CSS = """
   .sec h2 { display: flex; align-items: baseline; gap: 10px; margin: 0; padding: 0 0 8px; border-bottom: 1px solid var(--ink);
             font: 700 22px/1.2 var(--text); }
   .sec h2 small { font: 400 13px var(--text); color: var(--mute); }
+  .chapters .chrow { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 16px; padding: 10px; border-bottom: 1px solid var(--rule); }
+  .chapters .chn { font-weight: 700; }
+  .chapters ul { margin: 0; padding: 0; list-style: none; columns: 2 260px; column-gap: 28px; }
+  .chapters li { break-inside: avoid; padding: 1px 0; }
+  .sec.chapters:not(.on) { display: none; }
   .sub2 { padding: 14px 10px 4px; font-weight: 600; color: var(--mute); border-bottom: 1px solid var(--rule); }
   .row { display: grid; grid-template-columns: minmax(200px, 30%) minmax(0, 1fr) 112px; gap: 16px; padding: 9px 10px;
          border-bottom: 1px solid var(--rule); align-items: start; }
@@ -696,6 +731,12 @@ def render_modern(data: dict, links: dict | None = None, img_prefix: str = "../"
             '<h1>Пасхалки, коды и секреты GTA 6</h1></div>\n')
         add(f'<p class="lead">{esc(meta["intro"])}</p>\n')
         add('<div class="legend">● подтверждено двумя источниками и больше · ○ одно сообщение · ◇ слух</div>\n<div class="cols">\n')
+        groups = chapter_groups(data)
+        if groups:
+            add("<h2>По главам</h2>\n")
+            for cname, items in groups:
+                names = ", ".join(iconize(esc(e["title"])) for e in items)
+                add(f'<div class="e"><span class="num"></span><div><span class="k">{esc(cname)}:</span> {names}</div></div>\n')
         for s_ in secs:
             add(f'<h2><b>{esc(roman[s_["id"]])}</b>{esc(name[s_["id"]])}</h2>\n')
             if s_.get("type") == "checklist":
@@ -726,7 +767,8 @@ def render_modern(data: dict, links: dict | None = None, img_prefix: str = "../"
         counts[kind_of(e)] += 1
     wn = sum(len(v) for v in data["checklists"].values())
     tabs = [("all", "Всё", counts["all"]), ("egg", "Пасхалки", counts["egg"]), ("poi", "Точки интереса", counts["poi"]),
-            ("cheats", "Читы", counts["cheats"]), ("controls", "Кнопки", counts["controls"]), ("waink", "WAiNK", wn)]
+            ("cheats", "Читы", counts["cheats"]), ("controls", "Кнопки", counts["controls"]), ("waink", "WAiNK", wn),
+            ("chapters", "По главам", sum(len(v) for _k, v in chapter_groups(data)))]
     add('<header class="top"><div class="in"><a class="logo" href="#">Пасхалки GTA 6</a>'
         '<input id="q" type="search" placeholder="Поиск" aria-label="Поиск" autocomplete="off">'
         f'<nav><a href="{esc(links.get("Печать", "#"))}">Версия для печати</a><a href="{esc(links.get("PDF", "#"))}">Скачать PDF</a>'
@@ -741,6 +783,14 @@ def render_modern(data: dict, links: dict | None = None, img_prefix: str = "../"
         '<span class="legend"><span class="dot confirmed"></span>подтверждено двумя источниками и больше &nbsp; '
         '<span class="dot single"></span>пока один источник</span></span></div>\n'
         '<p class="empty" id="empty">Ничего не нашлось.</p>\n')
+
+    groups = chapter_groups(data)
+    if groups:
+        add('<section class="sec chapters" id="chapters" data-kind="chapters"><h2>По главам<small>что когда открывается</small></h2>')
+        for cname, items in groups:
+            add(f'<div class="chrow"><div class="chn">{esc(cname)}</div><ul>'
+                + "".join(f"<li>{chapter_item(e)}</li>" for e in items) + "</ul></div>")
+        add("</section>\n")
 
     for s_ in secs:
         sid = esc(s_["id"])
@@ -816,6 +866,8 @@ def render_modern(data: dict, links: dict | None = None, img_prefix: str = "../"
       var vis = g.length ? Array.prototype.some.call(g, function (r) { return !r.classList.contains("hide"); })
                          : (k ? (f === "all" || f === k) && !v : f === "all" && !v);
       if (k === "waink" && v) vis = s.textContent.toLowerCase().indexOf(v) >= 0;
+      if (k === "chapters") { s.classList.toggle("on", f === "chapters"); vis = f === "chapters"; }
+      else if (f === "chapters") vis = false;
       s.classList.toggle("hide", !vis); if (vis && !g.length) shown++;
     });
     empty.style.display = shown ? "none" : "block";
@@ -829,6 +881,13 @@ def render_modern(data: dict, links: dict | None = None, img_prefix: str = "../"
     });
   });
   document.addEventListener("keydown", function (e) { if (e.key === "/" && document.activeElement !== q) { e.preventDefault(); q.focus(); } });
+  Array.prototype.forEach.call(document.querySelectorAll(".chapters a"), function (a) {
+    a.addEventListener("click", function () {
+      f = "all"; q.value = "";
+      Array.prototype.forEach.call(document.querySelectorAll(".tab"), function (x) { x.setAttribute("aria-selected", x.getAttribute("data-f") === "all" ? "true" : "false"); });
+      apply();
+    });
+  });
   Array.prototype.forEach.call(document.querySelectorAll("[data-ck]"), function (b) {
     var k = "ck-" + b.getAttribute("data-ck");
     try { b.checked = localStorage.getItem(k) === "1"; } catch (e) {}
@@ -899,17 +958,42 @@ BTN_CSS = """
          font-family: "Segoe UI Symbol", "Arial Unicode MS", sans-serif; text-transform: none; letter-spacing: 0; text-indent: 0; }
   .btn.tri { background: #17914a; } .btn.cir { background: #d0312d; } .btn.sq { background: #c2489c; } .btn.crs { background: #2f62c9; }
   .key.dp { min-width: 1.05em; text-align: center; font-family: "Segoe UI Symbol", Arial, sans-serif; margin: 0 .06em; }
+  .xb { display: inline-block; width: 1.3em; height: 1.3em; line-height: 1.3em; border-radius: 50%; text-align: center;
+        font: bold .82em/1.58em Arial, sans-serif; color: #fff; vertical-align: -.2em; text-indent: 0; text-transform: none; letter-spacing: 0; }
+  .xb.a { background: #3c9b3a; } .xb.b { background: #d0312d; } .xb.x { background: #2f62c9; } .xb.y { background: #e0a800; color: #1b1b1b; }
+  .key.xbk { border-radius: .55em; }
   .key { display: inline-block; padding: 0 .28em; border: 1px solid #222; border-bottom-width: 2px; border-radius: 3px;
          background: #f2f2f2; color: #000; font-weight: bold; font-size: .92em; line-height: 1.2em; text-transform: none; letter-spacing: 0; text-indent: 0; }
 """
 
 
+XB_SEG_RE = re.compile(r"(Xbox:)([^.]*)")
+XB_LET_RE = re.compile(r"(?<![\w-])([ABXY])(?![\w-])")
+XB_SH_RE = re.compile(r"(?<![\w-])(LB|RB|LT|RT)(?![\w-])")
+XB_AFTER_SLASH_RE = re.compile(r"/(\s*)([ABXY])(?![\w-])")
+
+
+def _xb_mark(text: str) -> str:
+    """Помечает кнопки Xbox служебными символами, чтобы потом нарисовать их значками."""
+    text = XB_SEG_RE.sub(lambda m: m.group(1) + XB_LET_RE.sub(lambda x: "\x01" + x.group(1) + "\x01", m.group(2)), text)
+    text = XB_AFTER_SLASH_RE.sub(lambda m: "/" + m.group(1) + "\x01" + m.group(2) + "\x01", text)
+    return XB_SH_RE.sub(lambda m: "\x02" + m.group(1) + "\x02", text)
+
+
+def _xb_draw(text: str) -> str:
+    text = re.sub("\x01([ABXY])\x01", lambda m: f'<span class="xb {m.group(1).lower()}">{m.group(1)}</span>', text)
+    return re.sub("\x02(LB|RB|LT|RT)\x02", lambda m: f'<span class="key xbk">{m.group(1)}</span>', text)
+
+
 def iconize(escaped: str) -> str:
     """Кнопки геймпада в уже экранированном тексте -> значки. В данных и txt они остаются словами."""
+    escaped = escaped.replace(". Xbox:", ".<br>Xbox:").replace(". На каждой подстанции", ".<br>На каждой подстанции")
+    escaped = _xb_mark(escaped)
     escaped = BTN_RE.sub(lambda m: f'<span class="btn {BTN_ICONS[m.group(1)][0]}" title="{m.group(1)}">'
                                    f'{BTN_ICONS[m.group(1)][1]}</span>', escaped)
     escaped = KEY_RE.sub(lambda m: f'<span class="key">{m.group(1)}</span>', escaped)
-    return DPAD_RE.sub(lambda m: f'<span class="key dp">{m.group(0)}</span>', escaped)
+    escaped = DPAD_RE.sub(lambda m: f'<span class="key dp">{m.group(0)}</span>', escaped)
+    return _xb_draw(escaped)
 
 
 def css_string(text: str) -> str:
@@ -986,6 +1070,14 @@ def render_print_html(data: dict, images: bool = True, links: dict | None = None
         + " &nbsp; ".join(f"{CONFIDENCE_TAGS[k]} {esc(CONFIDENCE_NAMES[k])}" for k in CONFIDENCE_TAGS)
         + "</p>\n"
     )
+
+    groups = chapter_groups(data)
+    if groups:
+        add("<h2>По главам: что когда открывается</h2>\n")
+        for name, items in groups:
+            names = ", ".join(iconize(esc(e["title"])) + (f" ({esc(e['chapter_note'])})" if e.get("chapter_note") else "")
+                              for e in items)
+            add(f'<div class="e"><span class="k">{esc(name)}</span> = {names}</div>\n')
 
     for sec in data["sections"]:
         if sec.get("type") == "checklist":

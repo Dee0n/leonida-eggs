@@ -114,7 +114,7 @@
       "id": "tommy-sequence",
       "section": "keys",
       "title": "Что жать на подстанциях",
-      "hint": "Круг, Круг, L1, Квадрат, L1, Квадрат, Квадрат, Квадрат, L1, Треугольник, Круг, Треугольник. Жми по одной на каждой подстанции, с 1-й по 12-ю. На Xbox: Круг = B, Квадрат = X, Треугольник = Y, L1 = LB.",
+      "hint": "PS5: Круг, Круг, L1, Квадрат, L1, Квадрат, Квадрат, Квадрат, L1, Треугольник, Круг, Треугольник. Xbox: B, B, LB, X, LB, X, X, X, LB, Y, B, Y. На каждой подстанции жми одну кнопку по порядку, с 1-й подстанции по 12-ю.",
       "confidence": "confirmed",
       "sources": [
         {
@@ -170,7 +170,8 @@
       "image_source": {
         "name": "Beebom",
         "url": "https://beebom.com/gta-6-easter-eggs/"
-      }
+      },
+      "chapter": 1
     },
     {
       "id": "jason-magazine",
@@ -202,7 +203,8 @@
       ],
       "added": "2026-11-24",
       "added_by": "lead",
-      "kind": "poi"
+      "kind": "poi",
+      "chapter": 1
     },
     {
       "id": "joystation",
@@ -262,7 +264,8 @@
       "image_source": {
         "name": "Beebom",
         "url": "https://beebom.com/gta-6-easter-eggs/"
-      }
+      },
+      "chapter": 1
     },
     {
       "id": "brians-marina",
@@ -313,7 +316,8 @@
         }
       ],
       "added": "2026-11-24",
-      "added_by": "lead"
+      "added_by": "lead",
+      "chapter": 1
     },
     {
       "id": "base-jump",
@@ -480,7 +484,9 @@
         }
       ],
       "added": "2026-11-24",
-      "added_by": "lead"
+      "added_by": "lead",
+      "chapter": 1,
+      "chapter_note": "успей до первой встречи с Мозесом в главе 2"
     },
     {
       "id": "marbelle",
@@ -547,7 +553,9 @@
       ],
       "added": "2026-11-24",
       "added_by": "lead",
-      "kind": "poi"
+      "kind": "poi",
+      "chapter": 3,
+      "chapter_note": "миссия 25 «Boobie Time»"
     },
     {
       "id": "vault-poster",
@@ -570,7 +578,8 @@
         }
       ],
       "added": "2026-11-25",
-      "added_by": "claude-daily"
+      "added_by": "claude-daily",
+      "chapter": 1
     },
     {
       "id": "egg-tower",
@@ -650,7 +659,9 @@
       "image_source": {
         "name": "Beebom",
         "url": "https://beebom.com/gta-6-easter-eggs/"
-      }
+      },
+      "chapter": 2,
+      "chapter_note": "ночью около 02:00"
     },
     {
       "id": "trilogy-house",
@@ -674,7 +685,8 @@
       "image_source": {
         "name": "Beebom",
         "url": "https://beebom.com/gta-6-easter-eggs/"
-      }
+      },
+      "chapter": 2
     },
     {
       "id": "monument",
@@ -719,7 +731,8 @@
       "image_source": {
         "name": "Beebom",
         "url": "https://beebom.com/gta-6-easter-eggs/"
-      }
+      },
+      "chapter": 2
     },
     {
       "id": "mini-golf",
@@ -799,7 +812,8 @@
         }
       ],
       "added": "2026-11-24",
-      "added_by": "lead"
+      "added_by": "lead",
+      "chapter": 2
     },
     {
       "id": "tootsie",
@@ -1027,7 +1041,9 @@
       ],
       "added": "2026-11-24",
       "added_by": "lead",
-      "note": "rumor -> single 2026-11-25: место и миссия по Metaratings; прежний источник Mashable был слухом без места"
+      "note": "rumor -> single 2026-11-25: место и миссия по Metaratings; прежний источник Mashable был слухом без места",
+      "chapter": 1,
+      "chapter_note": "миссия «Island Dreams»"
     },
     {
       "id": "ringtone",
@@ -1159,7 +1175,9 @@
       ],
       "added": "2026-11-24",
       "added_by": "lead",
-      "kind": "poi"
+      "kind": "poi",
+      "chapter": 1,
+      "chapter_note": "миссия 5"
     },
     {
       "id": "ctl-engine",
@@ -1822,7 +1840,8 @@
         }
       ],
       "added": "2026-11-25",
-      "added_by": "lead"
+      "added_by": "lead",
+      "chapter": 3
     }
   ]
 }
