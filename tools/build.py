@@ -22,6 +22,8 @@ DATA = ROOT / "data" / "entries.json"
 OUT = ROOT / "out"
 
 CONFIDENCE_TAGS = {"confirmed": "●", "single": "○", "rumor": "◇"}
+KINDS = ("egg", "poi")
+POI_TITLE = "Точки интереса: просто посмотреть"
 CONFIDENCE_NAMES = {"confirmed": "подтверждено", "single": "одно сообщение", "rumor": "слух"}
 
 # Слова, которые почти всегда означают, что автор описывает награду, а не путь к ней.
@@ -160,6 +162,8 @@ def validate(data: dict, strict: bool = False) -> tuple[list[str], list[str]]:
                 warnings.append(f"{where}: в hint слово «{word}» — похоже на описание награды")
         if not hint.strip():
             errors.append(f"{where}: пустой hint")
+        if e.get("kind", "egg") not in KINDS:
+            errors.append(f"{where}: kind должен быть egg или poi")
         if e.get("image") and not (ROOT / e["image"]).is_file():
             warnings.append(f"{where}: нет файла картинки {e['image']}, в листок не попадёт")
 
@@ -186,10 +190,12 @@ def numbered_entries(data: dict) -> list[tuple[int, dict]]:
     for sec in data["sections"]:
         if sec.get("type") == "checklist":
             continue
-        for e in data["entries"]:
-            if e["section"] == sec["id"]:
-                counter += 1
-                result.append((counter, e))
+        rows = [e for e in data["entries"] if e["section"] == sec["id"]]
+        # сначала пасхалки с действием, потом точки интереса
+        rows.sort(key=lambda e: e.get("kind", "egg") == "poi")
+        for e in rows:
+            counter += 1
+            result.append((counter, e))
     return result
 
 
@@ -295,6 +301,7 @@ PRINT_CSS = """
   h1 { font: bold 13pt Verdana, Tahoma, sans-serif; margin: 0 0 2mm; }
   .intro { margin: 0 0 1mm; }
   .legend { margin: 0 0 3mm; }
+  h3 { font: bold 9.6pt Verdana, Tahoma, sans-serif; margin: 2mm 0 1mm; break-after: avoid; }
   h2 { font: bold 10.5pt Verdana, Tahoma, sans-serif; text-decoration: underline; margin: 3.6mm 0 1.4mm; break-after: avoid; }
   .e { margin: 0 0 .6mm 6mm; text-indent: -6mm; break-inside: avoid; }
   .k { font-weight: bold; text-transform: uppercase; }
@@ -405,7 +412,11 @@ def render_print_html(data: dict, images: bool = True, links: dict | None = None
         if not rows:
             continue
         add(f"<h2>{esc(sec['title'])}</h2>\n")
+        poi_started = False
         for _num, e in rows:
+            if e.get("kind") == "poi" and not poi_started:
+                poi_started = True
+                add(f'<h3>{esc(POI_TITLE)}</h3>\n')
             line = (
                 f'{CONFIDENCE_TAGS[e["confidence"]]} '
                 f'<span class="k">{esc(e["title"])}</span> = {render_hint(e["hint"])}'
@@ -451,7 +462,11 @@ def render_txt(data: dict) -> str:
             continue
         lines.append("")
         lines.append(sec["title"].upper())
+        poi_started = False
         for num, e in rows:
+            if e.get("kind") == "poi" and not poi_started:
+                poi_started = True
+                lines.append(f"  -- {POI_TITLE} --")
             tag = CONFIDENCE_TAGS[e["confidence"]]
             lines.append(f"  {num:>2}. [{tag}] {e['title']}. {e['hint']}")
 

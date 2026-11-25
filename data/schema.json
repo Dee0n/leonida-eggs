@@ -2,20 +2,45 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Leonida leaflet data",
   "type": "object",
-  "required": ["meta", "sections", "entries"],
+  "required": [
+    "meta",
+    "sections",
+    "entries"
+  ],
   "additionalProperties": false,
   "properties": {
     "meta": {
       "type": "object",
-      "required": ["title", "subtitle", "issue", "date", "game", "intro"],
+      "required": [
+        "title",
+        "subtitle",
+        "issue",
+        "date",
+        "game",
+        "intro"
+      ],
       "additionalProperties": false,
       "properties": {
-        "title": { "type": "string" },
-        "subtitle": { "type": "string" },
-        "issue": { "type": "integer", "minimum": 1 },
-        "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
-        "game": { "type": "string" },
-        "intro": { "type": "string" }
+        "title": {
+          "type": "string"
+        },
+        "subtitle": {
+          "type": "string"
+        },
+        "issue": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "date": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "game": {
+          "type": "string"
+        },
+        "intro": {
+          "type": "string"
+        }
       }
     },
     "sections": {
@@ -23,13 +48,29 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["id", "title"],
+        "required": [
+          "id",
+          "title"
+        ],
         "additionalProperties": false,
         "properties": {
-          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-          "title": { "type": "string" },
-          "type": { "enum": ["entries", "checklist"] },
-          "image": { "type": "string", "description": "путь к картинке от корня проекта, например images/waink-map.jpg" }
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "title": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "entries",
+              "checklist"
+            ]
+          },
+          "image": {
+            "type": "string",
+            "description": "путь к картинке от корня проекта, например images/waink-map.jpg"
+          }
         }
       }
     },
@@ -37,37 +78,93 @@
       "type": "object",
       "additionalProperties": {
         "type": "array",
-        "items": { "type": "string", "minLength": 1 }
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
       }
     },
     "entries": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "section", "title", "hint", "confidence", "sources", "added", "added_by"],
+        "required": [
+          "id",
+          "section",
+          "title",
+          "hint",
+          "confidence",
+          "sources",
+          "added",
+          "added_by"
+        ],
         "additionalProperties": false,
         "properties": {
-          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-          "section": { "type": "string" },
-          "title": { "type": "string", "minLength": 1, "maxLength": 80 },
-          "hint": { "type": "string", "minLength": 1, "maxLength": 400 },
-          "confidence": { "enum": ["confirmed", "single", "rumor"] },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "section": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "hint": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 400
+          },
+          "confidence": {
+            "enum": [
+              "confirmed",
+              "single",
+              "rumor"
+            ]
+          },
           "sources": {
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["name", "url"],
+              "required": [
+                "name",
+                "url"
+              ],
               "additionalProperties": false,
               "properties": {
-                "name": { "type": "string" },
-                "url": { "type": "string", "format": "uri" }
+                "name": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                }
               }
             }
           },
-          "added": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
-          "added_by": { "type": "string" },
-          "image": { "type": "string", "description": "скрин места: путь от корня проекта, например images/<id>.jpg" },
-          "note": { "type": "string" }
+          "added": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "added_by": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string",
+            "description": "скрин места: путь от корня проекта, например images/<id>.jpg"
+          },
+          "note": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "egg",
+              "poi"
+            ],
+            "description": "egg (по умолчанию) — пасхалка с действием; poi — точка интереса, просто посмотреть"
+          }
         }
       }
     }

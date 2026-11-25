@@ -5,7 +5,7 @@
     "issue": 1,
     "date": "2026-11-25",
     "game": "Grand Theft Auto VI",
-    "intro": "Где искать и что делать. Что там будет — не пишем. Названия мест — как на игровой карте."
+    "intro": "Где искать и что делать. Что там будет — не пишем. Названия мест — как на игровой карте. В конце раздела — точки интереса: туда просто прийти и посмотреть."
   },
   "sections": [
     {
@@ -29,8 +29,12 @@
       "title": "V. Телефон, радио, журналы"
     },
     {
+      "id": "controls",
+      "title": "VI. Управление: неочевидные кнопки"
+    },
+    {
       "id": "waink",
-      "title": "VI. WAiNK: сканируй приложением",
+      "title": "VII. WAiNK: сканируй приложением",
       "type": "checklist",
       "image": "images/waink-map.jpg"
     }
@@ -169,7 +173,8 @@
         }
       ],
       "added": "2026-11-24",
-      "added_by": "lead"
+      "added_by": "lead",
+      "kind": "poi"
     },
     {
       "id": "jason-book",
@@ -184,7 +189,8 @@
         }
       ],
       "added": "2026-11-24",
-      "added_by": "lead"
+      "added_by": "lead",
+      "kind": "poi"
     },
     {
       "id": "joystation",
@@ -203,7 +209,8 @@
         }
       ],
       "added": "2026-11-24",
-      "added_by": "lead"
+      "added_by": "lead",
+      "kind": "poi"
     },
     {
       "id": "rx-men",
@@ -222,7 +229,8 @@
         }
       ],
       "added": "2026-11-24",
-      "added_by": "lead"
+      "added_by": "lead",
+      "kind": "poi"
     },
     {
       "id": "parrot",
@@ -253,7 +261,8 @@
         }
       ],
       "added": "2026-11-24",
-      "added_by": "lead"
+      "added_by": "lead",
+      "kind": "poi"
     },
     {
       "id": "toilet-flyer",
@@ -318,7 +327,8 @@
         }
       ],
       "added": "2026-11-24",
-      "added_by": "lead"
+      "added_by": "lead",
+      "kind": "poi"
     },
     {
       "id": "sos-island",
@@ -401,7 +411,8 @@
       ],
       "added": "2026-11-24",
       "added_by": "lead",
-      "image": "images/dexter.jpg"
+      "image": "images/dexter.jpg",
+      "kind": "poi"
     },
     {
       "id": "vercetti-mansion",
@@ -417,7 +428,8 @@
       ],
       "added": "2026-11-24",
       "added_by": "lead",
-      "image": "images/vercetti-mansion.jpg"
+      "image": "images/vercetti-mansion.jpg",
+      "kind": "poi"
     },
     {
       "id": "eclipse",
@@ -448,7 +460,8 @@
       ],
       "added": "2026-11-24",
       "added_by": "lead",
-      "image": "images/marbelle.jpg"
+      "image": "images/marbelle.jpg",
+      "kind": "poi"
     },
     {
       "id": "russo",
@@ -493,7 +506,8 @@
         }
       ],
       "added": "2026-11-24",
-      "added_by": "lead"
+      "added_by": "lead",
+      "kind": "poi"
     },
     {
       "id": "vault-poster",
@@ -620,7 +634,8 @@
       ],
       "added": "2026-11-24",
       "added_by": "lead",
-      "image": "images/monument.jpg"
+      "image": "images/monument.jpg",
+      "kind": "poi"
     },
     {
       "id": "cowboy-hat",
@@ -652,7 +667,8 @@
       ],
       "added": "2026-11-24",
       "added_by": "lead",
-      "image": "images/mini-golf.jpg"
+      "image": "images/mini-golf.jpg",
+      "kind": "poi"
     },
     {
       "id": "mario",
@@ -691,7 +707,8 @@
         }
       ],
       "added": "2026-11-24",
-      "added_by": "lead"
+      "added_by": "lead",
+      "kind": "poi"
     },
     {
       "id": "starlet-flyer",
@@ -742,7 +759,8 @@
       ],
       "added": "2026-11-24",
       "added_by": "lead",
-      "image": "images/hyde-island.jpeg"
+      "image": "images/hyde-island.jpeg",
+      "kind": "poi"
     },
     {
       "id": "tallaloko",
@@ -758,7 +776,8 @@
       ],
       "added": "2026-11-24",
       "added_by": "lead",
-      "image": "images/tallaloko.jpg"
+      "image": "images/tallaloko.jpg",
+      "kind": "poi"
     },
     {
       "id": "jacobs",
@@ -773,7 +792,8 @@
         }
       ],
       "added": "2026-11-24",
-      "added_by": "lead"
+      "added_by": "lead",
+      "kind": "poi"
     },
     {
       "id": "pineapple",
@@ -788,7 +808,8 @@
         }
       ],
       "added": "2026-11-24",
-      "added_by": "lead"
+      "added_by": "lead",
+      "kind": "poi"
     },
     {
       "id": "freddie",
@@ -927,7 +948,8 @@
         }
       ],
       "added": "2026-11-24",
-      "added_by": "lead"
+      "added_by": "lead",
+      "kind": "poi"
     },
     {
       "id": "rac7",
@@ -946,7 +968,8 @@
         }
       ],
       "added": "2026-11-24",
-      "added_by": "lead"
+      "added_by": "lead",
+      "kind": "poi"
     },
     {
       "id": "badlife",
@@ -961,7 +984,8 @@
         }
       ],
       "added": "2026-11-24",
-      "added_by": "lead"
+      "added_by": "lead",
+      "kind": "poi"
     },
     {
       "id": "vice-fm",
@@ -976,7 +1000,8 @@
         }
       ],
       "added": "2026-11-24",
-      "added_by": "lead"
+      "added_by": "lead",
+      "kind": "poi"
     },
     {
       "id": "kaleidoscope",
@@ -991,7 +1016,8 @@
         }
       ],
       "added": "2026-11-24",
-      "added_by": "lead"
+      "added_by": "lead",
+      "kind": "poi"
     },
     {
       "id": "podcast",
@@ -1006,7 +1032,8 @@
         }
       ],
       "added": "2026-11-24",
-      "added_by": "lead"
+      "added_by": "lead",
+      "kind": "poi"
     },
     {
       "id": "bam-cards",
@@ -1021,7 +1048,8 @@
         }
       ],
       "added": "2026-11-24",
-      "added_by": "lead"
+      "added_by": "lead",
+      "kind": "poi"
     },
     {
       "id": "plate",
@@ -1036,7 +1064,280 @@
         }
       ],
       "added": "2026-11-24",
-      "added_by": "lead"
+      "added_by": "lead",
+      "kind": "poi"
+    },
+    {
+      "id": "ctl-engine",
+      "section": "controls",
+      "title": "△/Y дважды при выходе из машины",
+      "hint": "Двигатель остаётся заведённым.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DTF, Sawyer: секретные фишки в управлении",
+          "url": "https://dtf.ru/id2871857/5432602-sekrety-upravleniya-v-gta-vi-poleznye-fishki"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead",
+      "note": "наводка из комментария yaboroda на Пикабу"
+    },
+    {
+      "id": "ctl-lean-wall",
+      "section": "controls",
+      "title": "Удерживать ○/B у машины или стены",
+      "hint": "Облокотиться.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DTF, Sawyer: секретные фишки в управлении",
+          "url": "https://dtf.ru/id2871857/5432602-sekrety-upravleniya-v-gta-vi-poleznye-fishki"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead",
+      "note": "наводка из комментария yaboroda на Пикабу"
+    },
+    {
+      "id": "ctl-lean-rail",
+      "section": "controls",
+      "title": "L3 у перил",
+      "hint": "Облокотиться на перила.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DTF, Sawyer: секретные фишки в управлении",
+          "url": "https://dtf.ru/id2871857/5432602-sekrety-upravleniya-v-gta-vi-poleznye-fishki"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead",
+      "note": "наводка из комментария yaboroda на Пикабу"
+    },
+    {
+      "id": "ctl-sit-edge",
+      "section": "controls",
+      "title": "Удерживать ○/B на краю бассейна или причала",
+      "hint": "Сесть.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DTF, Sawyer: секретные фишки в управлении",
+          "url": "https://dtf.ru/id2871857/5432602-sekrety-upravleniya-v-gta-vi-poleznye-fishki"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead",
+      "note": "наводка из комментария yaboroda на Пикабу"
+    },
+    {
+      "id": "ctl-push-car",
+      "section": "controls",
+      "title": "Подойти к капоту или багажнику",
+      "hint": "Толкать машину.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DTF, Sawyer: секретные фишки в управлении",
+          "url": "https://dtf.ru/id2871857/5432602-sekrety-upravleniya-v-gta-vi-poleznye-fishki"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead",
+      "note": "наводка из комментария yaboroda на Пикабу"
+    },
+    {
+      "id": "ctl-flip-car",
+      "section": "controls",
+      "title": "L3, потом удерживать □/X у перевёрнутой машины",
+      "hint": "Перевернуть обратно. Работает с лодками и гидроциклами.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DTF, Sawyer: секретные фишки в управлении",
+          "url": "https://dtf.ru/id2871857/5432602-sekrety-upravleniya-v-gta-vi-poleznye-fishki"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead",
+      "note": "наводка из комментария yaboroda на Пикабу"
+    },
+    {
+      "id": "ctl-door-hit",
+      "section": "controls",
+      "title": "□/X на ходу",
+      "hint": "Открыть дверь и сбить ею прохожего.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DTF, Sawyer: секретные фишки в управлении",
+          "url": "https://dtf.ru/id2871857/5432602-sekrety-upravleniya-v-gta-vi-poleznye-fishki"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead",
+      "note": "наводка из комментария yaboroda на Пикабу"
+    },
+    {
+      "id": "ctl-lights",
+      "section": "controls",
+      "title": "○/B в машине",
+      "hint": "Фары. Удерживать: пригнуться.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DTF, Sawyer: секретные фишки в управлении",
+          "url": "https://dtf.ru/id2871857/5432602-sekrety-upravleniya-v-gta-vi-poleznye-fishki"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead",
+      "note": "наводка из комментария yaboroda на Пикабу"
+    },
+    {
+      "id": "ctl-radio",
+      "section": "controls",
+      "title": "Крестовина влево дважды в машине",
+      "hint": "Радио вкл/выкл.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DTF, Sawyer: секретные фишки в управлении",
+          "url": "https://dtf.ru/id2871857/5432602-sekrety-upravleniya-v-gta-vi-poleznye-fishki"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead",
+      "note": "наводка из комментария yaboroda на Пикабу"
+    },
+    {
+      "id": "ctl-autodrive",
+      "section": "controls",
+      "title": "Удерживать ↓, Options, удерживать ○/B",
+      "hint": "Машина едет сама.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DTF, Sawyer: секретные фишки в управлении",
+          "url": "https://dtf.ru/id2871857/5432602-sekrety-upravleniya-v-gta-vi-poleznye-fishki"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead",
+      "note": "наводка из комментария yaboroda на Пикабу"
+    },
+    {
+      "id": "ctl-shout",
+      "section": "controls",
+      "title": "R3 дважды рядом с машинами",
+      "hint": "Крикнуть на водителей.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DTF, Sawyer: секретные фишки в управлении",
+          "url": "https://dtf.ru/id2871857/5432602-sekrety-upravleniya-v-gta-vi-poleznye-fishki"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead",
+      "note": "наводка из комментария yaboroda на Пикабу"
+    },
+    {
+      "id": "ctl-first-person",
+      "section": "controls",
+      "title": "Удерживать L2/LT + R3",
+      "hint": "Вид от первого лица.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DTF, Sawyer: секретные фишки в управлении",
+          "url": "https://dtf.ru/id2871857/5432602-sekrety-upravleniya-v-gta-vi-poleznye-fishki"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead",
+      "note": "наводка из комментария yaboroda на Пикабу"
+    },
+    {
+      "id": "ctl-cap",
+      "section": "controls",
+      "title": "Удерживать L1/LB + крестовина",
+      "hint": "Надеть кепку по-другому.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DTF, Sawyer: секретные фишки в управлении",
+          "url": "https://dtf.ru/id2871857/5432602-sekrety-upravleniya-v-gta-vi-poleznye-fishki"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead",
+      "note": "наводка из комментария yaboroda на Пикабу"
+    },
+    {
+      "id": "ctl-drink",
+      "section": "controls",
+      "title": "Крестовина влево с напитком в руке",
+      "hint": "Переложить напиток в другую руку.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DTF, Sawyer: секретные фишки в управлении",
+          "url": "https://dtf.ru/id2871857/5432602-sekrety-upravleniya-v-gta-vi-poleznye-fishki"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead",
+      "note": "наводка из комментария yaboroda на Пикабу"
+    },
+    {
+      "id": "ctl-grab",
+      "section": "controls",
+      "title": "Удерживать R2/RT в драке",
+      "hint": "Схватить противника.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DTF, Sawyer: секретные фишки в управлении",
+          "url": "https://dtf.ru/id2871857/5432602-sekrety-upravleniya-v-gta-vi-poleznye-fishki"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead",
+      "note": "наводка из комментария yaboroda на Пикабу"
+    },
+    {
+      "id": "ctl-finger",
+      "section": "controls",
+      "title": "L2 + R1 на улице",
+      "hint": "Показать средний палец.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DTF, Sawyer: секретные фишки в управлении",
+          "url": "https://dtf.ru/id2871857/5432602-sekrety-upravleniya-v-gta-vi-poleznye-fishki"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead",
+      "note": "наводка из комментария yaboroda на Пикабу"
+    },
+    {
+      "id": "ctl-headphones",
+      "section": "controls",
+      "title": "Наушники в Zeke's Gadgets",
+      "hint": "Купи за ~$150. Музыка играет и пешком.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DTF, Sawyer: секретные фишки в управлении",
+          "url": "https://dtf.ru/id2871857/5432602-sekrety-upravleniya-v-gta-vi-poleznye-fishki"
+        }
+      ],
+      "added": "2026-11-25",
+      "added_by": "lead",
+      "note": "наводка из комментария yaboroda на Пикабу"
     }
   ]
 }
