@@ -5,7 +5,7 @@
     "issue": 1,
     "date": "2026-11-25",
     "game": "Grand Theft Auto VI",
-    "intro": "Где искать и что делать. Что там будет — не пишем. Названия мест — как на игровой карте. В конце раздела — точки интереса: там просто посмотреть, отсылка названа сразу."
+    "intro": "Все найденные пасхалки GTA 6 в одном месте. Пишем, где искать и что нажать, а что там будет, увидите сами."
   },
   "sections": [
     {
@@ -45,18 +45,18 @@
   ],
   "checklists": {
     "waink": [
-      "Рождественский дом — Key Lento, самая западная улица",
-      "Шале Plunge Masters — та же улица, мурал за сараем",
-      "Abismo Key — через мангры на юг до пляжа",
-      "Судно у берега — юго-восточный остров Permit Keys, мыс",
-      "Пляжная вечеринка — центральные острова Permit Keys, северный край",
-      "Указатель — рядом с вечеринкой, за деревьями",
-      "Goose Key — Mile Zero Air Station, вдоль берега на северо-восток",
-      "Пианино — острова южнее Cottonmouth Lake и Gambit Bay",
-      "Яркий пруд — болото севернее, у таблички-предупреждения",
-      "Акулы на пляже — Wetman Bay, южные острова",
-      "Wetman Bay — остров севернее акул",
-      "Ферма NoFlusher — западнее болотной базы Kingfisher"
+      "Рождественский дом - Key Lento, самая западная улица",
+      "Шале Plunge Masters - та же улица, мурал за сараем",
+      "Abismo Key - через мангры на юг до пляжа",
+      "Судно у берега - юго-восточный остров Permit Keys, мыс",
+      "Пляжная вечеринка - центральные острова Permit Keys, северный край",
+      "Указатель - рядом с вечеринкой, за деревьями",
+      "Goose Key - Mile Zero Air Station, вдоль берега на северо-восток",
+      "Пианино - острова южнее Cottonmouth Lake и Gambit Bay",
+      "Яркий пруд - болото севернее, у таблички-предупреждения",
+      "Акулы на пляже - Wetman Bay, южные острова",
+      "Wetman Bay - остров севернее акул",
+      "Ферма NoFlusher - западнее болотной базы Kingfisher"
     ]
   },
   "entries": [
@@ -110,7 +110,7 @@
       "id": "tommy-sequence",
       "section": "keys",
       "title": "Что жать на подстанциях",
-      "hint": "○ ○ L1 □ L1 □ □ □ L1 △ ○ △ — по одной на подстанцию, с 1-й по 12-ю. Xbox: ○ = B, □ = X, △ = Y, L1 = LB.",
+      "hint": "Круг, Круг, L1, Квадрат, L1, Квадрат, Квадрат, Квадрат, L1, Треугольник, Круг, Треугольник. Жми по одной на каждой подстанции, с 1-й по 12-ю. На Xbox: Круг = B, Квадрат = X, Треугольник = Y, L1 = LB.",
       "confidence": "confirmed",
       "sources": [
         {
@@ -568,7 +568,7 @@
       "id": "egg-tower",
       "section": "north",
       "title": "Вышка севернее Hamlet",
-      "hint": "South Vice-Dale County, самая высокая вышка к северу от Hamlet. Лезть минут семь. Наверху: △/Y взять, L2 + R2 бросить.",
+      "hint": "South Vice-Dale County, самая высокая вышка к северу от Hamlet. Лезть минут семь. Наверху: Треугольник/Y взять, L2 + R2 бросить.",
       "confidence": "confirmed",
       "sources": [
         {
@@ -648,7 +648,7 @@
       "id": "trilogy-house",
       "section": "north",
       "title": "Дом с гаражом",
-      "hint": "Leonard County, юго-западнее Belville. Заходи через гараж. Ближе всего после глав 2–3.",
+      "hint": "Leonard County, юго-западнее Belville. Заходи через гараж. Удобнее всего после глав 2-3.",
       "confidence": "confirmed",
       "sources": [
         {
@@ -821,7 +821,7 @@
       "id": "hyde-island",
       "section": "north",
       "title": "Южный Hyde Island",
-      "hint": "У Moreau River, Lummox County. Просто поезжай туда.",
+      "hint": "У Moreau River, Lummox County. Просто доберись туда.",
       "confidence": "single",
       "sources": [
         {
@@ -893,7 +893,7 @@
       "id": "freddie",
       "section": "north",
       "title": "Компаунд Фредди",
-      "hint": "Запад North Leonard County. Попасть внутрь — отдельная задача. Загляни ещё раз во время урагана.",
+      "hint": "Запад North Leonard County. Внутрь так просто не пустят, придётся повозиться. Загляни ещё раз, когда будет ураган.",
       "confidence": "single",
       "sources": [
         {
@@ -947,7 +947,7 @@
       "id": "jet-dog",
       "section": "water",
       "title": "Лай в открытом море",
-      "hint": "Уплыви далеко от берега, брось лодку и плавай несколько минут. Лучше у Key Lento. Услышишь лай — забирайся и не слезай до берега.",
+      "hint": "Уплыви подальше от берега, брось лодку и поплавай несколько минут. Лучше всего у Key Lento. Как услышишь лай, залезай к нему и не слезай до самого берега.",
       "confidence": "confirmed",
       "sources": [
         {
@@ -1025,7 +1025,7 @@
       "id": "ringtone",
       "section": "phone",
       "title": "Рингтон Wind Chimes: телефон Майкла из GTA V",
-      "hint": "Телефон → Настройки → Рингтоны.",
+      "hint": "Телефон -> Настройки -> Рингтоны, выбери Wind Chimes.",
       "confidence": "single",
       "sources": [
         {
@@ -1093,7 +1093,7 @@
       "id": "kaleidoscope",
       "section": "phone",
       "title": "DJ Dicky на Kaleidoscope FM: Джереми Айронс",
-      "hint": "Включи Kaleidoscope FM, ведущий DJ Dicky.",
+      "hint": "Включи Kaleidoscope FM и послушай DJ Dicky, голос узнаешь сразу.",
       "confidence": "single",
       "sources": [
         {
@@ -1109,7 +1109,7 @@
       "id": "podcast",
       "section": "phone",
       "title": "Подкаст Final Act: Уэйд из GTA V",
-      "hint": "Выпуск «Juggling with the Turd».",
+      "hint": "Найди подкаст Final Act, выпуск «Juggling with the Turd», и послушай интервью.",
       "confidence": "single",
       "sources": [
         {
@@ -1125,7 +1125,7 @@
       "id": "bam-cards",
       "section": "phone",
       "title": "Карточки рестлеров B.A.M.",
-      "hint": "Коллекционные карточки рестлеров, разбросаны по Leonida.",
+      "hint": "Карточки раскиданы по всей Leonida, собирай по пути.",
       "confidence": "single",
       "sources": [
         {
@@ -1156,7 +1156,7 @@
     {
       "id": "ctl-engine",
       "section": "controls",
-      "title": "△/Y дважды при выходе из машины",
+      "title": "Треугольник/Y дважды при выходе из машины",
       "hint": "Двигатель остаётся заведённым.",
       "confidence": "single",
       "sources": [
@@ -1172,7 +1172,7 @@
     {
       "id": "ctl-lean-wall",
       "section": "controls",
-      "title": "Удерживать ○/B у машины или стены",
+      "title": "Удерживать Круг/B у машины или стены",
       "hint": "Облокотиться.",
       "confidence": "single",
       "sources": [
@@ -1204,7 +1204,7 @@
     {
       "id": "ctl-sit-edge",
       "section": "controls",
-      "title": "Удерживать ○/B на краю бассейна или причала",
+      "title": "Удерживать Круг/B на краю бассейна или причала",
       "hint": "Сесть.",
       "confidence": "single",
       "sources": [
@@ -1236,7 +1236,7 @@
     {
       "id": "ctl-flip-car",
       "section": "controls",
-      "title": "L3, потом удерживать □/X у перевёрнутой машины",
+      "title": "L3, потом удерживать Квадрат/X у перевёрнутой машины",
       "hint": "Перевернуть обратно. Работает с лодками и гидроциклами.",
       "confidence": "single",
       "sources": [
@@ -1252,7 +1252,7 @@
     {
       "id": "ctl-door-hit",
       "section": "controls",
-      "title": "□/X на ходу",
+      "title": "Квадрат/X на ходу",
       "hint": "Открыть дверь и сбить ею прохожего.",
       "confidence": "single",
       "sources": [
@@ -1268,7 +1268,7 @@
     {
       "id": "ctl-lights",
       "section": "controls",
-      "title": "○/B в машине",
+      "title": "Круг/B в машине",
       "hint": "Фары. Удерживать: пригнуться.",
       "confidence": "single",
       "sources": [
@@ -1300,7 +1300,7 @@
     {
       "id": "ctl-autodrive",
       "section": "controls",
-      "title": "Удерживать ↓, Options, удерживать ○/B",
+      "title": "Удерживать Вниз, Options, удерживать Круг/B",
       "hint": "Машина едет сама.",
       "confidence": "single",
       "sources": [

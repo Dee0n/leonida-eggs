@@ -43,7 +43,7 @@ class RenderTests(unittest.TestCase):
         html = build.render_html(self.data)
         self.assertIn("<!DOCTYPE html>", html)
         for entry in self.data["entries"]:
-            self.assertIn(build.esc(entry["title"]), html)
+            self.assertIn(build.iconize(build.esc(entry["title"])), html)
 
     def test_txt_has_all_entries(self) -> None:
         txt = build.render_txt(self.data)

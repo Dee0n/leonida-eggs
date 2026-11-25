@@ -33,49 +33,61 @@ SPOILER_WORDS = [
     "сюрприз", "спойлер", "в итоге ты", "в конце ты",
 ]
 
-CSS = """
-  :root { --ink:#161616; --paper:#f2eee3; --red:#a11f1f; }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0; padding: 28px 16px 48px;
-    background: #2b2b2b;
-    font-family: "Courier New", Courier, monospace;
-    color: var(--ink);
-  }
-  .sheet {
-    max-width: 820px; margin: 0 auto; padding: 34px 38px 28px;
-    background: var(--paper);
-    background-image: repeating-linear-gradient(0deg, rgba(0,0,0,.025) 0 1px, transparent 1px 3px);
-    box-shadow: 0 12px 40px rgba(0,0,0,.55);
-    border: 2px solid var(--ink);
-    position: relative;
-  }
-  .stamp {
-    position: absolute; top: 18px; right: 24px;
-    border: 3px double var(--red); color: var(--red);
-    padding: 6px 10px; font-weight: bold; font-size: 12px;
-    transform: rotate(-7deg); letter-spacing: 1px; opacity: .85;
-  }
-  h1 { font-size: 30px; margin: 0 0 2px; letter-spacing: 3px; }
-  .sub { font-size: 12px; letter-spacing: 1px; margin-bottom: 18px; }
-  .rule { border-top: 3px solid var(--ink); margin: 14px 0 10px; }
-  .dash { border-top: 1px dashed var(--ink); margin: 16px 0 10px; }
-  h2 { font-size: 14px; letter-spacing: 2px; margin: 22px 0 8px; text-transform: uppercase; }
-  ol { margin: 0; padding-left: 24px; }
-  li { margin-bottom: 7px; font-size: 14px; line-height: 1.45; }
-  .k { font-weight: bold; }
-  .tag { font-size: 11px; padding: 0 4px; border: 1px solid var(--ink); margin-left: 4px; white-space: nowrap; }
-  .legend { font-size: 12px; border: 1px dashed var(--ink); padding: 8px 10px; margin: 10px 0 4px; }
-  .foot { margin-top: 26px; border-top: 3px solid var(--ink); padding-top: 10px; font-size: 12px; }
-  .foot p { margin: 4px 0; }
-  details { margin-top: 18px; font-size: 11px; }
-  summary { cursor: pointer; font-size: 11px; letter-spacing: 1px; }
-  a { color: var(--ink); }
-  .cut { text-align: center; letter-spacing: 4px; font-size: 11px; margin: 18px 0 0; }
-  @media print {
-    body { background: #fff; padding: 0; }
-    .sheet { box-shadow: none; border: none; max-width: none; }
-  }
+SITE_CSS = """
+  body { margin: 0; padding: 12px 0; background: #6b8eb3; font: 11px/1.4 Verdana, Tahoma, Arial, sans-serif; color: #000; }
+  a { color: #0000cc; } a:visited { color: #551a8b; } a:hover { color: #cc0000; }
+  table { border-collapse: collapse; }
+  .main { width: 800px; margin: 0 auto; background: #fff; border: 1px solid #003366; }
+  .top { background: #003366; padding: 10px 12px 8px; border-bottom: 3px solid #ffcc00; }
+  .logo { font: bold 30px "Arial Black", Arial, sans-serif; color: #ffcc00; text-shadow: 2px 2px 0 #000; letter-spacing: -1px; }
+  .logo span { color: #fff; }
+  .logo small { font: bold 12px Verdana, sans-serif; color: #9fc3e6; text-shadow: none; letter-spacing: 0; }
+  .slogan { color: #cfe0f2; font-size: 11px; margin-top: 2px; }
+  .navbar { background: #336699; padding: 4px 8px; border-bottom: 1px solid #003366; }
+  .navbar a { color: #fff; font-weight: bold; text-decoration: none; } .navbar a:hover { text-decoration: underline; color: #ffcc00; }
+  .navbar span { color: #9fc3e6; padding: 0 3px; }
+  .ticker { background: #ffffcc; border-bottom: 1px solid #cccc99; padding: 2px 6px; font-size: 11px; }
+  .ticker b { color: #cc0000; }
+  .left { width: 172px; background: #dde5ee; border-right: 1px solid #99aacc; padding: 8px 6px; vertical-align: top; }
+  .box { border: 1px solid #6688aa; background: #f5f8fb; margin-bottom: 8px; }
+  .box .bt { background: #336699; color: #fff; font-weight: bold; padding: 2px 5px; }
+  .box .bb { padding: 4px 5px; }
+  .po { display: block; margin: 3px 0 0; } .po b { float: right; } .po input { margin: 0 3px 0 0; vertical-align: -2px; }
+  .bar { height: 7px; background: #fff; border: 1px solid #6688aa; margin-top: 1px; }
+  .bar i { display: block; height: 100%; background: #336699; }
+  .pt { margin-top: 4px; font-size: 10px; color: #555; }
+  .btnv { display: inline-block; margin-top: 4px; padding: 1px 6px; background: #e0e8f0; border: 2px outset #c0c8d8;
+          color: #000; text-decoration: none; font-size: 10px; }
+  .cnt { display: inline-block; width: 86px; height: 29px; border: 1px solid #000; font: 9px/1.1 Verdana, sans-serif;
+         text-align: center; margin: 2px 0; overflow: hidden; vertical-align: top; }
+  .cnt b { display: block; font-size: 10px; }
+  .cnt.c1 { background: #000; color: #0f0; } .cnt.c2 { background: #ffcc00; color: #003366; }
+  .content { padding: 8px 12px 12px; vertical-align: top; }
+  .crumbs { font-size: 10px; margin-bottom: 6px; }
+  h1 { font: bold 16px Verdana, sans-serif; color: #003366; margin: 4px 0; }
+  .info { font-size: 10px; color: #555; margin-bottom: 6px; }
+  .intro { margin: 0 0 8px; padding: 5px 7px; background: #f0f4f8; border: 1px dashed #99aacc; }
+  .codes { width: 100%; margin: 10px 0 2px; border: 1px solid #99aacc; }
+  .codes th, .codes td { border: 1px solid #99aacc; padding: 3px 5px; vertical-align: top; text-align: left; }
+  .codes .sech { background: #003366; color: #ffcc00; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
+  .codes .colh { background: #e0e8f0; font-size: 10px; color: #333; }
+  .codes .sub { background: #fff3cc; font-weight: bold; color: #664400; }
+  .codes tr.r1 td { background: #f0f4f8; }
+  .codes td.k { width: 38%; font-weight: bold; }
+  .tag { color: #336699; }
+  .code { font-weight: bold; color: #cc0000; }
+  .new { color: #fff; background: #cc0000; font: bold 9px Verdana, sans-serif; padding: 0 3px; margin-left: 3px;
+         animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { visibility: hidden; } }
+  .th { float: right; margin: 0 0 3px 6px; text-align: center; font-size: 9px; color: #555; }
+  .th img { display: block; width: 150px; border: 1px solid #000; }
+  .up { text-align: right; font-size: 10px; }
+  .map { width: 100%; border: 1px solid #000; display: block; }
+  .ci { font-family: "Courier New", monospace; }
+  .foot { background: #003366; color: #cfe0f2; font-size: 10px; text-align: center; padding: 6px; border-top: 3px solid #ffcc00; }
+  .foot a { color: #ffcc00; }
+  details { margin-top: 10px; font-size: 10px; }
+  summary { cursor: pointer; color: #cc0000; font-weight: bold; }
 """
 
 
@@ -206,90 +218,226 @@ def esc(text: object) -> str:
     return html.escape(str(text), quote=True)
 
 
-def render_html(data: dict) -> str:
+POLL_JS = """
+<script>
+(function () {
+  var R = "Dee0n/leonida-eggs", OWNER = "Dee0n";
+  function h(t) { var d = document.createElement("div"); d.textContent = t; return d.innerHTML; }
+  var r = document.getElementById("rnd");
+  if (r && window.POOL && POOL.length) {
+    var p = POOL[Math.floor(Math.random() * POOL.length)];
+    r.innerHTML = '<a href="#e-' + p[0] + '">' + h(p[1]) + '</a>';
+  }
+  var API = "https://abacus.jasoncameron.dev/", NS = "leonida-eggs";
+  function cnt(key, hit) {
+    return fetch(API + (hit ? "hit/" : "get/") + NS + "/" + key)
+      .then(function (x) { return x.ok ? x.json() : { value: 0 }; })
+      .then(function (j) { return j.value || 0; }).catch(function () { return 0; });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll(".poll"), function (box) {
+    var id = box.getAttribute("data-poll"), n = +box.getAttribute("data-n");
+    var labels = Array.prototype.map.call(box.querySelectorAll(".po"), function (l) { return l.textContent.trim(); });
+    function show(mine) {
+      var ks = []; for (var i = 0; i < n; i++) ks.push(cnt("p-" + id + "-" + i, mine === i));
+      Promise.all(ks).then(function (v) {
+        var tot = v.reduce(function (a, b) { return a + b; }, 0), out = "";
+        v.forEach(function (c, i) {
+          var pc = tot ? Math.round(c * 100 / tot) : 0;
+          out += '<div class="po">' + h(labels[i]) + ' <b>' + pc + '%</b><div class="bar"><i style="width:' + pc + '%"></i></div></div>';
+        });
+        box.querySelector(".pr").innerHTML = out;
+        box.querySelector(".pa").innerHTML = '<div class="pt">Всего ответов: ' + tot +
+          (localStorage.getItem("poll-" + id) !== null ? "<br>Спасибо, ваш голос учтён!" : "") + "</div>";
+      });
+    }
+    if (localStorage.getItem("poll-" + id) !== null) { show(-1); return; }
+    box.querySelector(".vote").onclick = function () {
+      var r = box.querySelector("input:checked");
+      if (!r) { alert("Выберите вариант ответа!"); return; }
+      localStorage.setItem("poll-" + id, r.value);
+      show(+r.value);
+    };
+    box.querySelector(".res").onclick = function (ev) { ev.preventDefault(); show(-1); };
+  });
+  var st = document.getElementById("stars");
+  if (st) fetch("https://api.github.com/repos/" + R).then(function (x) { return x.json(); })
+    .then(function (j) { if (j.stargazers_count !== undefined) st.firstChild.innerHTML = "&#9733; " + j.stargazers_count; })
+    .catch(function () {});
+})();
+</script>
+"""
+
+
+def _new_ids(data: dict, days: int = 2) -> set[str]:
+    """Записи, добавленные за последние days дней от meta.date — помечаются NEW!"""
+    from datetime import date, timedelta
+    try:
+        ref = date.fromisoformat(str(data["meta"]["date"]))
+    except ValueError:
+        return set()
+    out = set()
+    for e in data["entries"]:
+        try:
+            if ref - date.fromisoformat(str(e.get("added", ""))) < timedelta(days=days):
+                out.add(e["id"])
+        except ValueError:
+            pass
+    return out
+
+
+def render_html(data: dict, links: dict | None = None, img_prefix: str = "../",
+                need_credit: bool = False, print_href: str = "") -> str:
+    """Обычная версия: сайт с кодами середины 2000-х (таблицы, меню слева, бегущая строка)."""
+    links = links or {}
     meta = data["meta"]
     numbered = numbered_entries(data)
     by_section: dict[str, list[tuple[int, dict]]] = {}
     for num, e in numbered:
         by_section.setdefault(e["section"], []).append((num, e))
+    fresh = _new_ids(data)
+    y, m, d = str(meta["date"]).split("-")
 
-    parts: list[str] = []
-    add = parts.append
-    add("<!DOCTYPE html>\n<html lang=\"ru\">\n<head>\n<meta charset=\"utf-8\">\n")
-    add(f"<title>{esc(meta['title'])} — листок пасхалок №{esc(meta['issue'])}</title>\n")
-    add("<style>" + CSS + "</style>\n</head>\n<body>\n<div class=\"sheet\">\n")
-    add("  <div class=\"stamp\">ХОДЯЧАЯ КОПИЯ</div>\n")
-    add(f"  <h1>{esc(meta['title'])}</h1>\n")
-    add(
-        f"  <div class=\"sub\">{esc(meta['subtitle'])} №{esc(meta['issue'])} &nbsp;·&nbsp; "
-        f"{esc(meta['date'])} &nbsp;·&nbsp; {esc(meta['game'])}</div>\n"
-    )
-    add("  <div class=\"rule\"></div>\n")
-    add("  <div class=\"legend\">\n")
-    add(f"    {esc(meta['intro'])}<br>\n")
-    add("    <span class=\"tag\">●</span> подтверждено несколькими источниками &nbsp;\n")
-    add("    <span class=\"tag\">○</span> одно сообщение, не проверено &nbsp;\n")
-    add("    <span class=\"tag\">◇</span> слух &nbsp;\n")
-    add("    <span class=\"tag\">✂</span> оторви и носи в кармане\n")
-    add("  </div>\n")
+    def lnk(name: str, text: str | None = None) -> str:
+        href = links.get(name, "#")
+        return f'<a href="{esc(href)}">{esc(text or name)}</a>'
 
-    # Содержание: только секции с записями, потом чек-листы, потом слухи — в порядке sections.
+    def thumb(item: dict) -> str:
+        rel = item.get("image", "")
+        if not rel or not (ROOT / rel).is_file():
+            return ""
+        src = item.get("image_source")
+        if need_credit and not src:
+            return ""
+        url = f"{img_prefix}{esc(rel)}"
+        cap = f'Скрин: <a href="{esc(src["url"])}">{esc(src["name"])}</a><br>' if src else ""
+        return (f'<div class="th"><a href="{url}" target="_blank"><img src="{url}" alt=""></a>'
+                f'{cap}(нажми для увеличения)</div>')
+
+    title = f"Коды к игре {meta['game']} :: LEONIDA-CHEATS"
+    P: list[str] = []
+    add = P.append
+    add('<!DOCTYPE html>\n<html lang="ru">\n<head>\n<meta charset="utf-8">\n')
+    add(f"<title>{esc(title)}</title>\n<style>{SITE_CSS}{BTN_CSS}</style>\n</head>\n<body>\n<a name=\"top\"></a>\n")
+    add('<table class="main"><tr><td colspan="2" class="top">'
+        '<div class="logo">LEONIDA<span>-CHEATS</span> <small>.narod.ru</small></div>'
+        '<div class="slogan">Коды, секреты и пасхалки к GTA VI. Без спойлеров.</div></td></tr>\n')
+    nav = [lnk("Главная"), lnk("Коды"), lnk("Пасхалки"), lnk("Версия для печати"),
+           lnk("Файлы", "Скачать PDF"), lnk("Форум"), lnk("Гостевая книга")]
+    add('<tr><td colspan="2" class="navbar">' + "<span>|</span>".join(nav) + "</td></tr>\n")
+
+    latest = sorted(data["entries"], key=lambda e: str(e.get("added", "")), reverse=True)[:8]
+    tick = " &nbsp;&nbsp;*&nbsp;&nbsp; ".join(
+        f'{esc(".".join(reversed(str(e["added"]).split("-"))))}: {esc(e["title"])}' for e in latest)
+    add(f'<tr><td colspan="2" class="ticker"><marquee scrollamount="3"><b>Новое на сайте:</b> {tick}</marquee></td></tr>\n')
+
+    # left column
+    add('<tr><td class="left">\n')
+    add('<div class="box"><div class="bt">Меню</div><div class="bb">'
+        + "".join(f"&raquo; {lnk(n, t)}<br>" for n, t in [
+            ("Главная", None), ("Версия для печати", None), ("Файлы", "Скачать PDF"),
+            ("Прислать пасхалку", None), ("Форум", None)])
+        + "</div></div>\n")
+    add('<div class="box"><div class="bt">Разделы</div><div class="bb">')
     for sec in data["sections"]:
         if sec.get("type") == "checklist":
-            items = data["checklists"].get(sec["id"], [])
-            add(f"  <h2>{esc(sec['title'])}</h2>\n")
-            add("  <div class=\"legend\" style=\"border-style:solid\">\n")
-            add("    Отмечай найденное, не открывай заранее:\n    <ol style=\"margin-top:8px\">\n")
-            for item in items:
-                add(f"      <li>{esc(item)}</li>\n")
-            add("    </ol>\n  </div>\n")
-            continue
+            n = len(data["checklists"].get(sec["id"], []))
+        else:
+            n = len(by_section.get(sec["id"], []))
+        if n:
+            add(f'&raquo; <a href="#{esc(sec["id"])}">{esc(sec["title"])}</a> ({n})<br>')
+    add("</div></div>\n")
+    add('<div class="box"><div class="bt">Обозначения</div><div class="bb">'
+        + "<br>".join(f'<span class="tag">{CONFIDENCE_TAGS[k]}</span> {esc(CONFIDENCE_NAMES[k])}'
+                      for k in CONFIDENCE_TAGS)
+        + '<br><span class="new">NEW!</span> свежее, за последние два дня</div></div>\n')
+    add(f'<div class="box"><div class="bt">Статистика</div><div class="bb">Записей: <b>{len(numbered)}</b><br>'
+        f'Выпуск: <b>№{meta["issue"]}</b><br>Обновлено: <b>{d}.{m}.{y}</b></div></div>\n')
+    if links.get("GitHub"):
+        add('<div class="box"><div class="bt">Проект на GitHub</div><div class="bb">'
+            f'Исходники, данные и история правок:<br>&raquo; <a href="{esc(links["GitHub"])}">{esc(links["GitHub"].replace("https://", ""))}</a><br>'
+            f'Адрес сайта:<br>&raquo; <a href="{esc(SITE_URL)}">{esc(SITE_URL.replace("https://", ""))}</a></div></div>\n')
+    polls_path = ROOT / "data" / "polls.json"
+    polls = json.loads(polls_path.read_text(encoding="utf-8")) if polls_path.is_file() else []
+    for k, poll in enumerate(polls[:2]):
+        pid = esc(poll["id"])
+        opts = "".join(f'<label class="po"><input type="radio" name="p-{pid}" value="{n}"> {esc(o)}</label>'
+                       for n, o in enumerate(poll["options"]))
+        add(f'<div class="box poll" data-poll="{pid}" data-n="{len(poll["options"])}">'
+            f'<div class="bt">{"Наш опрос" if k == 0 else "Опрос"}</div><div class="bb">'
+            f'<b>{esc(poll["question"])}</b><div class="pr">{opts}</div>'
+            f'<div class="pa"><button type="button" class="btnv vote">Голосовать</button> '
+            f'<a href="#" class="res">Результаты</a></div></div></div>\n')
+    pool = [[e["id"], e["title"]] for _n, e in numbered if e["section"] != "controls"]
+    pool_js = json.dumps(pool, ensure_ascii=False).replace("</", "<\\/")
+    add('<div class="box"><div class="bt">Случайная пасхалка</div><div class="bb" id="rnd">'
+        '<a href="#keys">Обнови страницу</a></div></div>\n')
+    add(f'<span class="cnt c1"><b>{len(numbered):06d}</b>записей</span> '
+        f'<span class="cnt c2"><b>LEONIDA</b>TOP 100</span> '
+        f'<span class="cnt c1" id="stars"><b>&#9733; ...</b>на GitHub</span> '
+        f'<span class="cnt c2"><b>1024x768</b>IE 6.0</span>\n')
+    add("<script>var POOL=" + pool_js + ";</script>\n")
+    add("</td>\n")
 
+    # content
+    add('<td class="content">\n')
+    add(f'<div class="crumbs">{lnk("Главная")} &raquo; {lnk("Коды")} &raquo; PS5 / Xbox Series &raquo; '
+        f'<b>{esc(meta["game"])}</b></div>\n')
+    add(f"<h1>Коды и пасхалки к игре {esc(meta['game'])}</h1>\n")
+    pr = f' | {lnk("Версия для печати", "[Версия для печати]")}' if links.get("Версия для печати") else ""
+    add(f'<div class="info">Добавлено: {d}.{m}.{y} | Выпуск №{meta["issue"]} | Записей: {len(numbered)}{pr}</div>\n')
+    add(f'<p class="intro">{esc(meta["intro"])}</p>\n')
+
+    for sec in data["sections"]:
+        sid = esc(sec["id"])
+        if sec.get("type") == "checklist":
+            items = data["checklists"].get(sec["id"], [])
+            if not items:
+                continue
+            add(f'<a name="{sid}" id="{sid}"></a><table class="codes"><tr><th colspan="2" class="sech">'
+                f'{esc(sec["title"])}</th></tr>\n')
+            for i, item in enumerate(items, 1):
+                add(f'<tr class="r{i % 2}"><td class="ci" style="width:40px">[&nbsp;&nbsp;]</td><td>{i}. {esc(item)}</td></tr>\n')
+            if sec.get("image") and (ROOT / sec["image"]).is_file() and (sec.get("image_source") or not need_credit):
+                url = f"{img_prefix}{esc(sec['image'])}"
+                src = sec.get("image_source")
+                cap = f'<br>Скрин: <a href="{esc(src["url"])}">{esc(src["name"])}</a>' if src else ""
+                add(f'<tr><td colspan="2"><a href="{url}" target="_blank"><img class="map" src="{url}" alt=""></a>'
+                    f'<small>(нажми для увеличения){cap}</small></td></tr>\n')
+            add('</table><div class="up"><a href="#top">[наверх]</a></div>\n')
+            continue
         rows = by_section.get(sec["id"], [])
         if not rows:
             continue
-        add(f"  <h2>{esc(sec['title'])}</h2>\n")
-        add(f"  <ol start=\"{rows[0][0]}\">\n")
-        for num, e in rows:
-            tag = CONFIDENCE_TAGS[e["confidence"]]
-            add(
-                f"    <li><span class=\"tag\">{tag}</span> "
-                f"<span class=\"k\">{esc(e['title'])}.</span> {esc(e['hint'])}</li>\n"
-            )
-        add("  </ol>\n")
-
-    total = len(numbered)
-    add("  <div class=\"dash\"></div>\n")
-    add("  <div class=\"legend\">\n")
-    add("    <b>Правила листка.</b> Не спойлери друзьям. Не пости скриншоты в первый день. "
-        "Если нашёл что-то новое — впиши в раздел V и передай дальше.\n")
-    add("  </div>\n")
-    add("  <div class=\"cut\">✂ — — — — — — — — — — — — — — — — — — — — — — — — — — — —</div>\n")
-    add("  <div class=\"foot\">\n")
-    add(f"    <p>{esc(meta['title'])} · ЛИСТОК №{esc(meta['issue'])} · собрано {esc(meta['date'])}.</p>\n")
-    add(f"    <p>Записей: {total}. Полного списка не существует: игре идут дни, игроки находят новое каждый час.</p>\n")
-    add("  </div>\n")
+        add(f'<a name="{sid}" id="{sid}"></a><table class="codes">'
+            f'<tr><th colspan="2" class="sech">{esc(sec["title"])}</th></tr>\n'
+            '<tr><th class="colh">Где / комбинация</th><th class="colh">Что делать</th></tr>\n')
+        poi_started = False
+        for i, (_num, e) in enumerate(rows):
+            if e.get("kind") == "poi" and not poi_started:
+                poi_started = True
+                add(f'<tr><td colspan="2" class="sub">{esc(POI_TITLE)}</td></tr>\n')
+            new = '<span class="new">NEW!</span>' if e["id"] in fresh else ""
+            add(f'<tr class="r{i % 2}" id="e-{esc(e["id"])}"><td class="k"><span class="tag">{CONFIDENCE_TAGS[e["confidence"]]}</span> '
+                f'{iconize(esc(e["title"]))}{new}</td><td>{thumb(e)}{render_hint(e["hint"])}</td></tr>\n')
+        add('</table><div class="up"><a href="#top">[наверх]</a></div>\n')
 
     sources: list[tuple[str, str]] = []
     seen: set[str] = set()
     for e in data["entries"]:
         for src in e.get("sources", []):
-            url = src["url"]
-            if url not in seen:
-                seen.add(url)
-                sources.append((src["name"], url))
+            if src["url"] not in seen:
+                seen.add(src["url"])
+                sources.append((src["name"], src["url"]))
     if sources:
-        add("  <details>\n")
-        add("    <summary>ИСТОЧНИКИ — ОСТОРОЖНО, В ЗАГОЛОВКАХ ЕСТЬ СПОЙЛЕРЫ</summary>\n    <p>\n")
-        links = [
-            f'      <a href="{esc(url)}">{esc(name)}</a>' for name, url in sources
-        ]
-        add(" ·\n".join(links) + "\n")
-        add("    </p>\n  </details>\n")
-
-    add("</div>\n</body>\n</html>\n")
-    return "".join(parts)
-
+        add("<details><summary>Источники (осторожно: в заголовках статей есть спойлеры)</summary><p>")
+        add(" | ".join(f'<a href="{esc(u)}">{esc(n)}</a>' for n, u in sources))
+        add("</p></details>\n")
+    add("</td></tr>\n")
+    add(f'<tr><td colspan="2" class="foot">&copy; 2026 LEONIDA-CHEATS. При копировании материалов ссылка на сайт '
+        f'обязательна.<br>Последнее обновление: {d}.{m}.{y} | {lnk("Прислать пасхалку")} | '
+        f'{lnk("Форум")}<br>Сайт лучше всего смотрится в Internet Explorer 6.0 при разрешении 1024x768</td></tr>\n')
+    add("</table>\n" + POLL_JS + "</body>\n</html>\n")
+    return "".join(P)
 
 PRINT_CSS = """
   @page {
@@ -336,8 +484,27 @@ PRINT_CSS = """
   @media screen { body { max-width: 184mm; margin: 6mm auto 10mm; padding: 0 5mm; } }
 """
 
-BUTTON_TOKEN = r"(?:△|○|×|✕|□|[LR][123])"
-BUTTON_SEQ_RE = re.compile(r"^((?:" + BUTTON_TOKEN + r"\s+){3,}" + BUTTON_TOKEN + r")(.*)$", re.S)
+BUTTON_TOKEN = r"(?:Треугольник|Круг|Квадрат|Крест|[LR][123])"
+BUTTON_SEQ_RE = re.compile(r"^((?:" + BUTTON_TOKEN + r",?\s+){3,}" + BUTTON_TOKEN + r")(.*)$", re.S)
+
+BTN_ICONS = {"Треугольник": ("tri", "△"), "Круг": ("cir", "○"), "Квадрат": ("sq", "□"), "Крест": ("crs", "✕")}
+BTN_RE = re.compile(r"(?<![\w-])(Треугольник|Круг|Квадрат|Крест)(?![\w-])")
+KEY_RE = re.compile(r"(?<![\w-])([LR][123]|Options)(?![\w-])")
+BTN_CSS = """
+  .btn { display: inline-block; width: 1.3em; height: 1.3em; line-height: 1.25em; border-radius: 50%;
+         color: #fff; text-align: center; font-weight: bold; font-size: 1em; vertical-align: -.2em;
+         font-family: "Segoe UI Symbol", "Arial Unicode MS", sans-serif; text-transform: none; letter-spacing: 0; text-indent: 0; }
+  .btn.tri { background: #17914a; } .btn.cir { background: #d0312d; } .btn.sq { background: #c2489c; } .btn.crs { background: #2f62c9; }
+  .key { display: inline-block; padding: 0 .28em; border: 1px solid #222; border-bottom-width: 2px; border-radius: 3px;
+         background: #f2f2f2; color: #000; font-weight: bold; font-size: .92em; line-height: 1.2em; text-transform: none; letter-spacing: 0; text-indent: 0; }
+"""
+
+
+def iconize(escaped: str) -> str:
+    """Кнопки геймпада в уже экранированном тексте -> значки. В данных и txt они остаются словами."""
+    escaped = BTN_RE.sub(lambda m: f'<span class="btn {BTN_ICONS[m.group(1)][0]}" title="{m.group(1)}">'
+                                   f'{BTN_ICONS[m.group(1)][1]}</span>', escaped)
+    return KEY_RE.sub(lambda m: f'<span class="key">{m.group(1)}</span>', escaped)
 
 
 def css_string(text: str) -> str:
@@ -348,14 +515,14 @@ def render_hint(text: str) -> str:
     """Комбинацию кнопок пишет как код, остальное как пояснение в скобках."""
     seq = BUTTON_SEQ_RE.match(text)
     if seq:
-        rest = seq.group(2).lstrip(" —").strip()
+        rest = seq.group(2).lstrip(" —-.").strip()
         tail = f" ({esc(rest)})" if rest else ""
-        return f'<span class="code">{esc(seq.group(1))}</span>{tail}'
-    return esc(text)
+        return f'<span class="code">{iconize(esc(seq.group(1)))}</span>{iconize(tail)}'
+    return iconize(esc(text))
 
 
 def render_print_html(data: dict, images: bool = True, links: dict | None = None,
-                      img_prefix: str = "../", need_credit: bool = False) -> str:
+                      img_prefix: str = "../", need_credit: bool = False, footer_url: str = "") -> str:
     """Версия под печать: A4, сколько нужно листов; вид распечатки сайта с кодами из середины 2000-х.
 
     images=False — без картинок (публичная версия). links — {подпись: url} для пунктов меню.
@@ -390,7 +557,8 @@ def render_print_html(data: dict, images: bool = True, links: dict | None = None
     y, m, d = str(meta["date"]).split("-")
     css = (
         PRINT_CSS.replace('"__TITLE__"', css_string(page_title))
-        .replace('"__FILE__"', css_string("file://C:\\Documents%20and%20Settings\\User\\Мои%20документы\\" + file_name))
+        .replace('"__FILE__"', css_string(footer_url or
+                 "file://C:\\Documents%20and%20Settings\\User\\Мои%20документы\\" + file_name))
         .replace('"__DATE__"', css_string(f"{d}.{m}.{y}"))
     )
 
@@ -398,7 +566,7 @@ def render_print_html(data: dict, images: bool = True, links: dict | None = None
     add = parts.append
     add('<!DOCTYPE html>\n<html lang="ru">\n<head>\n<meta charset="utf-8">\n')
     add(f"<title>{esc(page_title)}</title>\n")
-    add("<style>" + css + "</style>\n</head>\n<body>\n")
+    add("<style>" + css + BTN_CSS + "</style>\n</head>\n<body>\n")
     nav = ["Главная", "Новости", "Коды", "Пасхалки", "Прохождения", "Карты", "Файлы", "Форум", "Гостевая книга"]
     add('<table class="site"><tr><td class="logo">LEONIDA<i>-CHEATS</i><small>.narod.ru</small></td>'
         '<td class="slogan">коды, секреты, пасхалки, прохождения</td></tr></table>\n')
@@ -439,7 +607,7 @@ def render_print_html(data: dict, images: bool = True, links: dict | None = None
                 add(f'<h3>{esc(POI_TITLE)}</h3>\n')
             line = (
                 f'{CONFIDENCE_TAGS[e["confidence"]]} '
-                f'<span class="k">{esc(e["title"])}</span> = {render_hint(e["hint"])}'
+                f'<span class="k">{iconize(esc(e["title"]))}</span> = {render_hint(e["hint"])}'
             )
             if pic(e):
                 src = f'{img_prefix}{esc(e["image"])}'
@@ -465,11 +633,11 @@ def render_txt(data: dict) -> str:
         by_section.setdefault(e["section"], []).append((num, e))
 
     lines: list[str] = []
-    lines.append(f"{meta['title']} — {meta['subtitle']} №{meta['issue']}")
+    lines.append(f"{meta['title']} - {meta['subtitle']} №{meta['issue']}")
     lines.append(f"{meta['date']} · {meta['game']}")
     lines.append("")
     lines.append(meta["intro"])
-    lines.append("● — подтверждено, ○ — одно сообщение, ◇ — слух")
+    lines.append("● подтверждено, ○ одно сообщение, ◇ слух")
     lines.append("=" * 62)
 
     for sec in data["sections"]:
@@ -553,6 +721,7 @@ def cmd_build(args: argparse.Namespace) -> int:
 
 SITE = ROOT / "docs"
 REPO_URL = "https://github.com/Dee0n/leonida-eggs"
+SITE_URL = "https://dee0n.github.io/leonida-eggs/"
 
 
 def cmd_site(args: argparse.Namespace) -> int:
@@ -576,6 +745,7 @@ def cmd_site(args: argparse.Namespace) -> int:
         "Гостевая книга": f"{REPO_URL}/issues",
         "Обсудить на форуме": f"{REPO_URL}/issues",
         "Прислать пасхалку": f"{REPO_URL}/issues/new?template=egg.yml",
+        "GitHub": REPO_URL,
     }
     index = SITE / "index.html"
     # картинки публикуются только с указанием источника (image_source)
@@ -590,11 +760,16 @@ def cmd_site(args: argparse.Namespace) -> int:
             shutil.copy2(ROOT / rel, SITE / rel)
             published += 1
     print(f"Картинок на сайте: {published}")
-    index.write_text(render_print_html(data, links=links, img_prefix="", need_credit=True), encoding="utf-8")
+    print_page = SITE / "print.html"
+    print_page.write_text(render_print_html(data, links=links, img_prefix="", need_credit=True,
+                                            footer_url=SITE_URL + "print.html"), encoding="utf-8")
+    site_links = dict(links, **{"Версия для печати": "print.html"})
+    index.write_text(render_html(data, links=site_links, img_prefix="", need_credit=True), encoding="utf-8")
+    print(f"Готово: {print_page}")
     (SITE / "leonida_easter_eggs.txt").write_text(render_txt(data), encoding="utf-8")
     (SITE / ".nojekyll").write_text("", encoding="utf-8")
     print(f"Готово: {index}")
-    if make_pdf(index, SITE / pdf_name):
+    if make_pdf(print_page, SITE / pdf_name):
         print(f"Готово: {SITE / pdf_name}")
     else:
         print("PDF для сайта не собран.")
@@ -635,7 +810,7 @@ def cmd_new(args: argparse.Namespace) -> int:
         "id": slug,
         "section": args.section,
         "title": args.title,
-        "hint": "Куда идти и что нажать — без описания того, что увидишь.",
+        "hint": "Куда идти и что нажать. Без описания того, что увидишь.",
         "confidence": "single",
         "sources": [{"name": "Название издания", "url": "https://example.com/..."}],
         "added": "2026-11-24",

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "best-gta",
+    "question": "Какая GTA лучше?",
+    "options": [
+      "GTA 3",
+      "Vice City",
+      "San Andreas",
+      "GTA 4",
+      "GTA 5",
+      "GTA 6"
+    ]
+  },
+  {
+    "id": "site",
+    "question": "Как вам наш сайт?",
+    "options": [
+      "Супер!",
+      "Нормально",
+      "Можно и получше",
+      "Отстой"
+    ]
+  },
+  {
+    "id": "age",
+    "question": "Сколько вам лет?",
+    "options": [
+      "до 14",
+      "14-18",
+      "18-25",
+      "25-35",
+      "больше 35"
+    ]
+  },
+  {
+    "id": "platform",
+    "question": "На чём играете в GTA 6?",
+    "options": [
+      "PS5",
+      "Xbox Series",
+      "Жду на ПК"
+    ]
+  }
+]
