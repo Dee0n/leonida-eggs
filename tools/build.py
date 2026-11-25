@@ -294,14 +294,27 @@ POLL_JS = """
       pr.innerHTML = out;
       pa.innerHTML = '<div class="pt">Всего ответов: ' + tot + (note ? "<br>" + note : "") + "</div>";
     }
-    function load(note) {
+    function load(note, mine) {
+      // сразу показываем последние известные результаты, потом обновляем со счётчика
+      var cached = null;
+      try { cached = JSON.parse(ls("poll-cache-" + id) || "null"); } catch (e) {}
+      if (cached && cached.length === n) {
+        if (mine !== undefined && mine >= 0) cached[mine]++;
+        results(cached, note);
+      } else {
+        pa.innerHTML = '<div class="pt">Загрузка результатов...</div>';
+      }
       var ks = []; for (var i = 0; i < n; i++) ks.push(cnt("p-" + id + "-" + i, false));
-      Promise.all(ks).then(function (v) { results(v, note); });
+      Promise.all(ks).then(function (v) {
+        if (v.every(function (x) { return x !== null; })) { ls("poll-cache-" + id, JSON.stringify(v)); results(v, note); }
+        else if (!cached) results(v, note);
+      });
     }
     function send(opt, note) {
-      pa.innerHTML = '<div class="pt">Голос отправляется...</div>';
+      // показываем результат сразу, голос уходит на счётчик в фоне
+      load(note, opt);
       cnt("p-" + id + "-" + opt, true).then(function (v) {
-        if (v === null) { ls("poll-pending-" + id, String(opt)); results([null], "Спасибо! Голос дойдёт при следующем заходе."); return; }
+        if (v === null) { ls("poll-pending-" + id, String(opt)); return; }
         ls("poll-pending-" + id, "");
         load(note);
       });
@@ -315,6 +328,10 @@ POLL_JS = """
       ls("poll-" + id, r.value);
       send(+r.value, "Спасибо, ваш голос учтён!");
     };
+    var warm = []; for (var w = 0; w < n; w++) warm.push(cnt("p-" + id + "-" + w, false));
+    Promise.all(warm).then(function (v) {
+      if (v.every(function (x) { return x !== null; })) ls("poll-cache-" + id, JSON.stringify(v));
+    });
     box.querySelector(".res").onclick = function (ev) {
       ev.preventDefault();
       pa.innerHTML = '<div class="pt">Загрузка...</div>';
