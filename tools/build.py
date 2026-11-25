@@ -14,6 +14,7 @@ import argparse
 import html
 import json
 import re
+import shutil
 import sys
 from pathlib import Path
 
@@ -164,6 +165,8 @@ def validate(data: dict, strict: bool = False) -> tuple[list[str], list[str]]:
             errors.append(f"{where}: пустой hint")
         if e.get("kind", "egg") not in KINDS:
             errors.append(f"{where}: kind должен быть egg или poi")
+        if e.get("image") and not e.get("image_source"):
+            warnings.append(f"{where}: у картинки нет image_source, на сайт она не попадёт")
         if e.get("image") and not (ROOT / e["image"]).is_file():
             warnings.append(f"{where}: нет файла картинки {e['image']}, в листок не попадёт")
 
@@ -308,9 +311,12 @@ PRINT_CSS = """
   .code { font-weight: bold; letter-spacing: 1pt; }
   .ci { margin: 0 0 .5mm; }
   .e.pic { display: flow-root; margin-bottom: 1.4mm; }
-  .e img { float: right; max-width: 80mm; max-height: 55mm; margin: .4mm 0 1.2mm 3mm; border: 1px solid #000; }
+  .fig { float: right; margin: .4mm 0 1.2mm 3mm; text-indent: 0; text-align: right; }
+  .fig img { display: block; max-width: 80mm; max-height: 55mm; border: 1px solid #000; margin-left: auto; }
+  .cap { font-size: 7pt; margin-top: .4mm; }
+  .mapfig { break-inside: avoid; margin: 2mm 0 0; }
   .clr { clear: both; }
-  .map { display: block; max-width: 120mm; max-height: 90mm; margin: 2mm 0 0; border: 1px solid #000; break-inside: avoid; }
+  .map { display: block; max-width: 120mm; max-height: 90mm; border: 1px solid #000; }
   .a { color: #0000cc; text-decoration: underline; }
   .site { width: 100%; border-collapse: collapse; border-bottom: 2px solid #000; margin: 0 0 1mm; }
   .site td { padding: 0 0 1mm; vertical-align: bottom; }
@@ -346,7 +352,8 @@ def render_hint(text: str) -> str:
     return esc(text)
 
 
-def render_print_html(data: dict, images: bool = True, links: dict | None = None) -> str:
+def render_print_html(data: dict, images: bool = True, links: dict | None = None,
+                      img_prefix: str = "../", need_credit: bool = False) -> str:
     """Версия под печать: A4, сколько нужно листов; вид распечатки сайта с кодами из середины 2000-х.
 
     images=False — без картинок (публичная версия). links — {подпись: url} для пунктов меню.
@@ -358,8 +365,17 @@ def render_print_html(data: dict, images: bool = True, links: dict | None = None
             return f'<a href="{esc(links[name])}">{esc(name)}</a>'
         return f'<span class="a">{esc(name)}</span>'
 
-    def pic(rel: str) -> bool:
-        return images and bool(rel) and (ROOT / rel).is_file()
+    def pic(item: dict) -> bool:
+        rel = item.get("image", "")
+        if not (images and rel and (ROOT / rel).is_file()):
+            return False
+        return bool(item.get("image_source")) or not need_credit
+
+    def cap(item: dict) -> str:
+        src = item.get("image_source")
+        if not src:
+            return ""
+        return (f'<div class="cap">Скрин: <a href="{esc(src["url"])}">{esc(src["name"])}</a></div>')
 
     meta = data["meta"]
     numbered = numbered_entries(data)
@@ -404,8 +420,9 @@ def render_print_html(data: dict, images: bool = True, links: dict | None = None
             add(f"<h2>{esc(sec['title'])}</h2>\n")
             for item in items:
                 add(f'<div class="ci">[&nbsp;&nbsp;] {esc(item)}</div>\n')
-            if pic(sec.get("image", "")):
-                add(f'<img class="map" src="../{esc(sec["image"])}" alt="">\n')
+            if pic(sec):
+                add(f'<div class="mapfig"><img class="map" src="{img_prefix}{esc(sec["image"])}" alt="">'
+                    f'{cap(sec)}</div>\n')
             continue
 
         rows = by_section.get(sec["id"], [])
@@ -421,8 +438,9 @@ def render_print_html(data: dict, images: bool = True, links: dict | None = None
                 f'{CONFIDENCE_TAGS[e["confidence"]]} '
                 f'<span class="k">{esc(e["title"])}</span> = {render_hint(e["hint"])}'
             )
-            if pic(e.get("image", "")):
-                add(f'<div class="e pic"><img src="../{esc(e["image"])}" alt="">{line}</div>\n')
+            if pic(e):
+                add(f'<div class="e pic"><div class="fig"><img src="{img_prefix}{esc(e["image"])}" alt="">'
+                    f'{cap(e)}</div>{line}</div>\n')
             else:
                 add(f'<div class="e">{line}</div>\n')
 
@@ -555,7 +573,19 @@ def cmd_site(args: argparse.Namespace) -> int:
         "Прислать пасхалку": f"{REPO_URL}/issues/new?template=egg.yml",
     }
     index = SITE / "index.html"
-    index.write_text(render_print_html(data, images=False, links=links), encoding="utf-8")
+    # картинки публикуются только с указанием источника (image_source)
+    img_dir = SITE / "images"
+    if img_dir.exists():
+        shutil.rmtree(img_dir)
+    img_dir.mkdir()
+    published = 0
+    for item in list(data["entries"]) + list(data["sections"]):
+        rel = item.get("image")
+        if rel and item.get("image_source") and (ROOT / rel).is_file():
+            shutil.copy2(ROOT / rel, SITE / rel)
+            published += 1
+    print(f"Картинок на сайте: {published}")
+    index.write_text(render_print_html(data, links=links, img_prefix="", need_credit=True), encoding="utf-8")
     (SITE / "leonida_easter_eggs.txt").write_text(render_txt(data), encoding="utf-8")
     (SITE / ".nojekyll").write_text("", encoding="utf-8")
     print(f"Готово: {index}")

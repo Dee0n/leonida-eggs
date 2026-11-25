@@ -36,7 +36,11 @@
       "id": "waink",
       "title": "VII. WAiNK: сканируй приложением",
       "type": "checklist",
-      "image": "images/waink-map.jpg"
+      "image": "images/waink-map.jpg",
+      "image_source": {
+        "name": "GameSpot",
+        "url": "https://www.gamespot.com/articles/all-waink-curiosities-in-gta-6/"
+      }
     }
   ],
   "checklists": {
@@ -158,7 +162,11 @@
       ],
       "added": "2026-11-24",
       "added_by": "lead",
-      "image": "images/michael-boat.jpg"
+      "image": "images/michael-boat.jpg",
+      "image_source": {
+        "name": "Beebom",
+        "url": "https://beebom.com/gta-6-easter-eggs/"
+      }
     },
     {
       "id": "jason-magazine",
@@ -246,7 +254,11 @@
       ],
       "added": "2026-11-24",
       "added_by": "lead",
-      "image": "images/parrot.jpeg"
+      "image": "images/parrot.jpeg",
+      "image_source": {
+        "name": "Beebom",
+        "url": "https://beebom.com/gta-6-easter-eggs/"
+      }
     },
     {
       "id": "brians-marina",
@@ -278,7 +290,11 @@
       ],
       "added": "2026-11-24",
       "added_by": "lead",
-      "image": "images/toilet-flyer.jpg"
+      "image": "images/toilet-flyer.jpg",
+      "image_source": {
+        "name": "Beebom",
+        "url": "https://beebom.com/gta-6-easter-eggs/"
+      }
     },
     {
       "id": "paraglider",
@@ -344,7 +360,11 @@
       ],
       "added": "2026-11-24",
       "added_by": "lead",
-      "image": "images/sos-island.jpg"
+      "image": "images/sos-island.jpg",
+      "image_source": {
+        "name": "Beebom",
+        "url": "https://beebom.com/gta-6-easter-eggs/"
+      }
     },
     {
       "id": "crab-lab",
@@ -368,7 +388,11 @@
       ],
       "added": "2026-11-24",
       "added_by": "lead",
-      "image": "images/crab-lab.jpg"
+      "image": "images/crab-lab.jpg",
+      "image_source": {
+        "name": "Beebom",
+        "url": "https://beebom.com/gta-6-easter-eggs/"
+      }
     },
     {
       "id": "capri-warehouse",
@@ -412,7 +436,11 @@
       "added": "2026-11-24",
       "added_by": "lead",
       "image": "images/dexter.jpg",
-      "kind": "poi"
+      "kind": "poi",
+      "image_source": {
+        "name": "Beebom",
+        "url": "https://beebom.com/gta-6-easter-eggs/"
+      }
     },
     {
       "id": "vercetti-mansion",
@@ -429,7 +457,11 @@
       "added": "2026-11-24",
       "added_by": "lead",
       "image": "images/vercetti-mansion.jpg",
-      "kind": "poi"
+      "kind": "poi",
+      "image_source": {
+        "name": "Beebom",
+        "url": "https://beebom.com/gta-6-easter-eggs/"
+      }
     },
     {
       "id": "eclipse",
@@ -461,7 +493,11 @@
       "added": "2026-11-24",
       "added_by": "lead",
       "image": "images/marbelle.jpg",
-      "kind": "poi"
+      "kind": "poi",
+      "image_source": {
+        "name": "Beebom",
+        "url": "https://beebom.com/gta-6-easter-eggs/"
+      }
     },
     {
       "id": "russo",
@@ -550,7 +586,11 @@
       ],
       "added": "2026-11-24",
       "added_by": "lead",
-      "image": "images/egg-tower.jpeg"
+      "image": "images/egg-tower.jpeg",
+      "image_source": {
+        "name": "Beebom",
+        "url": "https://beebom.com/gta-6-easter-eggs/"
+      }
     },
     {
       "id": "skunk-ape",
@@ -574,7 +614,11 @@
       ],
       "added": "2026-11-24",
       "added_by": "lead",
-      "image": "images/skunk-ape.jpg"
+      "image": "images/skunk-ape.jpg",
+      "image_source": {
+        "name": "Beebom",
+        "url": "https://beebom.com/gta-6-easter-eggs/"
+      }
     },
     {
       "id": "ufo",
@@ -594,7 +638,11 @@
       ],
       "added": "2026-11-24",
       "added_by": "lead",
-      "image": "images/ufo.jpg"
+      "image": "images/ufo.jpg",
+      "image_source": {
+        "name": "Beebom",
+        "url": "https://beebom.com/gta-6-easter-eggs/"
+      }
     },
     {
       "id": "trilogy-house",
@@ -614,7 +662,11 @@
       ],
       "added": "2026-11-24",
       "added_by": "lead",
-      "image": "images/trilogy-house.jpeg"
+      "image": "images/trilogy-house.jpeg",
+      "image_source": {
+        "name": "Beebom",
+        "url": "https://beebom.com/gta-6-easter-eggs/"
+      }
     },
     {
       "id": "monument",
@@ -635,7 +687,11 @@
       "added": "2026-11-24",
       "added_by": "lead",
       "image": "images/monument.jpg",
-      "kind": "poi"
+      "kind": "poi",
+      "image_source": {
+        "name": "Beebom",
+        "url": "https://beebom.com/gta-6-easter-eggs/"
+      }
     },
     {
       "id": "cowboy-hat",
@@ -651,7 +707,11 @@
       ],
       "added": "2026-11-24",
       "added_by": "lead",
-      "image": "images/cowboy-hat.jpeg"
+      "image": "images/cowboy-hat.jpeg",
+      "image_source": {
+        "name": "Beebom",
+        "url": "https://beebom.com/gta-6-easter-eggs/"
+      }
     },
     {
       "id": "mini-golf",
@@ -668,7 +728,11 @@
       "added": "2026-11-24",
       "added_by": "lead",
       "image": "images/mini-golf.jpg",
-      "kind": "poi"
+      "kind": "poi",
+      "image_source": {
+        "name": "Beebom",
+        "url": "https://beebom.com/gta-6-easter-eggs/"
+      }
     },
     {
       "id": "mario",
@@ -692,7 +756,11 @@
       ],
       "added": "2026-11-24",
       "added_by": "lead",
-      "image": "images/mario.jpg"
+      "image": "images/mario.jpg",
+      "image_source": {
+        "name": "Beebom",
+        "url": "https://beebom.com/gta-6-easter-eggs/"
+      }
     },
     {
       "id": "kalaga",
@@ -743,7 +811,11 @@
       ],
       "added": "2026-11-24",
       "added_by": "lead",
-      "image": "images/tootsie.jpg"
+      "image": "images/tootsie.jpg",
+      "image_source": {
+        "name": "Beebom",
+        "url": "https://beebom.com/gta-6-easter-eggs/"
+      }
     },
     {
       "id": "hyde-island",
@@ -760,7 +832,11 @@
       "added": "2026-11-24",
       "added_by": "lead",
       "image": "images/hyde-island.jpeg",
-      "kind": "poi"
+      "kind": "poi",
+      "image_source": {
+        "name": "Beebom",
+        "url": "https://beebom.com/gta-6-easter-eggs/"
+      }
     },
     {
       "id": "tallaloko",
@@ -777,7 +853,11 @@
       "added": "2026-11-24",
       "added_by": "lead",
       "image": "images/tallaloko.jpg",
-      "kind": "poi"
+      "kind": "poi",
+      "image_source": {
+        "name": "Beebom",
+        "url": "https://beebom.com/gta-6-easter-eggs/"
+      }
     },
     {
       "id": "jacobs",
@@ -825,7 +905,11 @@
       ],
       "added": "2026-11-24",
       "added_by": "lead",
-      "image": "images/freddie.jpg"
+      "image": "images/freddie.jpg",
+      "image_source": {
+        "name": "Beebom",
+        "url": "https://beebom.com/gta-6-easter-eggs/"
+      }
     },
     {
       "id": "gellhorn-garage",
@@ -917,7 +1001,11 @@
       ],
       "added": "2026-11-24",
       "added_by": "lead",
-      "image": "images/signpost.jpg"
+      "image": "images/signpost.jpg",
+      "image_source": {
+        "name": "Beebom",
+        "url": "https://beebom.com/gta-6-easter-eggs/"
+      }
     },
     {
       "id": "sea-monster",

@@ -70,6 +70,23 @@
           "image": {
             "type": "string",
             "description": "путь к картинке от корня проекта, например images/waink-map.jpg"
+          },
+          "image_source": {
+            "type": "object",
+            "required": [
+              "name",
+              "url"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "description": "откуда картинка; без этого поля картинка не публикуется на сайте"
           }
         }
       }
@@ -164,6 +181,23 @@
               "poi"
             ],
             "description": "egg (по умолчанию) — пасхалка с действием; poi — точка интереса, просто посмотреть"
+          },
+          "image_source": {
+            "type": "object",
+            "required": [
+              "name",
+              "url"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "description": "откуда картинка; без этого поля картинка не публикуется на сайте"
           }
         }
       }
