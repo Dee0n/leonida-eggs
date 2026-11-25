@@ -397,7 +397,7 @@ def render_html(data: dict, links: dict | None = None, img_prefix: str = "../",
     add('<table class="main"><tr><td colspan="2" class="top">'
         '<div class="logo">LEONIDA<span>-CHEATS</span> <small>.narod.ru</small></div>'
         '<div class="slogan">Коды, секреты и пасхалки к GTA VI. Без спойлеров.</div></td></tr>\n')
-    nav = [lnk("Главная"), lnk("Коды"), lnk("Пасхалки"), lnk("Версия для печати"),
+    nav = [lnk("Главная"), lnk("Пасхалки"), lnk("Читы"), lnk("Кнопки"), lnk("Версия для печати"),
            lnk("Файлы", "Скачать PDF"), lnk("Форум"), lnk("Гостевая книга")]
     if links.get("Современная версия"):
         nav.append(f'<a href="{esc(links["Современная версия"])}" style="color:#ffcc00">Современная версия &raquo;</a>')
@@ -972,12 +972,12 @@ def render_print_html(data: dict, images: bool = True, links: dict | None = None
     add('<!DOCTYPE html>\n<html lang="ru">\n<head>\n<meta charset="utf-8">\n')
     add(f"<title>{esc(page_title)}</title>\n")
     add("<style>" + css + BTN_CSS + "</style>\n</head>\n<body>\n")
-    nav = ["Главная", "Новости", "Коды", "Пасхалки", "Прохождения", "Карты", "Файлы", "Форум", "Гостевая книга"]
+    nav = ["Главная", "Пасхалки", "Читы", "Кнопки", "WAiNK", "Файлы", "Форум", "Гостевая книга"]
     add('<table class="site"><tr><td class="logo">LEONIDA<i>-CHEATS</i><small>.narod.ru</small></td>'
         '<td class="slogan">коды, секреты, пасхалки, прохождения</td></tr></table>\n')
     add('<div class="nav">' + " | ".join(lnk(n) for n in nav) + "</div>\n")
-    add('<div class="crumbs"><span class="a">Главная</span> &raquo; <span class="a">Коды</span> &raquo; '
-        f'<span class="a">PS5 / Xbox Series</span> &raquo; <b>{esc(meta["game"])}</b></div>\n')
+    add(f'<div class="crumbs">{lnk("Главная")} &raquo; {lnk("Пасхалки")} &raquo; PS5 / Xbox Series &raquo; '
+        f'<b>{esc(meta["game"])}</b></div>\n')
     add(f"<h1>Коды и пасхалки к игре {esc(meta['game'])}</h1>\n")
     add(f'<div class="info">Добавлено: {d}.{m}.{y} | Выпуск №{meta["issue"]} | Записей: {len(numbered)}</div>\n')
     add(f'<p class="intro">{esc(meta["intro"])}</p>\n')
@@ -1143,8 +1143,11 @@ def cmd_site(args: argparse.Namespace) -> int:
     links = {
         "Главная": "./",
         "Наверх": "#",
-        "Коды": "./",
-        "Пасхалки": "./",
+        "Коды": "#cheats",
+        "Пасхалки": "#keys",
+        "Читы": "#cheats",
+        "Кнопки": "#controls",
+        "WAiNK": "#waink",
         "Версия для печати": pdf_name,
         "Файлы": pdf_name,
         "Форум": f"{REPO_URL}/issues",
@@ -1167,7 +1170,9 @@ def cmd_site(args: argparse.Namespace) -> int:
             published += 1
     print(f"Картинок на сайте: {published}")
     print_page = SITE / "print.html"
-    print_page.write_text(render_print_html(data, links=links, img_prefix="", need_credit=True,
+    print_links = {k: (("index.html" + v) if v.startswith("#") else ("index.html" if v == "./" else v)) for k, v in links.items()}
+    print_links["Наверх"] = "#"
+    print_page.write_text(render_print_html(data, links=print_links, img_prefix="", need_credit=True,
                                             footer_url=SITE_URL + "print.html"), encoding="utf-8")
     site_links = dict(links, **{"Версия для печати": "print.html", "Современная версия": "modern.html"})
     modern_links = dict(links, **{"Печать": "print-modern.html", "PDF": "leonida_easter_eggs_modern.pdf"})
