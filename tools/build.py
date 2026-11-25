@@ -88,6 +88,15 @@ SITE_CSS = """
   .foot a { color: #ffcc00; }
   details { margin-top: 10px; font-size: 10px; }
   summary { cursor: pointer; color: #cc0000; font-weight: bold; }
+  #lb { display: none; position: fixed; left: 0; top: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, .8); z-index: 99;
+        text-align: center; overflow: auto; }
+  #lb.on { display: block; }
+  #lb .fr { display: inline-block; margin: 40px auto 20px; background: #fff; padding: 10px 10px 6px; border: 1px solid #666;
+            max-width: 92%; text-align: left; }
+  #lb img { display: block; max-width: 100%; max-height: 78vh; }
+  #lb .lc { font-size: 11px; padding-top: 6px; color: #333; }
+  #lb .lx { float: right; font-weight: bold; color: #cc0000; cursor: pointer; text-decoration: none; }
+  .th img, .map { cursor: zoom-in; }
 """
 
 
@@ -242,6 +251,23 @@ POLL_JS = """
     } else if (add <= LV && mark) { mark.parentNode.removeChild(mark); }
   });
   if (LV !== today) { try { localStorage.setItem("lastVisit", today); } catch (e) {} }
+  // увеличение скринов на той же странице: фон темнеет, картинка по центру
+  var lb = document.createElement("div");
+  lb.id = "lb";
+  lb.innerHTML = '<div class="fr"><img alt=""><div class="lc"><a class="lx" href="#">Закрыть [X]</a><span></span></div></div>';
+  document.body.appendChild(lb);
+  function lbClose() { lb.className = ""; lb.querySelector("img").src = ""; }
+  lb.onclick = function (ev) { if (ev.target === lb || ev.target.className === "lx") { ev.preventDefault(); lbClose(); } };
+  document.addEventListener("keydown", function (ev) { if (ev.key === "Escape") lbClose(); });
+  Array.prototype.forEach.call(document.querySelectorAll("a.zoom"), function (a) {
+    a.onclick = function (ev) {
+      ev.preventDefault();
+      var cap = a.parentNode.querySelector("a:not(.zoom)");
+      lb.querySelector("img").src = a.getAttribute("href");
+      lb.querySelector(".lc span").innerHTML = cap ? "Скрин: " + cap.outerHTML : "";
+      lb.className = "on";
+    };
+  });
   var API = "https://abacus.jasoncameron.dev/", NS = "leonida-eggs";
   function cnt(key, hit) {
     return fetch(API + (hit ? "hit/" : "get/") + NS + "/" + key)
@@ -324,7 +350,7 @@ def render_html(data: dict, links: dict | None = None, img_prefix: str = "../",
             return ""
         url = f"{img_prefix}{esc(rel)}"
         cap = f'Скрин: <a href="{esc(src["url"])}">{esc(src["name"])}</a><br>' if src else ""
-        return (f'<div class="th"><a href="{url}" target="_blank"><img src="{url}" alt=""></a>'
+        return (f'<div class="th"><a class="zoom" href="{url}" target="_blank"><img src="{url}" alt=""></a>'
                 f'{cap}(нажми для увеличения)</div>')
 
     title = f"Коды к игре {meta['game']} :: LEONIDA-CHEATS"
@@ -415,7 +441,7 @@ def render_html(data: dict, links: dict | None = None, img_prefix: str = "../",
                 url = f"{img_prefix}{esc(sec['image'])}"
                 src = sec.get("image_source")
                 cap = f'<br>Скрин: <a href="{esc(src["url"])}">{esc(src["name"])}</a>' if src else ""
-                add(f'<tr><td colspan="2"><a href="{url}" target="_blank"><img class="map" src="{url}" alt=""></a>'
+                add(f'<tr><td colspan="2"><a class="zoom" href="{url}" target="_blank"><img class="map" src="{url}" alt=""></a>'
                     f'<small>(нажми для увеличения){cap}</small></td></tr>\n')
             add('</table><div class="up"><a href="#top">[наверх]</a></div>\n')
             continue
