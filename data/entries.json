@@ -3,7 +3,7 @@
     "title": "ЛЕОНИДА",
     "subtitle": "ЛИСТОК ПАСХАЛОК",
     "issue": 1,
-    "date": "2026-11-25",
+    "date": "2026-11-26",
     "game": "Grand Theft Auto VI",
     "intro": "Здесь собраны пасхалки GTA 6: где каждая находится и что там нужно сделать. Что именно вы там увидите, не пишем, чтобы не спойлерить. Названия мест даны по-английски, как на карте в игре."
   },
@@ -1842,6 +1842,91 @@
       "added": "2026-11-25",
       "added_by": "lead",
       "chapter": 3
+    },
+    {
+      "id": "tallaloko-drain",
+      "section": "north",
+      "title": "Водосток у плотины Tallaloko",
+      "hint": "Lummox County, сразу к северу от Millport, между городком и Lake Tallaloko. Бетонный водосток с перилами и фонарём. Припаркуйся и спустись по откосу в сторону пара. Лучше вечером или ночью.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "Middle East Gamer",
+          "url": "https://www.middleeastgamer.com/gta-6-ninja-turtles-easter-egg/"
+        },
+        {
+          "name": "VGTimes",
+          "url": "https://vgtimes.com/gaming-news/175706-gta-6-players-discover-teenage-mutant-ninja-turtles-easter-egg-featuring-green-mutagen-pizza-and-splinter.html"
+        }
+      ],
+      "added": "2026-11-26",
+      "added_by": "claude-daily"
+    },
+    {
+      "id": "haymarket-lift",
+      "section": "city",
+      "title": "Лифты в Haymarket Hotel",
+      "hint": "Vice Beach, западнее Ocean Beach, за рядом магазинов. После пролога, после полуночи. Внутри налево к лифтам, зайди в правый и нажми вверх.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GameRant",
+          "url": "https://gamerant.com/gta-6-it-the-clown-easter-egg-secret-location-find/"
+        }
+      ],
+      "added": "2026-11-26",
+      "added_by": "claude-daily"
+    },
+    {
+      "id": "sunlite-motel",
+      "section": "city",
+      "title": "Номер в Sunlite Motel",
+      "hint": "Ocean Beach, мотель Sunlite. С 12:00 до 13:00. Дёрни дверь первого номера на втором этаже. Пройди по балкону, спустись по лестнице и вернись к той же двери.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GameGPU",
+          "url": "https://gamegpu.com/news/igry/igroki-obnaruzhili-v-gta-6-znamenituyu-paskhalku-so-stsenoj-s-benzopiloj-iz-filma-litso-so-shramom"
+        }
+      ],
+      "added": "2026-11-26",
+      "added_by": "claude-daily"
+    },
+    {
+      "id": "capri-halloween",
+      "section": "city",
+      "title": "Хэллоуинский дом в Capri",
+      "hint": "Юго-восток Capri, угол Fortuna Street и Viola Street, чуть южнее Tortoise Lake. С главы 2, когда открыта мастерская Мозеса. Сядь в то, что стоит на подъезде к дому, и уезжай. Отсканируй в WAiNK и дом, и транспорт.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "Showgamer",
+          "url": "https://showgamer.com/en/guides/8320-gde-nayti-mashinu-ohotnikov-za-privideniyami-v-gta-6-kak-poluchit-ecto-1"
+        },
+        {
+          "name": "Gfinity",
+          "url": "https://www.gfinityesports.com/article/gta-6-how-to-find-the-ghostbusters-ecto-1"
+        }
+      ],
+      "added": "2026-11-26",
+      "added_by": "claude-daily",
+      "chapter": 2,
+      "chapter_note": "после открытия мастерской Мозеса"
+    },
+    {
+      "id": "kalaga-keypad",
+      "section": "north",
+      "title": "Вышка на Mount Kalaga: замок с кодом",
+      "hint": "Lummox County, горы Mount Kalaga National Park, высокая металлическая вышка у вершины. Код написан на табличках у верхней площадки. Внизу домик с кодовым замком: 69185.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Showgamer",
+          "url": "https://showgamer.com/en/guides/8037-vse-sekretnye-mesta-v-gta-6-gde-nayti-nlo-tayniki-i-pashalki"
+        }
+      ],
+      "added": "2026-11-26",
+      "added_by": "claude-daily"
     }
   ]
 }
