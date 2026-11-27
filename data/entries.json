@@ -3,7 +3,7 @@
     "title": "ЛЕОНИДА",
     "subtitle": "ЛИСТОК ПАСХАЛОК",
     "issue": 1,
-    "date": "2026-11-26",
+    "date": "2026-11-27",
     "game": "Grand Theft Auto VI",
     "intro": "Здесь собраны пасхалки GTA 6: где каждая находится и что там нужно сделать. Что именно вы там увидите, не пишем, чтобы не спойлерить. Названия мест даны по-английски, как на карте в игре."
   },
@@ -513,16 +513,40 @@
       "id": "russo",
       "section": "city",
       "title": "Мемориал Руссо",
-      "hint": "Downtown, мемориал президента Руссо, отсюда цепочка. Кейпад на дереве: 085355. Дальше: 030712.",
-      "confidence": "single",
+      "hint": "Восток Downtown, Catalan Blvd, мемориал Friends of Freedom. Днём заговори с ветераном у стены: спроси «What really happened?», потом «Russo?». Дальше езжай в Little Cuba, NW 4th Avenue: розовый дом с кубинскими флагами, правая лестница, вторая дверь справа. Посмотри фото у холодильника.",
+      "confidence": "confirmed",
       "sources": [
         {
+          "name": "GameRant",
+          "url": "https://gamerant.com/gta-6-president-bunker-location-all-codes/"
+        },
+        {
           "name": "Beebom",
-          "url": "https://beebom.com/gta-6-easter-eggs/"
+          "url": "https://beebom.com/gta-6-free-tank-secret-bunker-location/"
         }
       ],
       "added": "2026-11-24",
-      "added_by": "lead"
+      "added_by": "lead",
+      "note": "2026-11-27: убран код 030712, его нет в источниках; коды бункеров вынесены в russo-bunker и russo-hatch."
+    },
+    {
+      "id": "russo-bunker",
+      "section": "water",
+      "title": "Остров Sharktooth",
+      "hint": "Островок к северу от Waning Sands, северо-восток Leonard County, добраться только на лодке. Сначала пройди мемориал Руссо. Дверь в задней части острова: 010317. Внутри справа включи свет, слева кабинет: сядь в кресло, открой ящик, сними трубку и дослушай плёнку. Сейф: 2975.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "GameRant",
+          "url": "https://gamerant.com/gta-6-president-bunker-location-all-codes/"
+        },
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-free-tank-secret-bunker-location/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "claude-daily"
     },
     {
       "id": "collateral",
@@ -1882,11 +1906,19 @@
       "section": "city",
       "title": "Номер в Sunlite Motel",
       "hint": "Ocean Beach, мотель Sunlite. С 12:00 до 13:00. Дёрни дверь первого номера на втором этаже. Пройди по балкону, спустись по лестнице и вернись к той же двери.",
-      "confidence": "single",
+      "confidence": "confirmed",
       "sources": [
         {
           "name": "GameGPU",
           "url": "https://gamegpu.com/news/igry/igroki-obnaruzhili-v-gta-6-znamenituyu-paskhalku-so-stsenoj-s-benzopiloj-iz-filma-litso-so-shramom"
+        },
+        {
+          "name": "Dexerto",
+          "url": "https://www.dexerto.com/wikis/gta-6/easter-eggs/scarface/"
+        },
+        {
+          "name": "VICE",
+          "url": "https://www.vice.com/en/article/gta-6-scarface-easter-egg-little-friend-smg/"
         }
       ],
       "added": "2026-11-26",
@@ -1926,6 +1958,41 @@
         }
       ],
       "added": "2026-11-26",
+      "added_by": "claude-daily"
+    },
+    {
+      "id": "russo-hatch",
+      "section": "north",
+      "title": "Люк в лесу у Big Pine",
+      "hint": "Юг North Mariana County, лес южнее Ammu-Nation на трассе, западнее Big Pine. Запертое здание не трогай, ищи люк в земле. Кейпад на дереве за спиной: 085355. Внизу с фонарём дойди до щитка и включи свет, потом в пультовой нажми красную кнопку.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "GameRant",
+          "url": "https://gamerant.com/gta-6-president-bunker-location-all-codes/"
+        },
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-free-tank-secret-bunker-location/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "claude-daily"
+    },
+    {
+      "id": "grayson-pet-cemetery",
+      "section": "north",
+      "kind": "poi",
+      "title": "Кладбище животных у Grayson: «Кладбище домашних животных» Стивена Кинга",
+      "hint": "Lummox County, лес к югу от Grayson, рядом с State Route 73. Найди могилки вокруг алтаря и отсканируй алтарь в WAiNK.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GTAside",
+          "url": "https://gtaside.com/tips/gta6/easter-eggs/"
+        }
+      ],
+      "added": "2026-11-27",
       "added_by": "claude-daily"
     }
   ]
