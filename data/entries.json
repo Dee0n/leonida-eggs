@@ -29,16 +29,20 @@
       "title": "V. Телефон, радио, журналы"
     },
     {
+      "id": "cars",
+      "title": "VI. Машины: где взять"
+    },
+    {
       "id": "controls",
-      "title": "VI. Управление: неочевидные кнопки"
+      "title": "VII. Управление: неочевидные кнопки"
     },
     {
       "id": "cheats",
-      "title": "VII. Читы (только после финала)"
+      "title": "VIII. Читы (только после финала)"
     },
     {
       "id": "waink",
-      "title": "VIII. WAiNK: сканируй приложением",
+      "title": "IX. WAiNK: сканируй приложением",
       "type": "checklist",
       "image": "images/waink-map.jpg",
       "image_source": {
@@ -1994,6 +1998,514 @@
       ],
       "added": "2026-11-27",
       "added_by": "claude-daily"
+    },
+    {
+      "id": "car-how",
+      "section": "cars",
+      "title": "Как оставить машину себе",
+      "hint": "Отгони машину в мастерскую Moses в Port Gellhorn и зарегистрируй. Мастерская открывается в начале главы 2. Машины с продвинутым трекером Moses не возьмёт, трекеры снимают с главы 3. Часть машин открывается только Key Cloner.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DETONATED",
+          "url": "https://detonated.com/gta-6-best-car-locations/"
+        },
+        {
+          "name": "gta6pat",
+          "url": "https://gta6pat.com/secrets/free-rare-car-locations/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead",
+      "chapter": 2,
+      "chapter_note": "мастерская Moses"
+    },
+    {
+      "id": "car-bugatti",
+      "section": "cars",
+      "title": "Bugatti на прицепе у Boone Speedway",
+      "hint": "Boone Speedway: суперкар стоит на прицепе. В нём трекер.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DETONATED",
+          "url": "https://detonated.com/gta-6-best-car-locations/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead"
+    },
+    {
+      "id": "car-gold-aventador",
+      "section": "cars",
+      "title": "Золотой Aventador у Crimsonpalms",
+      "hint": "Кондоминиум Crimsonpalms у Washington Island, рядом с пляжем. Машина под балконом.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DETONATED",
+          "url": "https://detonated.com/gta-6-best-car-locations/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead"
+    },
+    {
+      "id": "car-itali-rsx",
+      "section": "cars",
+      "title": "Grotti Itali RSX в гараже Rialto Island",
+      "hint": "Rialto Island, закрытый гараж. Нужен Key Cloner.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DETONATED",
+          "url": "https://detonated.com/gta-6-best-car-locations/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead",
+      "chapter": 3,
+      "chapter_note": "нужен Key Cloner"
+    },
+    {
+      "id": "car-ruby-emerus",
+      "section": "cars",
+      "title": "Красный Emerus (McLaren) на Vespucci Island",
+      "hint": "Vespucci Island: у ворот охрана. Обойди ворота, перелезь через живую изгородь и зайди в гараж-патио.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DETONATED",
+          "url": "https://detonated.com/gta-6-best-car-locations/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead"
+    },
+    {
+      "id": "car-nitro-muscle",
+      "section": "cars",
+      "title": "Маслкар с нитро рядом с домом Джейсона",
+      "hint": "Key Lento, недалеко от дома Джейсона, стоит припаркованный чёрно-серый с языками пламени. Перекрась и поставь у дома Джейсона, чтобы сохранить.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DETONATED",
+          "url": "https://detonated.com/gta-6-best-car-locations/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead"
+    },
+    {
+      "id": "car-purple-mclaren",
+      "section": "cars",
+      "title": "Фиолетовый суперкар на Waxman Island",
+      "hint": "Waxman Island, к востоку от Vice City: локация преступления Chatfield Storage and Logistics. Машина внутри.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DETONATED",
+          "url": "https://detonated.com/gta-6-best-car-locations/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead"
+    },
+    {
+      "id": "car-drift-elegy",
+      "section": "cars",
+      "title": "Дрифтовая Elegy (Skyline) на Gellhorn Speedway",
+      "hint": "Гараж на Gellhorn Speedway: боковая дверь, пройди через офисы в гараж. Регистрация у Moses стоит $14 000.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DETONATED",
+          "url": "https://detonated.com/gta-6-best-car-locations/"
+        },
+        {
+          "name": "gta6pat (по Gameta)",
+          "url": "https://gta6pat.com/secrets/free-rare-car-locations/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead"
+    },
+    {
+      "id": "car-gold-torus",
+      "section": "cars",
+      "title": "Золотой Pegassi Torus на Casanova Island",
+      "hint": "Casanova Island, дом внизу по центру острова. Машина в гараже особняка.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DETONATED",
+          "url": "https://detonated.com/gta-6-best-car-locations/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead"
+    },
+    {
+      "id": "car-leopard",
+      "section": "cars",
+      "title": "Леопардовый суперкар на Starfish Island",
+      "hint": "Starfish Island, дом в правой верхней части острова: машина перед домом. В правом гараже обычно ещё два Lamborghini.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DETONATED",
+          "url": "https://detonated.com/gta-6-best-car-locations/"
+        },
+        {
+          "name": "gta6pat (по Gameta)",
+          "url": "https://gta6pat.com/secrets/free-rare-car-locations/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead"
+    },
+    {
+      "id": "car-hogstars",
+      "section": "cars",
+      "title": "Challenger в здании Hog Stars (Ambrosia)",
+      "hint": "Leonard County, Ambrosia: здание с вывеской Hog Stars, внутри охрана. Лучше зайти тихо через крышу.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DETONATED",
+          "url": "https://detonated.com/gta-6-best-car-locations/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead"
+    },
+    {
+      "id": "car-nfs",
+      "section": "cars",
+      "title": "Машина из Need for Speed в Peacock Estates",
+      "hint": "Peacock Estates, гараж. Заходи через боковую дверь. Нужен Key Cloner.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DETONATED",
+          "url": "https://detonated.com/gta-6-best-car-locations/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead",
+      "chapter": 3,
+      "chapter_note": "нужен Key Cloner"
+    },
+    {
+      "id": "car-orange-merc",
+      "section": "cars",
+      "title": "Оранжевый Mercedes у Casa Guardia",
+      "hint": "Центр Vice City: локация преступления Casa Guardia, машина с задней стороны.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DETONATED",
+          "url": "https://detonated.com/gta-6-best-car-locations/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead"
+    },
+    {
+      "id": "car-pink-lowrider",
+      "section": "cars",
+      "title": "Розовый лоурайдер в гараже JakJak's",
+      "hint": "Юго-запад Vice City: JakJak's Garage, территория банды San4San.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DETONATED",
+          "url": "https://detonated.com/gta-6-best-car-locations/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead"
+    },
+    {
+      "id": "car-urus",
+      "section": "cars",
+      "title": "Чёрно-жёлтый Urus у дома в La Perle",
+      "hint": "Север Vice City, дом в La Perle, машина на подъездной дорожке. Регистрация $14 000.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DETONATED",
+          "url": "https://detonated.com/gta-6-best-car-locations/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead"
+    },
+    {
+      "id": "car-firebird",
+      "section": "cars",
+      "title": "Чёрно-красный Firebird в Slater Towing",
+      "hint": "Юг Vice City: ограбление Slater Towing Inc, машина стоит в гараже.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DETONATED",
+          "url": "https://detonated.com/gta-6-best-car-locations/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead"
+    },
+    {
+      "id": "car-anime-skyline",
+      "section": "cars",
+      "title": "Skyline с аниме-раскраской на West Starfish Island",
+      "hint": "West Starfish Island, к востоку от Vice City, гараж одного из домов.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DETONATED",
+          "url": "https://detonated.com/gta-6-best-car-locations/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead"
+    },
+    {
+      "id": "car-kamacho",
+      "section": "cars",
+      "title": "Грузовик Kamacho на складе Leonida Carrier",
+      "hint": "Запад Vice City: зачисти склад Leonida Carrier, машина в заднем гараже. Перекраска в Pay 'n' Spray регистрирует за $9000.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DETONATED",
+          "url": "https://detonated.com/gta-6-best-car-locations/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead"
+    },
+    {
+      "id": "car-cherry-chino",
+      "section": "cars",
+      "title": "Вишнёвый Chino на складе Saber Shipping",
+      "hint": "Центр Vice City: склад Saber Shipping, машина внутри огороженной территории.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DETONATED",
+          "url": "https://detonated.com/gta-6-best-car-locations/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead"
+    },
+    {
+      "id": "car-avarus",
+      "section": "cars",
+      "title": "Фиолетовый чоппер Avarus в логове байкеров у Ambrosia",
+      "hint": "Восточнее Ambrosia: зачисти байкерское логово Final Chapter, чоппер стоит сзади.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DETONATED",
+          "url": "https://detonated.com/gta-6-best-car-locations/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead"
+    },
+    {
+      "id": "car-sandking",
+      "section": "cars",
+      "title": "Пикап Sandking на ферме в North Mariana County",
+      "hint": "North Mariana County, Industrial Farm: машина в дальней части склада, из него можно выехать.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DETONATED",
+          "url": "https://detonated.com/gta-6-best-car-locations/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead"
+    },
+    {
+      "id": "car-dom-charger",
+      "section": "cars",
+      "title": "Charger Доминика из «Форсажа» к северу от Port Gellhorn",
+      "hint": "Север карты, выше Port Gellhorn: стоит запертым рядом с прицепом-домом.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DETONATED",
+          "url": "https://detonated.com/gta-6-best-car-locations/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead"
+    },
+    {
+      "id": "car-gold-rolls",
+      "section": "cars",
+      "title": "Золотой Rolls-Royce на студии San4San",
+      "hint": "Зачисти студию San4San, машина в середине гаража. Продать можно за $25 000.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DETONATED",
+          "url": "https://detonated.com/gta-6-best-car-locations/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead"
+    },
+    {
+      "id": "car-ecto",
+      "section": "cars",
+      "title": "Машина охотников за привидениями в Capri",
+      "hint": "Capri: дом, украшенный к Хэллоуину, машина на подъездной дорожке.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DETONATED",
+          "url": "https://detonated.com/gta-6-best-car-locations/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead"
+    },
+    {
+      "id": "car-buccaneer",
+      "section": "cars",
+      "title": "Buccaneer на базе M7 севернее Millport",
+      "hint": "Самый север карты, база M7 к северу от Millport. Зелёно-чёрная машина в задней части у здания.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DETONATED",
+          "url": "https://detonated.com/gta-6-best-car-locations/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead"
+    },
+    {
+      "id": "car-pink-porsche",
+      "section": "cars",
+      "title": "Розовый Porsche по паролю из Pink Book",
+      "hint": "Только в главе 3. В квартире Bayside возьми Pink Book со стола, осмотри фото собаки у кухни, на ноутбуке пароль Muffins - Queen - 15. В сообщениях неизвестного контакта код от гаража и метка на карте.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "DETONATED",
+          "url": "https://detonated.com/gta-6-best-car-locations/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead",
+      "chapter": 3,
+      "chapter_note": "только в главе 3"
+    },
+    {
+      "id": "car-infernus",
+      "section": "cars",
+      "title": "Pegassi Infernus в гараже полиции Crosstown",
+      "hint": "Crosstown, гараж полицейского участка на NW 9th St, 7-й уровень. Выезжай по пандусам или прыгни с крыши. Нужен Key Cloner (задание Randy's Wish List).",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "gta6pat (по Insider Gaming и Sportskeeda)",
+          "url": "https://gta6pat.com/secrets/hidden-cars/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead",
+      "chapter": 3,
+      "chapter_note": "Randy's Wish List"
+    },
+    {
+      "id": "car-vitello",
+      "section": "cars",
+      "title": "Pegassi Vitello на вилле в Waning Sands",
+      "hint": "Waning Sands, вилла на Flamingo Parkway: перелезь через забор и открой правый гараж. Машина легко бьётся. Нужен Key Cloner.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "gta6pat (по Insider Gaming и Sportskeeda)",
+          "url": "https://gta6pat.com/secrets/hidden-cars/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead",
+      "chapter": 3,
+      "chapter_note": "Randy's Wish List"
+    },
+    {
+      "id": "car-hellfire",
+      "section": "cars",
+      "title": "Gauntlet Hellfire на свалке M7 в Hamlet",
+      "hint": "M7 Nova Auto Junkyard у Boone Speedway, Hamlet: сначала позвони Randy, пока M7 жёлтый или оранжевый, машины нет. Забирай у синего контейнера.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "gta6pat (по Insider Gaming и Sportskeeda)",
+          "url": "https://gta6pat.com/secrets/hidden-cars/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead",
+      "chapter": 3,
+      "chapter_note": "Randy's Wish List"
+    },
+    {
+      "id": "merman",
+      "section": "water",
+      "title": "Палатка на белом пляже",
+      "hint": "Leonida Keys у Gambit Bay, острова на границе с Cottonmouth Lake: пляж с белым песком и палаткой. Подойди к человеку у камеры и вмешайся в съёмку.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead"
+    },
+    {
+      "id": "mcclane",
+      "section": "north",
+      "title": "Вентиляция McClane: отсылка к «Крепкому орешку»",
+      "hint": "Hamlet, рядом вывеска мастерской по вентиляции McClane. Там же по Hamlet кепки с этой фамилией на рекламе.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead",
+      "kind": "poi"
+    },
+    {
+      "id": "weeknd-house",
+      "section": "city",
+      "title": "Особняк The Weeknd в Peacock Estates",
+      "hint": "Peacock Estates, особняк у воды. Территория закрыта, смотри снаружи: охрана на посторонних реагирует.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Beebom",
+          "url": "https://beebom.com/gta-6-easter-eggs/"
+        }
+      ],
+      "added": "2026-11-27",
+      "added_by": "lead",
+      "kind": "poi"
     }
   ]
 }
