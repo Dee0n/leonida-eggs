@@ -113,5 +113,14 @@ class ExtendTests(unittest.TestCase):
         self.assertTrue(any("неизвестная секция" in e for e in errors))
 
 
+class MarksTests(unittest.TestCase):
+    def test_every_entry_can_be_marked(self) -> None:
+        data = build.load_data()
+        old, modern = build.render_html(data), build.render_modern(data)
+        for e in data["entries"]:
+            for page in (old, modern):
+                self.assertIn(f'data-mark="{e["id"]}"', page)
+
+
 if __name__ == "__main__":
     unittest.main()
