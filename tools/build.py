@@ -97,6 +97,54 @@ SITE_CSS = """
   #lb .lc { font-size: 11px; padding-top: 6px; color: #333; }
   #lb .lx { float: right; font-weight: bold; color: #cc0000; cursor: pointer; text-decoration: none; }
   .th img, .map { cursor: zoom-in; }
+  .msearch, .totop { display: none; }
+  .codes tr:target td { background: #fff3a8; }
+  /* телефон: одна колонка, поиск сверху, крупные кнопки, записи карточками «название, под ним что делать» */
+  @media (max-width: 820px) {
+    html { scroll-behavior: smooth; }
+    body { padding: 0; font-size: 16px; line-height: 1.5; -webkit-text-size-adjust: 100%; }
+    .main { display: flex; flex-direction: column; width: 100%; border: 0; }
+    .main > tbody, .main > tbody > tr, .main > tbody > tr > td.left { display: contents; }
+    .main > tbody > tr > td { display: block; width: auto; }
+    .top { order: 1; } .navbar { order: 2; } .ticker { order: 3; font-size: 13px; }
+    .main > tbody > tr > td.navbar { white-space: nowrap; overflow-x: auto; padding: 0 8px; line-height: 44px; font-size: 15px; scrollbar-width: none; }
+    .main > tbody > tr > td.msearch { display: block; order: 4; position: sticky; top: 0; z-index: 5; background: #336699; padding: 8px 10px; }
+    .msearch input { width: 100%; box-sizing: border-box; height: 40px; font: 16px Verdana, sans-serif; padding: 4px 10px; border: 2px inset #c0c8d8; border-radius: 0; }
+    .msearch .none { display: none; color: #fff; font-size: 14px; padding-top: 6px; }
+    .left > .box.secs { order: 5; }
+    .content { order: 6; display: block; width: auto; padding: 8px 10px; min-width: 0; }
+    .left > * { order: 7; margin-left: 10px; margin-right: 10px; }
+    .left > .cnt { align-self: flex-start; }
+    .foot { order: 8; font-size: 13px; line-height: 2; padding-bottom: 70px; }
+    .logo { font-size: 26px; } .slogan { font-size: 13px; }
+    .left > .box.secs { margin: 8px 10px 0; }
+    .secs .bb { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 6px; }
+    .secs .si { display: flex; align-items: center; gap: 4px; min-height: 46px; background: #fff; border: 2px outset #c0c8d8; padding: 2px 6px; font-size: 13px; line-height: 1.25; }
+    .secs .si a { flex: 1; align-self: stretch; display: flex; align-items: center; text-decoration: none; }
+    .crumbs, .secs .ar, .up { display: none; }
+    h1 { font-size: 19px; }
+    .codes, .codes > tbody, .codes tr, .codes td, .codes th { display: block; width: auto; }
+    .codes { border: 0; scroll-margin-top: 56px; margin-bottom: 18px; }
+    .codes .colh { display: none; }
+    .codes .sech { font-size: 14px; position: sticky; top: 56px; z-index: 2; }
+    .codes td.k { width: auto; border-bottom: 0; padding: 10px 10px 0; font-size: 16px; }
+    .codes td.k + td { border-top: 0; padding: 4px 10px 12px; }
+    .codes td { border-width: 1px; overflow-wrap: anywhere; }
+    .codes tr { margin-bottom: 8px; scroll-margin-top: 96px; }
+    .codes.chap td.k { border: 1px solid #99aacc; padding: 12px 10px; cursor: pointer; }
+    .codes.chap td.k:after { content: " [показать]"; font-weight: normal; color: #0000cc; }
+    .codes.chap tr.open td.k:after { content: " [скрыть]"; }
+    .codes.chap td.k + td { display: none; line-height: 2.2; border: 1px solid #99aacc; }
+    .codes.chap tr.open td.k + td { display: block; }
+    .th { float: none; margin: 0 0 8px; font-size: 12px; } .th img { width: auto; max-width: 100%; max-height: 240px; margin: 0 auto; }
+    details { font-size: 14px; } summary { padding: 10px 0; }
+    .po { padding: 8px 0; font-size: 15px; } .po input { width: 20px; height: 20px; vertical-align: -5px; }
+    .btnv { font-size: 15px; padding: 8px 16px; }
+    .totop { display: block; position: fixed; right: 10px; bottom: calc(10px + env(safe-area-inset-bottom, 0px)); z-index: 20; background: #003366;
+             color: #ffcc00; border: 2px outset #6688aa; font: bold 14px Verdana, sans-serif; padding: 12px 14px; text-decoration: none; }
+    .totop:visited { color: #ffcc00; }
+    #lb .lx { padding: 8px 0 8px 14px; }
+  }
 """
 
 
@@ -408,13 +456,14 @@ def render_html(data: dict, links: dict | None = None, img_prefix: str = "../",
             return ""
         url = f"{img_prefix}{esc(rel)}"
         cap = f'Скрин: <a href="{esc(src["url"])}">{esc(src["name"])}</a><br>' if src else ""
-        return (f'<div class="th"><a class="zoom" href="{url}" target="_blank"><img src="{url}" alt=""></a>'
+        return (f'<div class="th"><a class="zoom" href="{url}" target="_blank"><img src="{url}" alt="" loading="lazy"></a>'
                 f'{cap}(нажми для увеличения)</div>')
 
     title = f"Коды к игре {meta['game']} :: LEONIDA-CHEATS"
     P: list[str] = []
     add = P.append
     add('<!DOCTYPE html>\n<html lang="ru" data-theme="old">\n<head>\n<meta charset="utf-8">\n')
+    add('<meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#003366">')
     add(f"<title>{esc(title)}</title>\n{THEME_JS}<style>{SITE_CSS}{BTN_CSS}</style>\n</head>\n<body>\n<a name=\"top\"></a>\n")
     add('<table class="main"><tr><td colspan="2" class="top">'
         '<div class="logo">LEONIDA<span>-CHEATS</span> <small>.narod.ru</small></div>'
@@ -424,6 +473,8 @@ def render_html(data: dict, links: dict | None = None, img_prefix: str = "../",
     if links.get("Современная версия"):
         nav.append(f'<a href="{esc(links["Современная версия"])}" style="color:#ffcc00">Современная версия &raquo;</a>')
     add('<tr><td colspan="2" class="navbar">' + "<span>|</span>".join(nav) + "</td></tr>\n")
+    add('<tr><td colspan="2" class="msearch"><input id="mq" type="search" placeholder="Поиск: место, машина, чит" autocomplete="off">'
+        '<div class="none" id="mnone">Ничего не нашлось. Попробуй короче.</div></td></tr>\n')
 
     latest = sorted(data["entries"], key=lambda e: str(e.get("added", "")), reverse=True)[:8]
     tick = " &nbsp;&nbsp;*&nbsp;&nbsp; ".join(
@@ -437,14 +488,14 @@ def render_html(data: dict, links: dict | None = None, img_prefix: str = "../",
             ("Главная", None), ("Версия для печати", None), ("Файлы", "Скачать PDF"),
             ("Прислать пасхалку", None), ("Форум", None)])
         + "</div></div>\n")
-    add('<div class="box"><div class="bt">Разделы</div><div class="bb">&raquo; <a href="#chapters">По главам</a><br>')
+    add('<div class="box secs"><div class="bt">Разделы</div><div class="bb"><div class="si"><span class="ar">&raquo;</span> <a href="#chapters">По главам</a></div>')
     for sec in data["sections"]:
         if sec.get("type") == "checklist":
             n = len(data["checklists"].get(sec["id"], []))
         else:
             n = len(by_section.get(sec["id"], []))
         if n:
-            add(f'&raquo; <a href="#{esc(sec["id"])}">{esc(sec["title"])}</a> ({n})<br>')
+            add(f'<div class="si"><span class="ar">&raquo;</span> <a href="#{esc(sec["id"])}">{esc(sec["title"])}</a> ({n})</div>')
     add("</div></div>\n")
     add('<div class="box"><div class="bt">Обозначения</div><div class="bb">'
         + "<br>".join(f'<span class="tag">{CONFIDENCE_TAGS[k]}</span> {esc(CONFIDENCE_NAMES[k])}'
@@ -489,7 +540,7 @@ def render_html(data: dict, links: dict | None = None, img_prefix: str = "../",
 
     groups = chapter_groups(data)
     if groups:
-        add('<a name="chapters" id="chapters"></a><table class="codes"><tr><th colspan="2" class="sech">По главам: что когда открывается</th></tr>\n'
+        add('<a name="chapters"></a><table class="codes chap" id="chapters"><tr><th colspan="2" class="sech">По главам: что когда открывается</th></tr>\n'
             '<tr><th class="colh" style="width:110px">Глава</th><th class="colh">Что уже можно найти (ссылки ведут на запись)</th></tr>\n')
         for i, (name, items) in enumerate(groups):
             add(f'<tr class="r{i % 2}"><td class="k">{esc(name)}</td><td>' + "<br>".join(chapter_item(e) for e in items) + "</td></tr>\n")
@@ -501,7 +552,7 @@ def render_html(data: dict, links: dict | None = None, img_prefix: str = "../",
             items = data["checklists"].get(sec["id"], [])
             if not items:
                 continue
-            add(f'<a name="{sid}" id="{sid}"></a><table class="codes"><tr><th colspan="2" class="sech">'
+            add(f'<a name="{sid}"></a><table class="codes" id="{sid}"><tr><th colspan="2" class="sech">'
                 f'{esc(sec["title"])}</th></tr>\n')
             for i, item in enumerate(items, 1):
                 add(f'<tr class="r{i % 2}"><td class="ci" style="width:40px">[&nbsp;&nbsp;]</td><td>{i}. {esc(item)}</td></tr>\n')
@@ -516,7 +567,7 @@ def render_html(data: dict, links: dict | None = None, img_prefix: str = "../",
         rows = by_section.get(sec["id"], [])
         if not rows:
             continue
-        add(f'<a name="{sid}" id="{sid}"></a><table class="codes">'
+        add(f'<a name="{sid}"></a><table class="codes" id="{sid}">'
             f'<tr><th colspan="2" class="sech">{esc(sec["title"])}</th></tr>\n'
             '<tr><th class="colh">Где / комбинация</th><th class="colh">Что делать</th></tr>\n')
         poi_started = False
@@ -544,9 +595,44 @@ def render_html(data: dict, links: dict | None = None, img_prefix: str = "../",
     add(f'<tr><td colspan="2" class="foot">&copy; 2026 LEONIDA-CHEATS. При копировании материалов ссылка на сайт '
         f'обязательна.<br>Последнее обновление: {d}.{m}.{y} | {lnk("Прислать пасхалку")} | '
         f'{lnk("Форум")}<br>Сайт лучше всего смотрится в Internet Explorer 6.0 при разрешении 1024x768</td></tr>\n')
+    add('<a class="totop" href="#top">&uarr; Меню</a>\n' + OLD_MOBILE_JS)
     add("</table>\n" + POLL_JS.replace("__POLLS_API__", POLLS_API) + "</body>\n</html>\n")
     return "".join(P)
 
+OLD_MOBILE_JS = """<script>
+(function () {
+  var q = document.getElementById("mq"), none = document.getElementById("mnone");
+  var tables = Array.prototype.slice.call(document.querySelectorAll(".content > table.codes"));
+  if (!q) return;
+  q.addEventListener("input", function () {
+    var v = q.value.trim().toLowerCase(), total = 0;
+    tables.forEach(function (t) {
+      var hits = 0;
+      Array.prototype.forEach.call(t.querySelectorAll("tr"), function (tr) {
+        if (tr.querySelector("th")) return;
+        var ok = !v || (!t.classList.contains("chap") && !tr.querySelector(".sub") && tr.textContent.toLowerCase().indexOf(v) >= 0);
+        tr.style.display = ok ? "" : "none";
+        if (v && ok) hits++;
+      });
+      t.style.display = !v || hits ? "" : "none";
+      total += hits;
+    });
+    Array.prototype.forEach.call(document.querySelectorAll(".left > *"), function (x) { if (x.tagName !== "SCRIPT") x.style.display = v ? "none" : ""; });
+    Array.prototype.forEach.call(document.querySelectorAll(".content > h1, .content > .info, .content > .intro"), function (x) { x.style.display = v ? "none" : ""; });
+    none.style.display = v && !total ? "block" : "none";
+    if (v) window.scrollTo(0, q.parentNode.offsetTop);
+  });
+  Array.prototype.forEach.call(document.querySelectorAll(".codes.chap td.k"), function (td) {
+    td.addEventListener("click", function () { td.parentNode.classList.toggle("open"); });
+  });
+  // переход по ссылке на запись при активном поиске: сначала снять фильтр
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (a && q.value) { q.value = ""; q.dispatchEvent(new Event("input")); }
+  }, true);
+})();
+</script>
+"""
 THEME_JS = """<script>
 (function () {
   // выбор вида сайта запоминается: старый (2005) или современный
@@ -645,19 +731,42 @@ MODERN_CSS = """
   #lb .lc { font: 700 14px var(--ui); padding-top: 8px; color: var(--mute); text-transform: uppercase; }
   #lb .lc a, #lb .lx { color: #fff; } #lb .lx { float: right; text-decoration: none; }
   :focus-visible { outline: 2px solid var(--pink); outline-offset: 2px; }
+  .mnav { display: none; }
   @media (max-width: 820px) {
-    body { overflow: auto; }
-    .app { height: auto; min-height: 100%; grid-template-rows: auto auto auto; }
-    .main { grid-template-columns: 1fr; }
-    .list { max-height: none; } ul.items { overflow: visible; }
-    .detail { display: none; position: fixed; inset: 0; z-index: 50; padding: calc(16px + env(safe-area-inset-top, 0px)) 18px 30px; background: #0f1729; }
+    html, body { height: auto; }
+    body { overflow: visible; -webkit-text-size-adjust: 100%; background: #0f1729; }
+    body.lock { overflow: hidden; }
+    .app { display: block; height: auto; padding: 0 0 env(safe-area-inset-bottom, 0px); }
+    .hud { background: var(--water); padding: calc(6px + env(safe-area-inset-top, 0px)) 14px 6px; }
+    .hud .r a { padding: 10px 0; }
+    .hud .r a.opt, .hud .l small, .hud .cnt, .prompts { display: none; }
+    .tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; overflow: visible; padding: 4px; }
+    .tab { min-height: 44px; font-size: 14px; line-height: 1.15; padding: 4px; text-align: center; letter-spacing: .02em; }
+    .tab b { display: none; }
+    .main { display: block; }
+    .list { display: block; background: none; max-height: none; }
+    .search { position: sticky; top: 0; z-index: 3; background: #0f1729; }
+    .search input { height: 44px; font-size: 17px; border-radius: 8px; }
+    ul.items { overflow: visible; padding: 0 0 24px; }
+    .grp { position: sticky; top: 65px; z-index: 2; background: #1a2440; padding: 8px 16px; color: var(--text); }
+    .it { font: 400 17px/1.35 var(--body); min-height: 52px; align-items: center; padding: 10px 16px; border-bottom: 1px solid var(--line); letter-spacing: 0; }
+    .it .dot { width: 7px; height: 7px; }
+    .it.on { background: rgba(255,255,255,.08); color: var(--text); } .it.on .dot { box-shadow: none; } .it.on .ch { color: var(--mute); }
+    .detail { display: none; position: fixed; inset: 0; z-index: 50; overflow-y: auto; overscroll-behavior: contain; background: #0f1729;
+              padding: calc(20px + env(safe-area-inset-top, 0px)) 18px calc(96px + env(safe-area-inset-bottom, 0px)); }
     .detail.open { display: block; }
-    .det .back { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px; border: 0; background: none; color: var(--text);
-                 font: 700 17px var(--ui); text-transform: uppercase; cursor: pointer; padding: 6px 0; }
-    .prompts { display: none; }
-    .hud .r a.opt { display: none; }
-    .hud .l small, .hud .cnt { display: none; }
+    .det .back { display: none; }
     .det h2 { font-size: 28px; }
+    .det .h { font-size: 19px; line-height: 1.65; }
+    .det .meta { font-size: 15px; }
+    .det ul.links li { padding: 0; } .det ul.links a { display: inline-block; padding: 12px 0; }
+    .chk label { padding: 12px 0; } .chk input { width: 24px; height: 24px; flex: none; }
+    .po { padding: 8px 0; } .po input { width: 20px; height: 20px; vertical-align: -4px; }
+    .mnav { display: grid; grid-template-columns: 1fr 1.3fr 1fr; gap: 2px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+            background: #0b1120; padding: 6px 6px calc(6px + env(safe-area-inset-bottom, 0px)); }
+    .mnav button { min-height: 52px; border: 0; background: #1a2440; color: var(--text); font: 700 16px var(--ui); text-transform: uppercase; cursor: pointer; }
+    .mnav button.close { background: var(--pink); color: #fff; }
+    .mnav button:disabled { opacity: .35; }
   }
 """
 
@@ -778,6 +887,7 @@ def render_modern(data: dict, links: dict | None = None, img_prefix: str = "../"
         add("</div>\n</body>\n</html>\n")
         return "".join(P)
 
+    add('<meta name="theme-color" content="#1d5674">\n')
     add(f"<title>{esc(title)}</title>\n{GFONTS}{THEME_JS}<style>{MODERN_CSS}{BTN_CSS}</style>\n</head>\n<body>\n")
 
     def kind_of(e: dict) -> str:
@@ -884,8 +994,31 @@ def render_modern(data: dict, links: dict | None = None, img_prefix: str = "../"
     items.forEach(function (x) { x.classList.toggle("on", x === li); });
     Array.prototype.forEach.call(detail.querySelectorAll(".det"), function (d) { d.hidden = d.id !== li.getAttribute("data-t"); });
     cur = li; li.scrollIntoView({ block: "nearest" }); detail.scrollTop = 0;
-    if (open && mobile()) detail.classList.add("open");
+    if (open && mobile()) openDetail(li.getAttribute("data-t"));
+    var vis = visible(), i = vis.indexOf(li);
+    prev.disabled = i <= 0; next.disabled = i < 0 || i >= vis.length - 1;
   }
+  // телефон: карточка поверх списка; кнопка «назад» самого телефона закрывает её, а не уводит с сайта
+  var nav = document.createElement("div");
+  nav.className = "mnav";
+  nav.innerHTML = '<button type="button">&larr; Пред.</button><button type="button" class="close">К списку</button><button type="button">След. &rarr;</button>';
+  detail.appendChild(nav);
+  var prev = nav.children[0], next = nav.children[2];
+  function openDetail(id) {
+    var was = detail.classList.contains("open");
+    detail.classList.add("open"); document.body.classList.add("lock");
+    try { history[was ? "replaceState" : "pushState"]({ det: 1 }, "", "#" + id); } catch (e) {}
+  }
+  function hideDetail() { detail.classList.remove("open"); document.body.classList.remove("lock"); }
+  function closeDetail() {
+    if (history.state && history.state.det) history.back();
+    else { hideDetail(); try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {} }
+  }
+  window.addEventListener("popstate", function () { if (!(history.state && history.state.det)) hideDetail(); });
+  nav.children[1].addEventListener("click", closeDetail);
+  function step(d) { var vis = visible(), i = vis.indexOf(cur) + d; if (i >= 0 && i < vis.length) show(vis[i], true); }
+  prev.addEventListener("click", function () { step(-1); });
+  next.addEventListener("click", function () { step(1); });
   function apply() {
     var v = q.value.trim().toLowerCase();
     items.forEach(function (li) {
@@ -905,7 +1038,7 @@ def render_modern(data: dict, links: dict | None = None, img_prefix: str = "../"
   Array.prototype.forEach.call(document.querySelectorAll(".tab"), function (b) { b.addEventListener("click", function () { setTab(b.getAttribute("data-f")); }); });
   items.forEach(function (li) { li.addEventListener("click", function () { show(li, true); }); });
   q.addEventListener("input", function () { cur = null; apply(); });
-  Array.prototype.forEach.call(detail.querySelectorAll(".back"), function (b) { b.addEventListener("click", function () { detail.classList.remove("open"); }); });
+  Array.prototype.forEach.call(detail.querySelectorAll(".back"), function (b) { b.addEventListener("click", closeDetail); });
   function go(hash) {
     var id = (hash || "").replace("#", ""); if (!id) return false;
     var li = items.filter(function (x) { return x.getAttribute("data-t") === id; })[0]; if (!li) return false;
@@ -920,7 +1053,7 @@ def render_modern(data: dict, links: dict | None = None, img_prefix: str = "../"
     if (document.getElementById("lb") && document.getElementById("lb").className === "on") return;
     var inField = e.target.tagName === "INPUT" && e.target.type !== "checkbox" && e.target.type !== "radio";
     if (e.key === "/" && !inField) { e.preventDefault(); q.focus(); return; }
-    if (e.key === "Escape") { if (detail.classList.contains("open")) detail.classList.remove("open"); else { q.value = ""; q.blur(); apply(); } return; }
+    if (e.key === "Escape") { if (detail.classList.contains("open")) closeDetail(); else { q.value = ""; q.blur(); apply(); } return; }
     if (e.key === "ArrowDown" || e.key === "ArrowUp") {
       var vis = visible(); if (!vis.length) return; e.preventDefault();
       var i = vis.indexOf(cur); i = e.key === "ArrowDown" ? Math.min(vis.length - 1, i + 1) : Math.max(0, i - 1);
