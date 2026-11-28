@@ -3,7 +3,7 @@
     "title": "ЛЕОНИДА",
     "subtitle": "ЛИСТОК ПАСХАЛОК",
     "issue": 1,
-    "date": "2026-11-27",
+    "date": "2026-11-28",
     "game": "Grand Theft Auto VI",
     "intro": "Здесь собраны пасхалки GTA 6: где каждая находится и что там нужно сделать. Что именно вы там увидите, не пишем, чтобы не спойлерить. Названия мест даны по-английски, как на карте в игре."
   },
@@ -1854,6 +1854,678 @@
       ],
       "added": "2026-11-25",
       "added_by": "lead"
+    },
+    {
+      "id": "cheat-no-fall",
+      "section": "cheats",
+      "title": "Без урона от падения",
+      "hint": "↓ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↓. Открыть: 20 раз переживи падение с 40 футов (12 м).",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-parachute",
+      "section": "cheats",
+      "title": "Парашют",
+      "hint": "→ ↑ ← ↑ → ↑ ← ↑ →. Открыть: 50 прыжков с парашютом или бейсджампов с 300 футов (90 м) и выше.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-repair",
+      "section": "cheats",
+      "title": "Починить машину",
+      "hint": "→ ↓ ↓ → ↓ → → ↓. Открыть: 10 первых мест в гонках на Gellhorn Raceway, Thrillbilly Mud Club и Boone Speedway.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-nitrous",
+      "section": "cheats",
+      "title": "Бесконечные нитро и бензин",
+      "hint": "→ ↓ ↓ → ↓ → → ←. Открыть: 50 трюковых прыжков.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-explosives",
+      "section": "cheats",
+      "title": "Вся взрывчатка с полным запасом",
+      "hint": "→ ↑ ← ↑ → ↑ ← ↑ ←. Открыть: брось 100 гранат.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-incendiary",
+      "section": "cheats",
+      "title": "Зажигательные патроны",
+      "hint": "↓ ↑ → ↓ ← ↓ ↑ → ↓ ↓. Открыть: сожги 100 врагов.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-bottles",
+      "section": "cheats",
+      "title": "Бутылки взрываются",
+      "hint": "↓ ↑ ← ← → ↓ ↓ ↑ ←. Открыть: брось 100 коктейлей Молотова.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-shotgun",
+      "section": "cheats",
+      "title": "Взрывной дробовик",
+      "hint": "↓ ↑ → ↓ ← ↓ ↑ → ↓ ←. Открыть: задень взрывом 100 врагов.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-h-at",
+      "section": "cheats",
+      "title": "Ракетница Hauners H-AT",
+      "hint": "→ ↑ ← ↑ → ↑ ← ↑ ↑. Открыть: взорви 100 машин.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-time-forward",
+      "section": "cheats",
+      "title": "Перемотать время вперёд",
+      "hint": "↓ → ↑ ↓ → ↑ ↑. Открыть: найди 10 коллекционных часов.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-time-pause",
+      "section": "cheats",
+      "title": "Остановить время суток",
+      "hint": "↓ → ↑ ↓ → ↑ ←. Открыть: найди 20 коллекционных часов.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-ambulance",
+      "section": "cheats",
+      "title": "Скорая Interstate Ambulance",
+      "hint": "← ↑ → ↓ ← → → →. Открыть: найди Interstate Ambulance (список в меню Progress).",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-airboat",
+      "section": "cheats",
+      "title": "Аэролодка Airboat 09",
+      "hint": "← ↑ → ↓ ← ↓ ↑ →. Открыть: 5 испытаний на выживание.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-banshee",
+      "section": "cheats",
+      "title": "Машина Bravado Banshee",
+      "hint": "← ↑ → ↓ ← → ↑ ←. Открыть: все боевые испытания.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-bmx",
+      "section": "cheats",
+      "title": "Велосипед Tuff BMX",
+      "hint": "← ↑ → ↓ ← ← ↑ →. Открыть: 5 фитнес-испытаний.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-carbon-rs",
+      "section": "cheats",
+      "title": "Мотоцикл Nagasaki Carbon RS",
+      "hint": "← ↑ → ↓ ← ← ↑ ↑. Открыть: все испытания на исследование.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-dominator",
+      "section": "cheats",
+      "title": "Машина '65 Vapid Dominator",
+      "hint": "← ↑ → ↓ ← → ← →. Открыть: все фитнес-испытания.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-emerus",
+      "section": "cheats",
+      "title": "Машина Progen Emerus",
+      "hint": "← ↑ → ↓ ← → ↑ →. Открыть: все испытания на транспорте.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-flamingo",
+      "section": "cheats",
+      "title": "Надувной фламинго",
+      "hint": "← ↑ → ↓ ← ↓ ↑ ↓. Открыть: уничтожь 50 кокаиновых фламинго.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-taxi",
+      "section": "cheats",
+      "title": "Такси Vapid Stainer G2",
+      "hint": "← ↑ → ↓ ← → → ←. Открыть: 5 спортивных испытаний.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-lazer",
+      "section": "cheats",
+      "title": "Истребитель Hauners P-996 Lazer",
+      "hint": "← ↑ → ↓ ← ↑ ↑ ↓. Открыть: все испытания.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-mallard",
+      "section": "cheats",
+      "title": "Самолёт Lapwing Mallard",
+      "hint": "← ↑ → ↓ ← ↑ ↑ ↑. Открыть: 5 испытаний на транспорте.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-golfer",
+      "section": "cheats",
+      "title": "Гольф-кар Brimstone Golfer",
+      "hint": "← ↑ → ↓ ← → ↑ ↓. Открыть: все спортивные испытания.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-rhino",
+      "section": "cheats",
+      "title": "Танк Hauners Rhino",
+      "hint": "← ↑ → ↓ ← → ← ↑. Открыть: все испытания на выживание.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-sanchez",
+      "section": "cheats",
+      "title": "Мотоцикл Maibatsu Sanchez",
+      "hint": "← ↑ → ↓ ← ← → ↑. Открыть: 5 криминальных испытаний.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-sea-sparrow",
+      "section": "cheats",
+      "title": "Вертолёт Nagasaki Sea Sparrow",
+      "hint": "← ↑ → ↓ ← ↑ ↑ →. Открыть: 5 испытаний на исследование.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-speeder",
+      "section": "cheats",
+      "title": "Катер Speeder 700 GT",
+      "hint": "← ↑ → ↓ ← ↓ ↑ ↑. Открыть: 5 боевых испытаний.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-thrax",
+      "section": "cheats",
+      "title": "Машина Truffade Thrax",
+      "hint": "← ↑ → ↓ ← → ↑ ↑. Открыть: все испытания на покупки.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-bobber",
+      "section": "cheats",
+      "title": "Мотоцикл Western Zombie Bobber",
+      "hint": "← ↑ → ↓ ← ← ↑ ↓. Открыть: все криминальные испытания.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-golden-hour",
+      "section": "cheats",
+      "title": "Фильтр Golden Hour: золотой свет и широкий кадр",
+      "hint": "↓ ↓ ↑ → → ↑ ← ← ↑ ↑. Открыть: 4 часа держись за руки с напарником.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-powdered-sugar",
+      "section": "cheats",
+      "title": "Фильтр Powdered Sugar: белый мир с блёстками",
+      "hint": "↓ ↓ ↑ → → ↑ ← ← ↑ →. Открыть: отсканируй WAiNK весь космический мусор.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-pinhole",
+      "section": "cheats",
+      "title": "Фильтр Pinhole: камера-обскура",
+      "hint": "↓ ↓ ↑ → → ↑ ← ← ↑ ↓. Открыть: зачисти с напарником 25 бандитских точек.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-neon-jungle",
+      "section": "cheats",
+      "title": "Фильтр Neon Jungle: неоновая подсветка",
+      "hint": "↓ ↓ ↑ → → ↑ ← ← ↑ ←. Открыть: найди все 16 машин Girlypop.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-yesteryear",
+      "section": "cheats",
+      "title": "Фильтр Yesteryear: чёрно-белый телевизор",
+      "hint": "↓ ↓ ↑ → → ↑ ← ← → ↑. Открыть: найди Ridgway.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-videotape",
+      "section": "cheats",
+      "title": "Фильтр Videotape: видеокассета",
+      "hint": "↓ ↓ ↑ → → ↑ ← ← → ↓. Открыть: 50 занятий с напарником.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-dark-mirror",
+      "section": "cheats",
+      "title": "Фильтр Dark Mirror: мир вверх ногами и в чёрном",
+      "hint": "↓ ↓ ↑ → → ↑ ← ← → ←. Открыть: заработай $500 000 на продаже машин.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-migraine",
+      "section": "cheats",
+      "title": "Фильтр Migraine: размытая картинка",
+      "hint": "↓ ↓ ↑ → → ↑ ← ← ↓ ↑. Открыть: продержись 6 минут с 6 звёздами розыска.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-bubblegum",
+      "section": "cheats",
+      "title": "Фильтр Bubblegum: фиолетово-жёлтый мир",
+      "hint": "↓ ↓ ↑ → → ↑ ← ← ↓ ↓. Открыть: собери все 24 карточки Vice City Flamingos.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-fast-forward",
+      "section": "cheats",
+      "title": "Фильтр Fast Forward: смазанное движение",
+      "hint": "↓ ↓ ↑ → → ↑ ← ← ↓ ←. Открыть: 50 медитаций.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-fisheye",
+      "section": "cheats",
+      "title": "Фильтр Fisheye: рыбий глаз",
+      "hint": "↓ ↓ ↑ → → ↑ ← ← ← ↑. Открыть: поймай 100 рыб.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-pixel-art",
+      "section": "cheats",
+      "title": "Фильтр Pixel Art: пиксели",
+      "hint": "↓ ↓ ↑ → → ↑ ← ← ← ↓. Открыть: заработай $250 000 на продаже коллекционных предметов.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
+    },
+    {
+      "id": "cheat-hellscape",
+      "section": "cheats",
+      "title": "Фильтр Hellscape: красно-оранжевый мир в мареве",
+      "hint": "↓ ↓ ↑ → → ↑ ← ← ← ←. Открыть: угони 100 полицейских машин.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GamesRadar+",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/gta-6-cheats/"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "leonida-eggs-daily",
+      "note": "код только у GamesRadar+ (обновлено 2026-11-27); у GTAside пока нет, confirmed после второго источника"
     },
     {
       "id": "radio-la-perle",
