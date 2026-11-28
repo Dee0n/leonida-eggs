@@ -419,7 +419,7 @@ def render_html(data: dict, links: dict | None = None, img_prefix: str = "../",
     add('<table class="main"><tr><td colspan="2" class="top">'
         '<div class="logo">LEONIDA<span>-CHEATS</span> <small>.narod.ru</small></div>'
         '<div class="slogan">Коды, секреты и пасхалки к GTA VI. Без спойлеров.</div></td></tr>\n')
-    nav = [lnk("Главная"), lnk("Пасхалки"), lnk("Машины"), lnk("Читы"), lnk("Кнопки"), lnk("Версия для печати"),
+    nav = [lnk("Главная"), lnk("Пасхалки"), lnk("Машины"), lnk("Ultimate"), lnk("Читы"), lnk("Кнопки"), lnk("Версия для печати"),
            lnk("Файлы", "Скачать PDF"), lnk("Форум"), lnk("Гостевая книга")]
     if links.get("Современная версия"):
         nav.append(f'<a href="{esc(links["Современная версия"])}" style="color:#ffcc00">Современная версия &raquo;</a>')
@@ -781,18 +781,18 @@ def render_modern(data: dict, links: dict | None = None, img_prefix: str = "../"
     add(f"<title>{esc(title)}</title>\n{GFONTS}{THEME_JS}<style>{MODERN_CSS}{BTN_CSS}</style>\n</head>\n<body>\n")
 
     def kind_of(e: dict) -> str:
-        if e["section"] in ("cheats", "controls", "cars"):
+        if e["section"] in ("cheats", "controls", "cars", "ultimate"):
             return e["section"]
         return "poi" if e.get("kind") == "poi" else "egg"
 
-    counts = {"egg": 0, "poi": 0, "cheats": 0, "controls": 0, "cars": 0}
+    counts = {"egg": 0, "poi": 0, "cheats": 0, "controls": 0, "cars": 0, "ultimate": 0}
     for _n, e in numbered:
         counts[kind_of(e)] += 1
     groups = chapter_groups(data)
     polls_path = ROOT / "data" / "polls.json"
     polls = json.loads(polls_path.read_text(encoding="utf-8")) if polls_path.is_file() else []
     waink = [s_ for s_ in secs if s_.get("type") == "checklist"]
-    tabs = [("egg", "Пасхалки", counts["egg"]), ("poi", "Точки интереса", counts["poi"]), ("cars", "Машины", counts["cars"]),
+    tabs = [("egg", "Пасхалки", counts["egg"]), ("poi", "Точки интереса", counts["poi"]), ("cars", "Машины", counts["cars"]), ("ultimate", "Ultimate", counts["ultimate"]),
             ("cheats", "Читы", counts["cheats"]),
             ("controls", "Кнопки", counts["controls"]), ("waink", "WAiNK", sum(len(data["checklists"][w["id"]]) for w in waink)),
             ("chapters", "По главам", len(groups)), ("polls", "Опросы", len(polls))]
@@ -1278,7 +1278,7 @@ def cmd_site(args: argparse.Namespace) -> int:
         "Коды": "#cheats",
         "Пасхалки": "#keys",
         "Читы": "#cheats",
-        "Машины": "#cars",
+        "Машины": "#cars", "Ultimate": "#ultimate",
         "Кнопки": "#controls",
         "WAiNK": "#waink",
         "Версия для печати": pdf_name,

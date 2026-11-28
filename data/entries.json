@@ -33,16 +33,20 @@
       "title": "VI. Машины: где взять"
     },
     {
+      "id": "ultimate",
+      "title": "VII. Ultimate Edition: где что лежит"
+    },
+    {
       "id": "controls",
-      "title": "VII. Управление: неочевидные кнопки"
+      "title": "VIII. Управление: неочевидные кнопки"
     },
     {
       "id": "cheats",
-      "title": "VIII. Читы (только после финала)"
+      "title": "IX. Читы (только после финала)"
     },
     {
       "id": "waink",
-      "title": "IX. WAiNK: сканируй приложением",
+      "title": "X. WAiNK: сканируй приложением",
       "type": "checklist",
       "image": "images/waink-map.jpg",
       "image_source": {
@@ -3181,6 +3185,302 @@
       "added": "2026-11-27",
       "added_by": "lead",
       "kind": "poi"
+    },
+    {
+      "id": "ult-enduro-kayak",
+      "section": "ultimate",
+      "title": "Мотоцикл Dinka Enduro и каяк Crest",
+      "hint": "Дом Джейсона в Key Lento: стоят у дома. Только в 1 главе, успей.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "Red Bull",
+          "url": "https://www.redbull.com/gb-en/gta-6-ultimate-edition-bonuses"
+        },
+        {
+          "name": "GTASixMap",
+          "url": "https://www.gtasixmap.com/guides/gta-6-edition-bonus-locations"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "claude",
+      "chapter": 1
+    },
+    {
+      "id": "ult-ganado",
+      "section": "ultimate",
+      "title": "Ретро-комплект для Ganado",
+      "hint": "Мастерская Coastal Auto Care в Key Lento, ставится бесплатно. На карте: Vehicle > Mod Shops.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Red Bull",
+          "url": "https://www.redbull.com/gb-en/gta-6-ultimate-edition-bonuses"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "claude",
+      "chapter": 1
+    },
+    {
+      "id": "ult-es9",
+      "section": "ultimate",
+      "title": "Именной пистолет Джейсона Girardi ES9",
+      "hint": "Любой Ammu-Nation, шкафчик с оружием, вкладка Variants.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Red Bull",
+          "url": "https://www.redbull.com/gb-en/gta-6-ultimate-edition-bonuses"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "claude",
+      "chapter": 1
+    },
+    {
+      "id": "ult-goodtime",
+      "section": "ultimate",
+      "title": "Одежда Goodtime Gear",
+      "hint": "Магазин Wonder Whale в Key Lento. На карте: Style > Souvenir & Swimwear.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Red Bull",
+          "url": "https://www.redbull.com/gb-en/gta-6-ultimate-edition-bonuses"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "claude",
+      "chapter": 1
+    },
+    {
+      "id": "ult-willies",
+      "section": "ultimate",
+      "title": "Мастерская One-Eyed Willie's",
+      "hint": "Lake Leonida. На карте: Vehicle > Mod Shops.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "Red Bull",
+          "url": "https://www.redbull.com/gb-en/gta-6-ultimate-edition-bonuses"
+        },
+        {
+          "name": "GTASixMap",
+          "url": "https://www.gtasixmap.com/guides/gta-6-edition-bonus-locations"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "claude",
+      "chapter": 1
+    },
+    {
+      "id": "ult-rideout",
+      "section": "ultimate",
+      "title": "Мастерская Rideout Customs",
+      "hint": "Vice City, на карте: Vehicle > Mod Shops. Район пишут по-разному: Crosstown или Little Cuba.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Red Bull",
+          "url": "https://www.redbull.com/gb-en/gta-6-ultimate-edition-bonuses"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "claude",
+      "chapter": 1
+    },
+    {
+      "id": "ult-stock305",
+      "section": "ultimate",
+      "title": "Магазин уличной одежды Stock 305",
+      "hint": "Stockyard. На карте: Style > Casual & Street.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GTASixMap",
+          "url": "https://www.gtasixmap.com/guides/gta-6-edition-bonus-locations"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "claude",
+      "chapter": 1
+    },
+    {
+      "id": "ult-saras",
+      "section": "ultimate",
+      "title": "Салон Sara's Unisex Salon",
+      "hint": "Hamlet. На карте: Style > Hair & Beauty. Со 2 главы там появляются ещё стрижки.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "Red Bull",
+          "url": "https://www.redbull.com/gb-en/gta-6-ultimate-edition-bonuses"
+        },
+        {
+          "name": "GTASixMap",
+          "url": "https://www.gtasixmap.com/guides/gta-6-edition-bonus-locations"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "claude",
+      "chapter": 1
+    },
+    {
+      "id": "ult-electric-fang",
+      "section": "ultimate",
+      "title": "Тату-салон Electric Fang",
+      "hint": "Stockyard. На карте: Style > Tattoos.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "Red Bull",
+          "url": "https://www.redbull.com/gb-en/gta-6-ultimate-edition-bonuses"
+        },
+        {
+          "name": "GTASixMap",
+          "url": "https://www.gtasixmap.com/guides/gta-6-edition-bonus-locations"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "claude",
+      "chapter": 1
+    },
+    {
+      "id": "ult-youngins",
+      "section": "ultimate",
+      "title": "Притон банды PTT Youngin$",
+      "hint": "Southside, открывается после первого заезда в район. На карте: Robberies > Illegal Operations.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "Red Bull",
+          "url": "https://www.redbull.com/gb-en/gta-6-ultimate-edition-bonuses"
+        },
+        {
+          "name": "GTASixMap",
+          "url": "https://www.gtasixmap.com/guides/gta-6-edition-bonus-locations"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "claude",
+      "chapter": 1
+    },
+    {
+      "id": "ult-k17",
+      "section": "ultimate",
+      "title": "Именной пистолет Люсии Klose K17",
+      "hint": "Любой Ammu-Nation, шкафчик с оружием, раздел Variants.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Red Bull",
+          "url": "https://www.redbull.com/gb-en/gta-6-ultimate-edition-bonuses"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "claude",
+      "chapter": 2
+    },
+    {
+      "id": "ult-dominator",
+      "section": "ultimate",
+      "title": "Багги Vapid Dominator '67 и гараж",
+      "hint": "Съезди с Wyman в Mud Club. Гараж: Paradise Garage в Watson Bay.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "GTASixMap",
+          "url": "https://www.gtasixmap.com/guides/gta-6-edition-bonus-locations"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "claude",
+      "chapter": 2
+    },
+    {
+      "id": "ult-classics",
+      "section": "ultimate",
+      "title": "Коллекция классических машин",
+      "hint": "После Dominator жди, пока Wyman сам выйдет на связь.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Red Bull",
+          "url": "https://www.redbull.com/gb-en/gta-6-ultimate-edition-bonuses"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "claude",
+      "chapter": 2
+    },
+    {
+      "id": "ult-revolvers",
+      "section": "ultimate",
+      "title": "Парные револьверы Morgan",
+      "hint": "Любой Ammu-Nation, шкафчик с оружием.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Red Bull",
+          "url": "https://www.redbull.com/gb-en/gta-6-ultimate-edition-bonuses"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "claude",
+      "chapter": 2
+    },
+    {
+      "id": "ult-styles",
+      "section": "ultimate",
+      "title": "Наряды и стрижки Vice City",
+      "hint": "Одежда в гардеробе, причёски и борода в Sara's Unisex Salon, татуировки в разделе Special тату-салона.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Red Bull",
+          "url": "https://www.redbull.com/gb-en/gta-6-ultimate-edition-bonuses"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "claude",
+      "chapter": 4
+    },
+    {
+      "id": "ult-squalo",
+      "section": "ultimate",
+      "title": "Катер Shitzu Squalo",
+      "hint": "Washington Beach, причал на канале. На карте: раздел Personal.",
+      "confidence": "confirmed",
+      "sources": [
+        {
+          "name": "Red Bull",
+          "url": "https://www.redbull.com/gb-en/gta-6-ultimate-edition-bonuses"
+        },
+        {
+          "name": "GTASixMap",
+          "url": "https://www.gtasixmap.com/guides/gta-6-edition-bonus-locations"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "claude",
+      "chapter": 4
+    },
+    {
+      "id": "ult-cheetah",
+      "section": "ultimate",
+      "title": "Grotti Cheetah '95",
+      "hint": "Здание Pegassi Residences. На карте появится задание в разделе Exploration.",
+      "confidence": "single",
+      "sources": [
+        {
+          "name": "Red Bull",
+          "url": "https://www.redbull.com/gb-en/gta-6-ultimate-edition-bonuses"
+        }
+      ],
+      "added": "2026-11-28",
+      "added_by": "claude",
+      "chapter": 5
     }
   ]
 }
